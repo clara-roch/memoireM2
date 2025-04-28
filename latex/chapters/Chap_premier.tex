@@ -1,0 +1,40 @@
+
+This section seeks to offer preliminary insights into how greenhouse gas (GHG) emissions respond to the implementation of two agricultural public policies: the introduction of tariffs and the provision of subsidies.
+
+To do so, we consider a two-countries market, with a importing country $H$, and exporting country $F$.
+
+We denotes the supply and the demand functions for both country $i \in \{H, F\}$: 
+\begin{align*}
+S_i &= S_i^0 \left( 1+\eta_i \left( P_i-P^0_i \right)/P_i^0 \right) \\ 
+D_i &= D_i^0 \left( 1+\epsilon_i \left( P_i-P_i^0 \right)/P_i^0 \right),
+\end{align*}
+with $S_i$ and $D_i$, the quantities produced and demanded by country $i$, $P_i$ the price, in country $i$, $\eta_i$ and $\epsilon_i$ are the supply and demand elasticity in country $i$. $X^0$ denotes the initial value of $X$.
+
+Those two countries form the entirety of the economy, hence, the sum of their productions is equal to the sum of their consumptions: $D_H-S_H = S_F-D_F$.
+
+For simplification, we introduce the following aggregate elasticities:
+\begin{itemize}
+    \item[-] total demand elasticity $\epsilon=\frac{\partial D}{\partial P_F} \frac{P_F^0}{D^0}= \left( \epsilon_H \frac{D_H^0}{P_H^0}+\epsilon_F \frac{D_F^0}{P_F^0} \right)\frac{P_F^0}{D^0} < 0$,
+    \item[-] total supply elasticity $\eta=\frac{\partial S}{\partial P_F}\frac{P_F^0}{S^0}=\left( \eta_H \frac{S_H^0}{P_H^0}+\eta_F \frac{S_F^0}{P_F^0} \right)\frac{P_F^0}{S^0} > 0$,
+    \item[-] home import demand elasticity $\mu_H= \frac{\partial (D_H-S_H)}{\partial P_H}\frac{P_H^0}{M_H^0}=\frac{\epsilon_H D_H^0-\eta_H S_H^0}{M_H^0}<0$,
+    \item[-] foreign export supply elasticity $\chi_F=\frac{\partial (S_F-D_F)}{\partial P_F}\frac{P_F^0}{X_F^0}=\frac{\eta_F S_F^0-\epsilon_F D_F^0}{X_F^0}>0$.
+\end{itemize}
+
+
+
+\section{Introduction of a tariff in home country}\label{Sec_tariff}
+
+We consider the first policy, where country $H$ introduce a tariff $t$, it implies the following relations between prices: $P_H = P_F + t$.
+
+With, the tariff, the price in the exporting country becomes
+$$
+\frac{P_F}{P_F^0}= -\frac{\mu_H (1 - t/P_H^0) - \chi_F}{\eta-\epsilon}\frac{X_F^0}{D^0},
+$$
+and varies negatively with $t$: 
+$$
+\frac{\partial P_F}{\partial t} = \frac{\mu_H}{\eta - \epsilon}  \frac{X_F^0}{D^0} \frac{P_F^0}{P_H^0}<0.
+$$
+
+Total production from both countries 
+
+See Appendix \ref{appendix:intuitions} for proofs.
