@@ -20,6 +20,7 @@ For simplification, we introduce the following aggregate elasticities:
     \item[-] foreign export supply elasticity $\chi_F=\frac{\partial (S_F-D_F)}{\partial P_F}\frac{P_F^0}{X_F^0}=\frac{\eta_F S_F^0-\epsilon_F D_F^0}{X_F^0}>0$.
 \end{itemize}
 
+For each policies, we will We will examine, for each policies, their effects on total emissions, throughout their effects on international prices (foreign prices), and total production.
 
 
 \section{Introduction of a tariff in home country}\label{Sec_tariff}
@@ -35,6 +36,54 @@ $$
 \frac{\partial P_F}{\partial t} = \frac{\mu_H}{\eta - \epsilon}  \frac{X_F^0}{D^0} \frac{P_F^0}{P_H^0}<0.
 $$
 
-Total production from both countries 
+Total production from both countries is governed by 
+$$
+Q = S_H^0 + S_F^0 + \frac{(P_H^0 - P_F^0 - t)(S_H^0 \eta_H \chi_F + S_F^0 \eta_F \mu_H)}{P_F^0 \mu_H - P_H^0 \chi_F},
+$$
+and thus varies according to 
+$$
+\frac{\partial Q}{\partial t} = \frac{S_H^0 \eta_H \chi_F + S_F^0 \eta_F \mu_H}{P_F^0 \mu_H - P_H^0 \chi_F}.
+$$
+The sign of the change is equal to the sign of $S_H^0 \eta_H \chi_F + S_F^0 \eta_F \mu_H$. There is no clear effect of a tariff increase on total production: a first (direct) effect increase home production due to tariff increase, while a second (indirect) effect decreases global production because of lower foreign prices. 
 
-See Appendix \ref{appendix:intuitions} for proofs.
+Concerning the global emissions $E$, if we consider emissions as the product of quantity product with a factor of emission, we find:
+$$
+E = E^0 + \frac{(P_H^0 - P_F^0 - t)(E_H^0 \eta_H \chi_F + E_F^0\eta_F\mu_H)}{P_F^0\mu_H - P_H^0\chi_F},
+$$ and $$
+\frac{\partial E}{\partial t} = \frac{E_H^0 \eta_H \chi_F + E_F^0 \eta_F \mu_H}{P_F^0 \mu_H - P_H^0 \chi_F}.
+$$
+The sign is the same as $E_H^0 \eta_H \chi_F + E_F^0 \eta_F \mu_H$. Here, again, the effect of increasing tariff on global emissions is ambiguous. The formula is the same as for production except supplied quantities are replaced by emissions. The higher are domestic emissions $E_H^0$, the more likely is a tariff increase to increase emissions.
+
+See Appendix \ref{appendix:intuitions_tariff} for proofs, and particular cases.
+
+
+\subsection{Provision of a subventions to production in home country}\label{Sec_subvention}
+
+In this subsection, we consider the provision of a subventions to production in the home country, this implies a change in our supply functions, we now have $S_F=S_F^0 \left( 1+\eta_F \left( P_F-P^0_F \right)/P_F^0 \right)$, and with the subvention $s$ $S_H=S_H^0 \left( 1+\eta_H \left( P_H + s - P^0_H \right)/P_H^0 \right)$. For simplification, we consider $P_H = P_F = P$.
+
+Providing a subvention leads to the following price expression and derivate:
+\begin{align*}
+\frac{P}{P^0} = 1 + \frac{\eta_H}{\mu_H - \chi_F} \frac{s S_H^0}{P^0 X_F^0}, \\
+\frac{\partial P}{\partial s} = \frac{\eta_H}{\mu_H - \chi_F} \frac{S_H^0}{X_F^0} < 0.
+\end{align*}
+This means that introducing a subvention to production in the home country will lower prices, in the home and foreign countries.
+
+Total supply becomes:
+\begin{align*}
+S &= S^0 + \eta_H S_H^0 \frac{s}{P^0} \left[ 1 - \frac{\eta}{\chi_F - \mu_H} \frac{S^0}{X_F^0} \right], \\
+\frac{\partial S}{\partial s} &= \frac{\eta_H S_H}{P^0}\left[ 1 - \frac{\eta}{\chi_F - \mu_H} \frac{S^0}{X_F^0} \right].
+\end{align*}
+Since $X_F^0(\chi_F - \mu_H) = \eta S^0 - \epsilon D^0$, and $\epsilon < 0$, we have $1 > \frac{\eta}{\chi_F - \mu_H} \frac{S^0}{X_F^0}$, which means that a subvention to the production will increase total production.
+
+With linear emission to supply, we have:
+$$ 
+E = E^0 + \eta_H \frac{s}{P^0} \left[ E_H^0 - \frac{\eta_H E_H^0 + \eta_F E_F^0}{\chi_F - \mu_H} \frac{S_H^0}{X_F^0} \right],
+$$ 
+hence 
+$$
+\frac{\partial E}{\partial s} = \frac{\eta_H}{P^0} \left[ E_H^0 - \frac{\eta_H E_H^0 + \eta_F E_F^0}{\chi_F - \mu_H} \frac{S_H^0}{X_F^0} \right].
+$$
+This time, the sign of the derivative is more ambiguous: it depends on the relation between $(\eta - \epsilon)E_H^0 S^0$ and $(\eta_H E_H^0 + \eta_F E_F^0) S_H^0$, if the former is higher than the later, then the subvention will lead to more emissions.
+
+See Appendix \ref{appendix:intuitions_subvention} for details.
+

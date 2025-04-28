@@ -1,5 +1,7 @@
 \chapter{Intuition}\label{appendix:intuitions}
 
+\section{Tariff}\label{appendix:intuitions_tariff}
+
 First let's expresse $P_F$ as a function of $t$ and the elatsicities.
 
 Starting from $D_H-S_H = S_F-D_F$ and the supply and demand definitions, we have: 
@@ -15,5 +17,55 @@ $$
 \frac{P_H - P_H^0}{P_H^0} [D_H^0 \epsilon_H - S_H^0 \eta_H] = \frac{P_F - P_F^0}{P_F^0} [S_F^0 \eta_F - D_F^0 \epsilon_F].
 $$
 
-Using the agrregated elasticities defined in the the chapter \ref{Sec_tariff}, we have 
+Using the aggregated elasticities defined in the the chapter \ref{Sec_tariff}, we have 
 $$\frac{P_F}{P_F^0}= -\frac{\mu_H (1 - t/P_H^0) - \chi_F}{\eta-\epsilon}\frac{X_F^0}{D^0}.$$
+
+Multiplying both sides by $P_F^0$, a simple derivation gives:
+$$
+\frac{\partial P_F}{\partial t} = \frac{\mu_H}{\eta - \epsilon}  \frac{X_F^0}{D^0} \frac{P_F^0}{P_H^0}<0.
+$$
+
+Now if we assume the initial tariff to be zero, i.e. $P_F^0 = P_H^0$, we have:
+$$
+\frac{P_F}{P_F^0} = - \frac{(1 - t/P_H^0)\mu_H - \chi_F}{\chi_F - \mu_H}=1+\frac{\mu_H}{\chi_F - \mu_H}\frac{t}{P_H^0} < 0.
+$$
+
+Assuming initial tariff is zero, and elasticities are the same across
+countries gives the following price and derivate.
+\begin{align*}
+P_F &= P_F^0 + t \frac{\mu_H}{\eta_i-\epsilon_i} \frac{X_F^0}{D^0}, \\
+\frac{\partial P_F}{\partial t} &= \frac{\mu_H}{\eta_i-\epsilon_i} \frac{X_F^0}{D^0} < 0.
+\end{align*}
+
+Regarding total production $Q$, when initial tariff is zero and when we have:
+\begin{align*}
+Q &= Q^0 + \frac{- t/P_H^0 \eta_i(S_H^0 \chi_F + S_F^0 \mu_H)}{\mu_H - \chi_F}, \\
+\frac{\partial Q}{\partial t} &= \eta_i \frac{S_H^0 \chi_F + S_F^0 \mu_H}{\chi_F - \mu_H}\frac{1}{P_H^0}.
+\end{align*}
+
+For emissions, we consider $E_i = e_i S_i$, which leads to the results in \ref{Sec_tariff}. We also find, when initial tariff is zero and when we have equality of elasticity ($\eta_H = \eta_F = \eta_i$, and $\epsilon_H = \epsilon_F = \epsilon_i$):
+\begin{align*}
+E &= E^0 + \frac{t/P_H^0 \eta_i(E_H^0 \chi_F + E_F^0 \mu_H)}{\chi_F - \mu_H }, \\ \frac{\partial E}{\partial t} &=  \eta_i \frac{E_H^0 \chi_F + E_F^0 \mu_H}{\chi_F-\mu_H}\frac{1}{P_H^0}.
+\end{align*}
+
+\section{Subvention}\label{appendix:intuitions_subvention}
+
+Rewriting the equilibrium equation, with the new supply functions
+$$
+D_H^0\left(1+\epsilon_H \frac{P - P^0}{P^0}\right) - S_H^0\left(1+\eta_H \frac{P + s - P^0}{P^0}\right) = S_F^0 \left(1+\eta_F \frac{P - P^0}{P^0}\right) - D_F^0\left(1+\epsilon_F \frac{P - P^0}{P^0}\right),
+$$
+we have the price and derivate of section \ref{Sec_subvention}.
+
+When elasticities are the same across countries, then $\epsilon_i = \epsilon$ and $\eta_i = \eta$, and 
+\begin{align*}
+\frac{P}{P^0} &= 1 + \frac{\eta}{\mu_H - \chi_F} \frac{s S_H^0}{P^0 X_F^0}, //
+\frac{\partial P}{\partial s} &= -\frac{\eta}{\chi_F-\mu_H} \frac{S_H^0}{X_F^0}<0.
+\end{align*}
+
+Regarding the supply, we have:
+$$
+S = S_F + S_H =  S^0 + S^0 \eta \frac{P- P^0}{P^0} + S_H \eta_H \frac {s}{P^0},
+$$
+which leads to the results in \ref{Sec_subvention}.
+
+For the emissions, we use again the $E = e_H S_H + e_F S_F$. When the elasticities are the same across countries, then adding the subvention leads to more emissions only if $\frac{E_H^0}{\eta S_H^0} > \frac{E^0}{(\eta - \epsilon)S^0}$.
