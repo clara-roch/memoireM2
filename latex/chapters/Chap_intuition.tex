@@ -1,42 +1,59 @@
 
-This section seeks to offer preliminary insights into how greenhouse gas (GHG) emissions respond to the implementation of two agricultural public policies: the introduction of tariffs and the provision of subsidies.
+This section offers preliminary insights into how greenhouse gas (GHG) emissions respond to the implementation of two agricultural public policies: the introduction of tariffs and the provision of subsidies. 
 
-To do so, we consider a two-countries market, with a importing country $H$, and exporting country $F$.
+To do so we consider two countries market, with a home importing country $H$, and a foreign exporting  country $F$.
 
-We denotes the supply and the demand functions for both country $i \in \{H, F\}$: 
-\begin{align*}
-S_i &= S_i^0 \left( 1+\eta_i \left( P_i-P^0_i \right)/P_i^0 \right) \\ 
-D_i &= D_i^0 \left( 1+\epsilon_i \left( P_i-P_i^0 \right)/P_i^0 \right),
-\end{align*}
-with $S_i$ and $D_i$, the quantities produced and demanded by country $i$, $P_i$ the price, in country $i$, $\eta_i$ and $\epsilon_i$ are the supply and demand elasticity in country $i$. $X^0$ denotes the initial value of $X$.
+We denote the supply and demand functions for both countries, with country $i \in \{H, F\}$, as follows:
+$$
+S_i = S_i^0\left(1 + \eta_i\frac{P_i - P_i^0}{P_i^0}\right), \qquad
+D_i = D_i^0\left(1 + \epsilon_i\frac{P_i - P_i^0}{P_i^0}\right),
+$$
+where $S_i$ and $D_i$ are the quantities produced and demanded by country $i$, $P_i$ is the price in country $i$, and $\eta_i$ and $\epsilon_i$ are the supply and demand elasticities in country $i$, respectively. Here, $X^0$ denotes the initial value of $X$.
 
-Those two countries form the entirety of the economy, hence, the sum of their productions is equal to the sum of their consumptions: $D_H-S_H = S_F-D_F$.
+Since these two countries comprise the entire economy, the difference between domestic demand and production in one country equals the difference between production and demand in the other: 
+$$
+D_H - S_H = S_F - D_F.
+$$
 
-For simplification, we introduce the following aggregate elasticities:
+For simplicity, we introduce the following aggregate elasticities:
 \begin{itemize}
-    \item[-] total demand elasticity $\epsilon=\frac{\partial D}{\partial P_F} \frac{P_F^0}{D^0}= \left( \epsilon_H \frac{D_H^0}{P_H^0}+\epsilon_F \frac{D_F^0}{P_F^0} \right)\frac{P_F^0}{D^0} < 0$,
-    \item[-] total supply elasticity $\eta=\frac{\partial S}{\partial P_F}\frac{P_F^0}{S^0}=\left( \eta_H \frac{S_H^0}{P_H^0}+\eta_F \frac{S_F^0}{P_F^0} \right)\frac{P_F^0}{S^0} > 0$,
-    \item[-] home import demand elasticity $\mu_H= \frac{\partial (D_H-S_H)}{\partial P_H}\frac{P_H^0}{M_H^0}=\frac{\epsilon_H D_H^0-\eta_H S_H^0}{M_H^0}<0$,
-    \item[-] foreign export supply elasticity $\chi_F=\frac{\partial (S_F-D_F)}{\partial P_F}\frac{P_F^0}{X_F^0}=\frac{\eta_F S_F^0-\epsilon_F D_F^0}{X_F^0}>0$.
+    \item[-] Total demand elasticity
+    $$
+    \epsilon = \frac{\partial D}{\partial P_F} \frac{P_F^0}{D^0} = \left( \epsilon_H \frac{D_H^0}{P_H^0} + \epsilon_F \frac{D_F^0}{P_F^0} \right)\frac{P_F^0}{D^0} < 0,
+    $$
+    \item[-] Total supply elasticity
+    $$
+    \eta = \frac{\partial S}{\partial P_F} \frac{P_F^0}{S^0} = \left( \eta_H \frac{S_H^0}{P_H^0} + \eta_F \frac{S_F^0}{P_F^0} \right)\frac{P_F^0}{S^0} > 0,
+    $$
+    \item[-] Home import demand elasticity
+    $$
+    \mu_H = \frac{\partial (D_H - S_H)}{\partial P_H} \frac{P_H^0}{M_H^0} = \frac{\epsilon_H D_H^0 - \eta_H S_H^0}{M_H^0} < 0,
+    $$
+    \item[-] Foreign export supply elasticity
+    $$
+    \chi_F = \frac{\partial (S_F - D_F)}{\partial P_F} \frac{P_F^0}{X_F^0} = \frac{\eta_F S_F^0 - \epsilon_F D_F^0}{X_F^0} > 0.
+    $$
 \end{itemize}
 
-For each policies, we will We will examine, for each policies, their effects on total emissions, throughout their effects on international prices (foreign prices), and total production.
+For each policy, we examine its effects on total emissions through its impact on international prices (foreign prices) and total production.
 
+\section{Introduction of a tariff in the home country}\label{Sec_tariff}
 
-\section{Introduction of a tariff in home country}\label{Sec_tariff}
-
-We consider the first policy, where country $H$ introduce a tariff $t$, it implies the following relations between prices: $P_H = P_F + t$.
-
-With, the tariff, the price in the exporting country becomes
+Consider the first policy, where country $H$ introduces a tariff $t$. This implies the following relation between prices: 
 $$
-\frac{P_F}{P_F^0}= -\frac{\mu_H (1 - t/P_H^0) - \chi_F}{\eta-\epsilon}\frac{X_F^0}{D^0},
-$$
-and varies negatively with $t$: 
-$$
-\frac{\partial P_F}{\partial t} = \frac{\mu_H}{\eta - \epsilon}  \frac{X_F^0}{D^0} \frac{P_F^0}{P_H^0}<0.
+P_H = P_F + t.
 $$
 
-Total production from both countries is governed by 
+Under the tariff, the price in the exporting country becomes
+$$
+\frac{P_F}{P_F^0} = -\frac{\mu_H (1 - t/P_H^0) - \chi_F}{\eta - \epsilon}\frac{X_F^0}{D^0},
+$$
+and it varies negatively with $t$: 
+$$
+\frac{\partial P_F}{\partial t} = \frac{\mu_H}{\eta - \epsilon} \frac{X_F^0}{D^0} \frac{P_F^0}{P_H^0} < 0.
+$$
+
+The total production from both countries is given by 
 $$
 Q = S_H^0 + S_F^0 + \frac{(P_H^0 - P_F^0 - t)(S_H^0 \eta_H \chi_F + S_F^0 \eta_F \mu_H)}{P_F^0 \mu_H - P_H^0 \chi_F},
 $$
@@ -44,46 +61,62 @@ and thus varies according to
 $$
 \frac{\partial Q}{\partial t} = \frac{S_H^0 \eta_H \chi_F + S_F^0 \eta_F \mu_H}{P_F^0 \mu_H - P_H^0 \chi_F}.
 $$
-The sign of the change is equal to the sign of $S_H^0 \eta_H \chi_F + S_F^0 \eta_F \mu_H$. There is no clear effect of a tariff increase on total production: a first (direct) effect increase home production due to tariff increase, while a second (indirect) effect decreases global production because of lower foreign prices. 
+The sign of this change is determined by that of $S_H^0 \eta_H \chi_F + S_F^0 \eta_F \mu_H$. There is no clear effect of a tariff increase on total production: a first (direct) effect increases home production, while a second (indirect) effect decreases global production because of lower foreign prices.
 
-Concerning the global emissions $E$, if we consider emissions as the product of quantity product with a factor of emission, we find:
+Concerning global emissions $E$, if we consider emissions as the product of the quantity produced and an emission factor, we obtain:
 $$
-E = E^0 + \frac{(P_H^0 - P_F^0 - t)(E_H^0 \eta_H \chi_F + E_F^0\eta_F\mu_H)}{P_F^0\mu_H - P_H^0\chi_F},
-$$ and $$
+E = E^0 + \frac{(P_H^0 - P_F^0 - t)(E_H^0 \eta_H \chi_F + E_F^0 \eta_F \mu_H)}{P_F^0 \mu_H - P_H^0 \chi_F},
+$$
+and thus
+$$
 \frac{\partial E}{\partial t} = \frac{E_H^0 \eta_H \chi_F + E_F^0 \eta_F \mu_H}{P_F^0 \mu_H - P_H^0 \chi_F}.
 $$
-The sign is the same as $E_H^0 \eta_H \chi_F + E_F^0 \eta_F \mu_H$. Here, again, the effect of increasing tariff on global emissions is ambiguous. The formula is the same as for production except supplied quantities are replaced by emissions. The higher are domestic emissions $E_H^0$, the more likely is a tariff increase to increase emissions.
+Here, the sign is the same as that of $E_H^0 \eta_H \chi_F + E_F^0 \eta_F \mu_H$. In other words, the effect of increasing the tariff on global emissions is ambiguous; higher domestic emissions $E_H^0$ increase the likelihood that a tariff hike will raise emissions.
 
-See Appendix \ref{appendix:intuitions_tariff} for proofs, and particular cases.
+See Appendix \ref{appendix:intuitions_tariff} for proofs and special cases.
 
+\section{Provision of a subsidy to production in the home country}\label{Sec_subvention}
 
-\subsection{Provision of a subventions to production in home country}\label{Sec_subvention}
-
-In this subsection, we consider the provision of a subventions to production in the home country, this implies a change in our supply functions, we now have $S_F=S_F^0 \left( 1+\eta_F \left( P_F-P^0_F \right)/P_F^0 \right)$, and with the subvention $s$ $S_H=S_H^0 \left( 1+\eta_H \left( P_H + s - P^0_H \right)/P_H^0 \right)$. For simplification, we consider $P_H = P_F = P$.
-
-Providing a subvention leads to the following price expression and derivate:
-\begin{align*}
-\frac{P}{P^0} = 1 + \frac{\eta_H}{\mu_H - \chi_F} \frac{s S_H^0}{P^0 X_F^0}, \\
-\frac{\partial P}{\partial s} = \frac{\eta_H}{\mu_H - \chi_F} \frac{S_H^0}{X_F^0} < 0.
-\end{align*}
-This means that introducing a subvention to production in the home country will lower prices, in the home and foreign countries.
-
-Total supply becomes:
-\begin{align*}
-S &= S^0 + \eta_H S_H^0 \frac{s}{P^0} \left[ 1 - \frac{\eta}{\chi_F - \mu_H} \frac{S^0}{X_F^0} \right], \\
-\frac{\partial S}{\partial s} &= \frac{\eta_H S_H}{P^0}\left[ 1 - \frac{\eta}{\chi_F - \mu_H} \frac{S^0}{X_F^0} \right].
-\end{align*}
-Since $X_F^0(\chi_F - \mu_H) = \eta S^0 - \epsilon D^0$, and $\epsilon < 0$, we have $1 > \frac{\eta}{\chi_F - \mu_H} \frac{S^0}{X_F^0}$, which means that a subvention to the production will increase total production.
-
-With linear emission to supply, we have:
-$$ 
-E = E^0 + \eta_H \frac{s}{P^0} \left[ E_H^0 - \frac{\eta_H E_H^0 + \eta_F E_F^0}{\chi_F - \mu_H} \frac{S_H^0}{X_F^0} \right],
-$$ 
-hence 
+In this subsection, we consider the provision of a subsidy to production in the home country. This changes our supply functions. We now have:
 $$
-\frac{\partial E}{\partial s} = \frac{\eta_H}{P^0} \left[ E_H^0 - \frac{\eta_H E_H^0 + \eta_F E_F^0}{\chi_F - \mu_H} \frac{S_H^0}{X_F^0} \right].
+S_F = S_F^0\left(1 + \eta_F\frac{P_F - P_F^0}{P_F^0}\right),
 $$
-This time, the sign of the derivative is more ambiguous: it depends on the relation between $(\eta - \epsilon)E_H^0 S^0$ and $(\eta_H E_H^0 + \eta_F E_F^0) S_H^0$, if the former is higher than the later, then the subvention will lead to more emissions.
+and, with the subsidy $s$,
+$$
+S_H = S_H^0\left(1 + \eta_H\frac{P_H + s - P_H^0}{P_H^0}\right).
+$$
+For simplicity, we assume $P_H = P_F = P$.
 
-See Appendix \ref{appendix:intuitions_subvention} for details.
+Providing a subsidy leads to the following price expression and derivative:
+\begin{align*}
+\frac{P}{P^0} &= 1 + \frac{\eta_H}{\mu_H - \chi_F} \frac{s \, S_H^0}{P^0 X_F^0}, \\
+\frac{\partial P}{\partial s} &= \frac{\eta_H}{\mu_H - \chi_F} \frac{S_H^0}{X_F^0} < 0.
+\end{align*}
+This result indicates that introducing a subsidy for production in the home country will lower prices in both the home and foreign countries.
+
+The total supply becomes:
+$$
+S = S^0 + \eta_H \frac{s \, S_H^0}{P^0}\left[1 - \frac{\eta}{\chi_F - \mu_H}\frac{S^0}{X_F^0}\right],
+$$
+and its derivative is
+$$
+\frac{\partial S}{\partial s} = \frac{\eta_H S_H^0}{P^0}\left[1 - \frac{\eta}{\chi_F - \mu_H}\frac{S^0}{X_F^0}\right].
+$$
+Given that $X_F^0(\chi_F - \mu_H) = \eta S^0 - \epsilon D^0$ and $\epsilon < 0$, we have
+$$
+1 > \frac{\eta}{\chi_F - \mu_H}\frac{S^0}{X_F^0},
+$$
+which implies that a subsidy on production will increase total production.
+
+Assuming emissions are linearly related to supply, we obtain:
+$$ 
+E = E^0 + \eta_H \frac{s}{P^0}\left[E_H^0 - \frac{\eta_H E_H^0 + \eta_F E_F^0}{\chi_F - \mu_H}\frac{S_H^0}{X_F^0}\right],
+$$ 
+and therefore
+$$
+\frac{\partial E}{\partial s} = \frac{\eta_H}{P^0}\left[E_H^0 - \frac{\eta_H E_H^0 + \eta_F E_F^0}{\chi_F - \mu_H}\frac{S_H^0}{X_F^0}\right].
+$$
+In this case, the sign of the derivative is ambiguous; it depends on the relationship between $(\eta - \epsilon)E_H^0 S^0$ and $(\eta_H E_H^0 + \eta_F E_F^0) S_H^0$. If the former exceeds the latter, the subsidy will lead to increased emissions.
+
+See Appendix \ref{appendix:intuitions_subvention} for further details.
 
