@@ -1,0 +1,36 @@
+This section introduces the agricultural trade model in partial equilibrium used to analyze policy impacts on GHG emissions. The model is based on Gouel and Laborde (2021), with multilogit functions replacing the Fréchet yield functions originally employed, as described in Gouel et al. (202?). While the Fréchet approach assumes heterogeneous land quality, leading to yields following a Fréchet distribution with respect to specialization rates, the multilogit approach treats land as homogeneous. Instead, a management function—where costs vary with different levels of specialization—allows for the incorporation of heterogeneity.
+
+\section{Setups}
+
+Countries are indexed by $i$ or $j \in \mathcal{J}$, goods by $k \in \mathcal{K}$, with $k=0$ the non-agricultural goods acting as numeraire, $k = l$ the livestock products, $k = g$ grass, $k \in \mathcal{K}^c$ the crops ($\mathcal{K}^c \in \mathcal{K}$), and $k_p \in \mathcal{K}^p$ the non-crop products ($\mathcal{K}^p \subset \mathcal{K}$). We note $\mathcal{K}^a = \mathcal{K}^c \cup \mathcal{K}^p \cup l$ representing all the agricultural goods that can be exported, grace is not tradable, and is only use to feed livestock.
+
+For more clarity in appendix \ref{appendix:variables}, a table mapping all variables and parameter is available.
+
+\section{Model in level}
+\subsection{Consumption}
+Considering a demand for agricultural goods inelastic to income, we denote the total consumption for the bundle of agricultural products in country $j$, $C_j$, with:
+
+\begin{equation}
+	C_j = \left[ \sum_{k \in \mathcal{K}^a} (\beta_{j}^k)^{1/\kappa} (C_{j}^k)^{(\kappa-1)/\kappa} \right]^{\kappa/(\kappa-1)},
+\end{equation}
+
+$\kappa > 0$ is the elasticity of substitution between agricultural product, and is considered to be the same in every countries, $C_j^k$ represents the consumption for product $k$, and $\beta_{j}^k$ is an exogenous preference parameter.
+
+\subsection{Trade}
+
+\subsection{Production}
+
+\subsubsection{Crops}
+
+\subsubsection{Processes}
+
+\paragraph{Animal products}
+
+\paragraph{Non-crop products}
+
+
+\section{Model in relative change}
+We adapt all previous equations to a square system in calibrated change, with $\hat{x} = x'/x$, the relative change of variable $x$ between its baseline equilibrium $x$, and the counterfactual one $x'$. Considering relative change instead of final level, allows us to avoid calibrating all parameters (e.g. our $\beta$ will disappear), since the preferences are the same between the initial and the final situation, their parameters disappear when calibrating them the equations.
+
+This implies, that if something doesn't exist in the baseline, it will neither exists in the counterfactual scenario.
+

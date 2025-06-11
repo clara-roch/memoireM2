@@ -4,10 +4,10 @@
 
 First, we express $P_F$ as a function of $t$ and the elasticities.
 
-Starting from the equation 
+Starting from the equation
 $$
 D_H - S_H = S_F - D_F,
-$$ 
+$$
 and using the definitions of demand and supply, we obtain:
 $$
 D_H^0\left(1+\epsilon_H \frac{P_H - P_H^0}{P_H^0}\right) - S_H^0\left(1+\eta_H \frac{P_H - P_H^0}{P_H^0}\right) = S_F^0 \left(1+\eta_F \frac{P_F - P_F^0}{P_F^0}\right) - D_F^0\left(1+\epsilon_F \frac{P_F - P_F^0}{P_F^0}\right).
@@ -21,7 +21,7 @@ $$
 \frac{P_H - P_H^0}{P_H^0} [D_H^0 \epsilon_H - S_H^0 \eta_H] = \frac{P_F - P_F^0}{P_F^0} [S_F^0 \eta_F - D_F^0 \epsilon_F].
 $$
 
-Using the aggregated elasticities defined in Chapter \ref{Sec_tariff}, we have 
+Using the aggregated elasticities defined in Chapter \ref{Sec_tariff}, we have
 $$
 \frac{P_F}{P_F^0}= -\frac{\mu_H (1 - t/P_H^0) - \chi_F}{\eta-\epsilon}\frac{X_F^0}{D^0}.
 $$
@@ -78,3 +78,75 @@ For emissions, using again $E = e_H S_H + e_F S_F$, in the case of uniform elast
 $$
 \frac{E_H^0}{\eta S_H^0} > \frac{E^0}{(\eta - \epsilon)S^0}.
 $$
+
+
+\chapter{Intuition}\label{appendix:variables}
+
+One can find here a list of the variables used in the model from chapter \ref{model}, for more clarity.
+
+\begin{tabular}{c|l|l}
+\multicolumn{1}{c}{Name} & \multicolumn{1}{|c|}{Description}  & \multicolumn{1}{c}{Type} \\
+\hline
+    $\beta_{ij}^k \ge 0$ & preference for good $k$ produced in country $i$ and consumed in $j$ (exogenous) & param \\
+
+    $\kappa > 0 \neq 1$ & elasticity of substitution between agr product & param \\
+
+    $\kappa_{\text{feed}} > 0$ & elasticity of substitution between various feed crops & param \\
+
+    $\sigma > 0 \neq 1$ & Armington elasticity of substitution & param \\
+
+    $\epsilon > 0$ & opposite of price elasticity of demand for the agricultural bundle & param \\
+
+    $p_j^k$ and $P_j^k$ & producer and composite price of imports of good $k$ in country $j$ & variables \\
+
+    $\tau_{ij}^k \ge 1$ & iceberg cost from $i$ to $j$ for $k$, here $=1$ & param \\
+
+    $C_j^0$ & final consumption of non-agr product, $P_j^0 = 1$ & variable \\
+
+    $C_j^k$ & final consumption of product $k$ in $j$ & variable \\
+
+    ${{x^\lambda}_j^k}$ & content of $k$ in process $\lambda$ or livestock feed in country $j$ & variable \\
+
+    ${{\mu^\lambda}_i^k}$ & conversion ratio of $k$ in process $\lambda$ or of livestock feed & param \\
+
+    $\nu_i^k$ & unit of labor required per unit of land & param \\
+
+    $A_i^0 > 0$ & labor productivity (in money), equal to wages $A_i^0 = w_i$ & param \\
+
+    $N_i^0$ & labor demand for no-agr good in country $i$ & param\\
+
+    $L_i^k$ & surface of field dedicated to $k$ in country $i$ $=s_i^k L_i$ & variable \\
+
+    $r_i^k$ and $R_i^k$ & per hectare and total land rents ($R_i^k = r_i^k L_i^k$) & variables \\
+
+    $s_i^k$ & share of field in country $i$ allocated to $k$ & variable \\
+
+    $Q_i^k$ & total output of $k$ in $i$ ($Q_i^k = s_i^k L_i^k Y_i^k$) & variable \\
+
+    ${Q_i^{l_\lambda}}$ & qtt of output $l$ in the process $\lambda$ & variable \\
+
+    ${Q_i^\lambda = \sum Q_i^{l_\lambda}}$ & total qtt of output in the process $\lambda$ & variable \\
+
+    ${{\upsilon^\lambda}_i^{l_\lambda} = Q_i^{l_\lambda}/Q_i^\lambda}$ & mass proportion of output $l_\lambda$ in the process $\lambda$ & parameter \\
+
+    ${{m^\lambda}_i^{k_\lambda} = {x^\lambda}_i^{k_\lambda}/ x_i^\lambda}$ & mass proportion of input $k_\lambda$ in process $\lambda$ & parameter \\
+
+    $y_i^k$ and $Y_i^k$ & average and total yields of $k$ in $i$ & param, variable \\
+
+    $\varsigma_i^k > 0$ & yield elasticity & param \\
+
+    $X_i^k$ & quantity of inputs that intensify land & variables \\
+
+    $P_i^X$ & price of $X$ in country $i$ & param \\
+
+    $P_i^Z$ & price of non-land-intensifying input & param \\
+
+    $\alpha_i > 0$ & behavioral parameter that governs the acreage elasticity & param \\
+
+    $X_{v,ij}^k$ & volume of bilateral export between $i$ and $j$ for good $k$ & variable \\
+
+    $B_i$ & trade balance/deficits of country $i$ & variable \\
+
+    $E_i$ & expenditures & variable \\
+
+\end{tabular}
