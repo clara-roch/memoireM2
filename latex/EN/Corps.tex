@@ -1,0 +1,70 @@
+\documentclass[10pt,twoside]{report}
+
+\usepackage[a4paper,top=25mm,bottom=25mm,inner=25mm,outer=25mm]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem} % For customizing itemize environment
+\usepackage{parskip} % For customizing paragraph spacing
+\usepackage[colorlinks=true,linkcolor=gray]{hyperref} % For clickable links in the table of contents
+\usepackage{tocloft} % For customizing the table of contents
+\usepackage{xcolor}
+\usepackage{amsmath} % For math equation
+
+% Customize itemize environment to remove spaces
+\setlist[itemize]{noitemsep, topsep=0pt, before=\vspace{-\baselineskip}}
+
+% Customize paragraph spacing
+\setlength{\parskip}{1em} % Add space between paragraphs
+
+% Customize the table of contents
+\setcounter{tocdepth}{1}
+\renewcommand{\cftsecfont}{\normalfont} % Remove bold from section titles
+\renewcommand{\cftsecpagefont}{\normalfont} % Remove bold from page numbers
+\setlength{\cftbeforesecskip}{0pt} % Remove space before section titles
+\setlength{\cftsecindent}{1em} % Indent section titles
+\setlength{\cftaftertoctitleskip}{0pt} % enlève l'espace entre Contents et la 1er ligne de la table des matières
+
+% Avoid widow and orphin lines
+\widowpenalty=10000
+\clubpenalty=10000
+\brokenpenalty=10000
+
+\raggedbottom
+\flushbottom
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{%
+    Mémoire M2 \\
+    \large L'impact des politiques publiques sur les émissions de gaz à effet de serre \\ dans le secteur agricole au travers des échanges commerciaux.}
+\author{Clara ROCH}
+\date{2025}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+%%%%%%%%%%%%
+\chapter{Introduction}
+\input{chapters/Intro}
+
+\chapter{Intuition}\label{intuition}
+\input{chapters/Chap_intuition}
+
+\chapter{Model}\label{model}
+\input{chapters/Chap_model}
+
+\chapter{Implementation}\label{data}
+\input{chapters/Chap_data}
+
+\chapter{Results}\label{results}
+\input{chapters/Chap_result}
+
+\chapter{Conclusion}
+\input{chapters/Concl}
+
+\appendix
+\input{chapters/Annexes}
+
+
+\end{document}

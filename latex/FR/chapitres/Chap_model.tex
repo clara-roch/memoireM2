@@ -1,0 +1,39 @@
+Cette section présente le modèle de commerce agricole en équilibre partiel utilisé pour analyser l’impact des politiques sur les émissions de GES. Le modèle est basé sur Gouel et Laborde (2021), avec des fonctions multilogit remplaçant les fonctions de rendement de Fréchet initialement employées, comme décrit dans Gouel et al. (202?). Alors que l’approche de Fréchet suppose une qualité des terrains hétérogène, entraînant des rendements suivant une distribution de Fréchet par rapport aux taux de spécialisation, l’approche multilogit considère les terrains comme homogènes. À la place, une fonction de gestion — dans laquelle les coûts varient en fonction des différents niveaux de spécialisation — permet d’incorporer l’hétérogénéité.
+
+
+\section{Setups}
+
+Les pays sont indexés par $i$ or $j \in \mathcal{J}$, les biens par $k \in \mathcal{K}$, avec $k=0$ le bien non-agricol jouant le rôle de numéraire, $k = l$ les produits de l’élevage, $k = g$ l’herbe, $k \in \mathcal{K}^c$ les cultures ($\mathcal{K}^c \in \mathcal{K}$), et $k_nc \in \mathcal{K}^nc$ les produits agricoles non issus de la culture, c’est-à-dire les produits résultants d’un processus agro-industriel ($\mathcal{K}^nc \subset \mathcal{K}$). On note $\mathcal{K}^a = \mathcal{K}^c \cup \mathcal{K}^p \cup l$ l’ensemble représentant l’ensemble des biens agricoles qui peuvent être exportés, l’herbe n’étant pas exportable, elle ne fait pas partie de cet ensemble, elle n’est utilisée que pour l’alimentation de l’élevage.
+
+Pour plus de clarté, l’annexe \ref{appendix:variables}, référence tous les noms des variables et paramètres utilisés dans cette étude.
+
+\section{Modèle en niveau}
+\subsection{Consommation}
+Considérons une demande pour les biens agricoles non-élastique aux revenus, cela signifie que [...]. On note la consommation de l’ensemble du panier de biens agricoles dans le pays $j$, $C_j$, avec une utilité $U_j = C_j^0 + \beta_j^{1/\epsilon} ln C_j$, on a~:
+
+\begin{equation}
+	C_j = \left[ \sum_{k \in \mathcal{K}^a} (\beta_{j}^k)^{1/\kappa} (C_{j}^k)^{(\kappa-1)/\kappa} \right]^{\kappa/(\kappa-1)},
+\end{equation}
+
+$\kappa > 0$ est l’élasticité de substitution entre biens agricoles on considère sa valeur identique dans chaque pays, $C_j^k$ représente la consommation pour le produit $k$, et $\beta_{j}^k$ est un paramètre exogène de préférence pour le bien $k$ dans le pays $j$.
+
+Le coût de ce panier est noté $P_j$, et
+\begin{equation}
+	P_j = \left[ \sum_{k \in \mathcal{K}^a} \beta_{j}^k (P_{j}^k)^{1-\kappa} \right]^{1/(1-\kappa)}
+\end{equation}
+
+\subsection{Échange}
+
+\subsection{Production}
+
+\subsubsection{Culture}
+
+\subsubsection{Processus de transformation alimentaire}
+
+\paragraph{Produits issus de l’élevage}
+
+\paragraph{Produits issus de culture}
+
+
+\section{Modèle en changement relatif}
+Nous adoptons le système d’équation précédent en changement relatif, en posant $\hat{x} = x’/x$, le changement relatif de la variable $x$ entre son état à l’équilibre de référence $x$, et celui dans le scénario contractuel $x’$. Considérer les changements relatifs plutôt que les valeurs en niveau permet de se débarrasser de nombreux paramètres compliqués à paramétrés, ainsi nous n’avons pas besoin de calibrer des paramètres comme ceux de préférences $\beta$, car les préférences sont considérées identiques entre les situations de référence et contractuelles. L’implication directe d’une calibration en variation, et que si $x = 0$, alors $x’ = 0$.
