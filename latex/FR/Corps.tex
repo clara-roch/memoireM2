@@ -1,6 +1,6 @@
-\documentclass[10pt,twoside]{report}
+\documentclass[10pt]{report}
 
-\usepackage[a4paper,top=25mm,bottom=25mm,inner=25mm,outer=25mm]{geometry}
+\usepackage[a4paper,includehead,nomarginpar,top=25mm,bottom=25mm,inner=25mm,outer=25mm,]{geometry}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{enumitem} % For customizing itemize environment
 \usepackage{parskip} % For customizing paragraph spacing
@@ -8,6 +8,10 @@
 \usepackage{tocloft} % For customizing the table of contents
 \usepackage{xcolor}
 \usepackage{amsmath} % For math equation
+\usepackage{bbm} % For math fonts
+\usepackage{fancyhdr}
+\usepackage{pdflscape}
+\usepackage{biblatex}
 
 % Customize itemize environment to remove spaces
 \setlist[itemize]{noitemsep, topsep=0pt, before=\vspace{-\baselineskip}}
@@ -28,23 +32,41 @@
 \clubpenalty=10000
 \brokenpenalty=10000
 
+% Customize headers and footers
+\renewcommand{\headrulewidth}{0.25pt}
+\renewcommand{\footrulewidth}{0.25pt}
+
 \raggedbottom
 \flushbottom
 
+\bibliography{biblio.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{%
-    Mémoire M2 \\
-    \large L'impact des politiques publiques sur les émissions de gaz à effet de serre \\ dans le secteur agricole au travers des échanges commerciaux.}
+   L'impact des politiques publiques sur les émissions de gaz à effet de serre \\ dans le secteur agricole au travers des échanges commerciaux.}
 \author{Clara ROCH}
 \date{2025}
 
 \begin{document}
 
-\maketitle
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{École nationale des Ponts et Chaussées - Projet de fin d'études}
+\fancyfoot[R]{\thepage}
+\fancyfoot[L]{ROCH Clara - Département Ville, Environnement, Transport}
+\fancyfoot[R]{\thepage}
+
+\input{titre}
+\pagenumbering{roman}
 \tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+\newpage
 
 %%%%%%%%%%%%
+\pagenumbering{arabic}
 \chapter{Introduction}
 \input{chapitres/Intro}
 
@@ -62,6 +84,8 @@
 
 \chapter{Conclusion}
 \input{chapitres/Concl}
+
+\printbibliography
 
 \appendix
 \input{chapitres/Annexes}

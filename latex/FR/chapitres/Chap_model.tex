@@ -3,37 +3,153 @@ Cette section présente le modèle de commerce agricole en équilibre partiel ut
 
 \section{Setups}
 
-Les pays sont indexés par $i$ or $j \in \mathcal{J}$, les biens par $k \in \mathcal{K}$, avec $k=0$ le bien non-agricol jouant le rôle de numéraire, $k = l$ les produits de l’élevage, $k = g$ l’herbe, $k \in \mathcal{K}^c$ les cultures ($\mathcal{K}^c \in \mathcal{K}$), et $k_nc \in \mathcal{K}^nc$ les produits agricoles non issus de la culture, c’est-à-dire les produits résultants d’un processus agro-industriel ($\mathcal{K}^nc \subset \mathcal{K}$). On note $\mathcal{K}^a = \mathcal{K}^c \cup \mathcal{K}^p \cup l$ l’ensemble représentant l’ensemble des biens agricoles qui peuvent être exportés, l’herbe n’étant pas exportable, elle ne fait pas partie de cet ensemble, elle n’est utilisée que pour l’alimentation de l’élevage.
+Les pays sont indexés par $i$ or $j \in \mathcal{J}$, les biens par $k \in \mathcal{K}$, avec $k=0$ le bien non-agricol jouant le rôle de numéraire, $k = l$ les produits de l’élevage, $k = g$ l’herbe, $k \in \mathcal{K}^c$ les cultures ($\mathcal{K}^c \in \mathcal{K}$), et $k_nc \in \mathcal{K}^nc$ les produits agricoles non issus de la culture, c’est-à-dire les produits résultants d’un processus agro-industriel ($\mathcal{K}^nc \subset \mathcal{K}$). On note $\mathcal{K}^a = \mathcal{K}^c \cup \mathcal{K}^p \cup l$ l’ensemble représentant l’ensemble des biens agricoles qui peuvent être exportés, l’herbe n’étant pas exportable, elle ne fait pas partie de cet ensemble, elle n’est utilisée que pour l’alimentation de l’élevage. Les prix de production sont notés en minuscule, tandis que les prix de consommation le sont en majuscule.
 
 Pour plus de clarté, l’annexe \ref{appendix:variables}, référence tous les noms des variables et paramètres utilisés dans cette étude.
 
 \section{Modèle en niveau}
 \subsection{Consommation}
-Considérons une demande pour les biens agricoles non-élastique aux revenus, cela signifie que [...]. On note la consommation de l’ensemble du panier de biens agricoles dans le pays $j$, $C_j$, avec une utilité $U_j = C_j^0 + \beta_j^{1/\epsilon} ln C_j$, on a~:
 
-\begin{equation}
+On considère que l’utilité des ménages dans le pays $j$ $U_j$, suit une relation quasi-linéaire avec la consommation de bien non-agricole $C_j^0$
+\begin{equation}\label{eq_u}
+	U_j = C_j^0 + \beta_j^{1/\epsilon} \ln C_j,
+\end{equation}
+
+avec $\epsilon > 0$ l’élasticité de prix de demande pour le panier de biens agricoles inverse, $\beta_j > 0$ est un paramètre décrivant la demande pour les biens agricoles.
+
+Considérons une demande pour les biens agricoles non-élastique aux revenus\footnote{cf e (Comin et al., 2021).  La quantité de nourriture consommée étant plafonnée par des besoins physiologiques, mais elle peut aussi être réduite significativement si les revenus ne sont trop faible pour se procurer suffisamment de nourriture. Cette hypothèse est donc quelque peu hasardeuse dans les pays à bas revenus, dans ces pays une baisse des revenus peut conduire à une baisse de la consommation alimentaire, alors que dans les pays à plus haut revenus, les revenus resteront majoritairement suffisants pour couvrir les besoins alimentaires}.
+
+On note la consommation de l’ensemble du panier de biens agricoles dans le pays $j$, $C_j$, qui s’exprime comme une CES des différents biens agricoles,
+\begin{equation}\label{eq_cj}
 	C_j = \left[ \sum_{k \in \mathcal{K}^a} (\beta_{j}^k)^{1/\kappa} (C_{j}^k)^{(\kappa-1)/\kappa} \right]^{\kappa/(\kappa-1)},
 \end{equation}
 
-$\kappa > 0$ est l’élasticité de substitution entre biens agricoles on considère sa valeur identique dans chaque pays, $C_j^k$ représente la consommation pour le produit $k$, et $\beta_{j}^k$ est un paramètre exogène de préférence pour le bien $k$ dans le pays $j$.
+avec $\kappa > 0$ l’élasticité de substitution entre biens agricoles, on considère sa valeur identique dans chaque pays, $C_j^k$ représente la consommation pour le produit $k$, et $\beta_{j}^k$ est un paramètre exogène de préférence pour le bien $k$ dans le pays $j$.
 
-Le coût de ce panier est noté $P_j$, et
+Étant donné l’utilité des ménages de l’équation \ref{eq_u}, la maximisation de la demande implique la relation suivante~:
+
 \begin{equation}
-	P_j = \left[ \sum_{k \in \mathcal{K}^a} \beta_{j}^k (P_{j}^k)^{1-\kappa} \right]^{1/(1-\kappa)}
+	C_j = \beta_j (P_j)^{-\epsilon},
 \end{equation}
+
+avec $P_j$ le prix du panier de biens agricoles dans le pays $j$, tel que
+
+\begin{equation}\label{eq_pj}
+	P_j = \left[ \sum_{k \in \mathcal{K}^a} \beta_{j}^k (P_{j}^k)^{1-\kappa} \right]^{1/(1-\kappa)},
+\end{equation}
+
+où $P_j^k$ représente le prix du bien $k$ dans le pays $j$.
+
+Les équations \ref{eq_pj} et \ref{eq_cj} donnent permettent d’exprimer la demande pour le bien agricole $k$~:
+\begin{equation}
+	C_j^k = \beta_j^k \left(\frac{P_j^k}{P_j} \right)^{-\kappa} C_j.
+\end{equation}
+
+La demande pour le bien extérieur découle de l’ensemble des consommations $E_j$, ce qui donne~:
+\begin{equation}
+	P_j^0 C_j^0 = E_j - P_jC_j.
+\end{equation}
+
+
 
 \subsection{Échange}
 
+Pour les échanges entre pays, on considère une hypothèse de préférences des biens locaux d’Armington, avec l’élasticité associée $\sigma >0$ et $\neq$. Seuls les échanges inter-pays sont considérés, les transports sont supposés sans frictions à l’intérieur même des pays. On note les coûts iceberg du transport du bien $k$ du pays $i$ vers le pays $j$ $\tau_{ij}^k$, ainsi le prix dans le pays $j$ du bien $k$ produit dans le pays $i$ est $tau_{ij}^k P_i^k$, et le prix total du bien $k$ dans le $j$ est données par une CES des prix d’importations~:
+
+\begin{equation}
+	P_j^k = \left[ \sum_{k \in \mathcal{J}} \beta_{ij}^k \left(\tau_{ij}^k p_i^k \right)^{1-\sigma} \right]^{1/(1-\sigma)}.
+\end{equation}
+
+La quantité totale importée de biens $k$ dans le pays $j$, $X_j^k$ est donc égale à la somme des consommations finales $C_j^k$ et intermédiaires $x_j^k$ de $k$ dans le pays (par soucis de simplicité, on considère que les consommations nationales dans les imports, i.e. si le pays est en autarcie, $C_j + x_j = X_j = X_{jj}$)~:
+\begin{equation}
+	X_i^k = C_j^k + x_j^k.
+\end{equation}
+
+La condition de zéro profit [how?] permet d’exprimer la quantité de bien importé depuis chaque pays $i$~:
+\begin{equation}
+	X_{ij}^k = \beta_{ij}^k \left( \frac{\tau_{ij}^k p_i^k}{P_j^k}\right)^{- \sigma} X_{j}^k.
+\end{equation}
+
+Les imports sont néanmoins contraints par la capacité à payer ces imports, l’ensemble des dépenses du pays étant égales à l’ensemble des revenus~:
+\begin{equation}
+	E_j = w_j N_j + r_j L_j + B_j,
+\end{equation}
+avec $w_j$ les salaires, $N_j$ la quantité de travailleurs, $r_j$ le loyer des terres agricoles, $L_i$ la quantité totale de celles-ci, et $b_j$ la balance commerciale.
+
+
 \subsection{Production}
+On considère séparément les productions issues du sol, les cultures, de l’agriculture, les produits animaliers et d’autres processus agro-industriels, les produits transformés d’origine végétale. Seules les cultures utilisent de la terre, l’espace utilisé par l’élevage est compté au travers de l’alimentation des animaux.
 
-\subsubsection{Culture}
+\subsubsection{Bien extérieur}
+Le bien extérieur utilise donc pas de terres, et n’utilisant pas de biens agricoles nous considérons qu’il est produit uniquement à partir de travail, et ce, toujours avec le même rendement, que nous notons $A_i^0$, ce qui donne $Q_i^0 = A_i^0 N_i^0$, et donc que le salaire vaut $W_i = A_i^0 p_i^0$, étant donné que le bien extérieur et numéraire on écrit $W_i=A_i^0$.
 
-\subsubsection{Processus de transformation alimentaire}
+\subsubsection{Cultures}
 
-\paragraph{Produits issus de l’élevage}
+Nous considérons dans chaque pays un seul champ, de qualité homogène et de surface constante, avec des cultures différentes. Pour chaque culture, on représente les rendements $Y_i^k$ par isoélastique qui dépend de la surface allouée $s_i^k L_i$ et de la quantité d’entrant apportée~:
+\begin{equation}\label{eq_pi}
+	Y_i^k = y_i^k \left( \frac{F_i^k}{s_i^k L_i} \right) ^{\varsigma_i^k/(1+\varsigma_i^k)},
+\end{equation}
+avec $\varsigma_i^k > 0$ l’élasticité de rendement, et $y_i^k$ un paramètre de niveau de rendements.
 
-\paragraph{Produits issus de culture}
+Parallèlement, pour représenter l’hétérogénéité des cultures et d’éviter une spécialisation totale, nous utilisons une fonction de coût de production multilogit $f$ permet de traduire les coûts importants d’une trop faible ou trop importante spécialisation (risque de perte d’une culture qui représente l’ensemble des revenus, travail de trop de terres concentré sur un moment trop court nécessitant un nombre élevé d’ouvriers agricoles et de machines, ou à l’inverse trop de cultures différentes avec leurs particularités et leur calendrier différent), en affectant le profit par hectare $\pi_i^k$ d’un coût de gestion en plus de celui des entrants $F_i^k$~:
+
+\begin{equation}
+	\pi_i^k = \sum_{k \in \mathcal{K}^c} [p_i^k Y_i^k - p_i^0 F_i^k/(s_i^k L_i)]s_i^k - W_i f(s_i^k),
+\end{equation}
+
+avec $f(s_i^k) = \sum_{k \in \mathcal{K}^c} c_i^k s_i^k + a^{-1} \sum_{k \in \mathcal{K}} s_i^k \ln s_i^k$, où $c_i^k$ est un paramètre qui permet de reproduire la répartition initiale des cultures $s_i^k$, et $a > 0$ est un paramètre de comportement qui régit l’élasticité des surfaces cultivées.
+
+On obtient ensuite l’expression des $s_i^k$, en dérivant \ref{eq_pi} sous condition de $\sum_{k\in \mathcal{K}^c} s_i^k = 1$~:
+\begin{equation}\label{eq_s1}
+	s_i^k = \frac{\exp(a \tilde{\pi}_i^k)}{\sum_{l \in \mathcal{K}^c} \exp(a \tilde{\pi}_i^l)},
+\end{equation}
+
+avec $\tilde{\pi}_i^k = [p_i^k Y_i^k - p_i^0 F_i^k/(s_i^k L_i) - W_i c_i^k]/W_i$.
+
+En posant $\phi_i = \log \sum_{k \in \mathcal{K}^c} \exp(a \tilde{\pi}_i^k)$, on peut simplifier \ref{eq_s1} en~:
+\begin{equation}
+	s_i^k = \exp(a \tilde{\pi}_i^k - \phi_i).
+\end{equation}
+
+On obtient la demande totale en entrant, en maximisant les profits sous condition de (??), , ce qui donne~:
+\begin{equation}
+	F_i^k = s_i^k L_i \left( \frac{\varsigma_i^k}{1+\varsigma_i^k} \right)^{1+\varsigma_i^k} \left( \frac{p_i^k}{p_i^0} y_i^k \right)^{1+\varsigma_i^k},
+\end{equation}
+
+et nous permet de réécrire l’expression du profit réel $\pi_i^k$, comme~:
+\begin{equation}
+	\tilde{\pi}_i^k = \frac{\left( \varsigma_i^k \right)^{\varsigma_i^k}}{\left(  p_i^0 \right)^{\varsigma_i^k}W_i} \left( \frac{p_i^k y_i^k}{1+\varsigma_i^k }\right)^{1+\varsigma_i^k}-c_i^k.
+\end{equation}
+
+
+\subsubsection{Produits transformés}
+Dans cette section, nous n’abordons que les biens issus exclusivement d’un processus ou métabolique (?) ou agro-industriel, plusieurs secteurs d’activité peuvent produire un même bien, ainsi la production totale d’un bien est la somme de ses productions dans chaque activité $a$~:
+\begin{equation}
+	Q_i^k = \sum_{\{a|k\in \mathcal{O}(a)\}} Q_i^{ak},
+\end{equation}
+avec $\mathcal{O}(a)$ désigne l’ensemble des biens produits par l’activité $a$.
+
+\paragraph{Produits d’origine animale}
+La production de produits animales est régit par une fonction Léontief, du travail nécessaire $N_i^\text{livestock}$, de son efficacité $A_i^\text{livestock}$ et de la quantité de nourriture nécessaire pour l’alimentation des animaux $x_i^\text{feed}$ et d’un paramètre d’assimilation par l’organisme (??) $\mu_i^\text{feed}$~:
+\begin{equation}
+	Q_i^{\text{livestock}} = \min \left(\frac{x^{\text{feed}}_i}{\mu^{\text{feed}}_i}, \frac{N_i^\text{livestock}}{A_i^\text{livestock}}\right),
+\end{equation}
+
+$x_i^\text{feed}$ est composé comme une CES des produits que les animaux peuvent manger, comme suit
+
+\begin{equation}
+	x_i^\text{feed} = \left[ \sum_{k \in \mathcal{O}(\text{feed})} (\beta_i^{k, \text{feed}})^{1/\kappa_{feed}} (x_i^k)^{(\kappa_{\text{feed}} - 1) / \kappa_{\text{feed}}}  \right]^{\kappa_{\text{feed}}/(\kappa_{\text{feed}} - 1)}.
+\end{equation}
+
+Ce qui conduit au prix de production suivant, en l’abscence de profit~:
+\begin{equation}
+	p_i^{\text{livestock}} = A_i^\text{livestock} W_i + \mu^\text{feed}_i P^{\text{feed}}_i.
+\end{equation}
+
+
+\paragraph{Produits d’origine végétale}
 
 
 \section{Modèle en changement relatif}
-Nous adoptons le système d’équation précédent en changement relatif, en posant $\hat{x} = x’/x$, le changement relatif de la variable $x$ entre son état à l’équilibre de référence $x$, et celui dans le scénario contractuel $x’$. Considérer les changements relatifs plutôt que les valeurs en niveau permet de se débarrasser de nombreux paramètres compliqués à paramétrés, ainsi nous n’avons pas besoin de calibrer des paramètres comme ceux de préférences $\beta$, car les préférences sont considérées identiques entre les situations de référence et contractuelles. L’implication directe d’une calibration en variation, et que si $x = 0$, alors $x’ = 0$.
+
+Nous adoptons le système d’équation précédent en changement relatif, en posant $\hat{x} = prime{x}/x$, le changement relatif de la variable $x$ entre son état à l’équilibre de référence $x$, et celui dans le scénario contractuel $prime{x}$. Considérer les changements relatifs plutôt que les valeurs en niveau permet de se débarrasser de nombreux paramètres compliqués à paramétrés, ainsi nous n’avons pas besoin de calibrer des paramètres comme ceux de préférences $\beta$, car les préférences sont considérées identiques entre les situations de référence et contractuelles. L’implication directe d’une calibration en variation, et que si $x = 0$, alors $\prime{x} = 0$.
