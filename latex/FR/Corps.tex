@@ -25,7 +25,7 @@
 \renewcommand{\cftsecpagefont}{\normalfont} % Remove bold from page numbers
 \setlength{\cftbeforesecskip}{0pt} % Remove space before section titles
 \setlength{\cftsecindent}{1em} % Indent section titles
-\setlength{\cftaftertoctitleskip}{0pt} % enlève l'espace entre Contents et la 1er ligne de la table des matières
+\setlength{\cftaftertoctitleskip}{0pt} % enlève l’espace entre Contents et la 1er ligne de la table des matières
 
 % Avoid widow and orphin lines
 \widowpenalty=10000
@@ -36,6 +36,9 @@
 \renewcommand{\headrulewidth}{0.25pt}
 \renewcommand{\footrulewidth}{0.25pt}
 
+% Change item from bullet points to dashes
+\renewcommand{\labelitemi}{\normalfont\bfseries \textendash}
+
 \raggedbottom
 \flushbottom
 
@@ -43,7 +46,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{%
-   L'impact des politiques publiques sur les émissions de gaz à effet de serre \\ dans le secteur agricole au travers des échanges commerciaux.}
+   L’impact des politiques publiques sur les émissions de gaz à effet de serre \\ dans le secteur agricole au travers des échanges commerciaux.}
 \author{Clara ROCH}
 \date{2025}
 
@@ -51,7 +54,7 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{École nationale des Ponts et Chaussées - Projet de fin d'études}
+\fancyhead[L]{École nationale des Ponts et Chaussées - Projet de fin d’études}
 \fancyfoot[R]{\thepage}
 \fancyfoot[L]{ROCH Clara - Département Ville, Environnement, Transport}
 \fancyfoot[R]{\thepage}
@@ -85,8 +88,12 @@
 \chapter{Conclusion}
 \input{chapitres/Concl}
 
+\newpage
+\pagenumbering{roman}
 \printbibliography
 
+\newpage
+\pagenumbering{arabic}
 \appendix
 \input{chapitres/Annexes}
 

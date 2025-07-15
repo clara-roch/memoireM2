@@ -4,15 +4,37 @@
 
 - valeur arbitraire choisit en fonction des autres papiers ou de la plouf (du coup la plouf pour le share cost labor et land )
 
-\section{Tree-regions model}
-In order to simplify the model, we first run it with two countries and one regions: China, United State of America, and a region Rest Of the World (RoW); the production and consumption values of China and the United State are around zero and two order of magnitude smaller then the values associated to the region RoW (e.g. cereals consumption in RoW is evaluated at 4.01e11, while China's and USA's are respectively at 1.35e11 and 4.28e10; for sugar we have in the same order 1.17e11, 3.72e10, and 6.99e9), this allows us to consider this tree regions in parallel.
+\section{Modèle à trois régions}
+Afin de simplifier le modèle, nous considérons, trois régions principales~: la Chine, les États-Unis (EUA) et le reste du monde (RoW)~; les valeurs de productions et de consommation de la Chine et des EUA sont suffisamment significatives pour être comparées à celles du reste du monde (entre zéro et deux ordres de grandeurs en moins, e.g. la consommation de céréales dans le reste du monde est de 4.01e11, tandis que celles de la Chine et des EUA 1.35e11 et 4.28e10~; pour le sucre on a dans le même ordre 1.17e11, 3.72e10, et 6.99e9), ce qui nous permet de considérer ces trois régions en parallèle.
+
+Pour les cultures, nous les agrégeons par grandes catégories selon les catégories suivantes lorsque c’est possible~: fruits et légumes, céréales, tubercules, culture à sucre, à huile, non-alimentaires. Les animaux vivants sont retirés, car ils ne sont qu’un intermédiaire entre leur nourriture et les produits issus de l’élevage, que nous considérons tous sous la même catégorie. Les tourteaux et les huiles sont considérés séparément.
 
 
+\section{Données}
+\subsection{Paramètres de comportement}
+Nous faisons les mêmes choix sur le paramétrage que dans Gouel (2025).
 
-\section{Multi-countries model}
-In the multicountry model, we consider a wider range of countries and agricultural products.
+\subsection{Données et traitement pour l’équilibre initial}
+
+Le modèle est calibré sur des données de 2017, car (??).
 
 
-\section{Data}
-\subsection{Data for initial equilibrium}
-To calibrate the model, we use prices from FAOSTAT, and production and consumption from FABIO. Our prices are
+\subsubsection{Quantités et valeurs}
+Les données sont disponibles à l'échelle \textit{cbs}, qui correspond à une agrégation partielle, qui est celle de la colonne de gauche de l'annexe (??).
+
+\subsubsection{Prix}
+Nous avons utilisé les données de prix issus des bases FAOSTAT sur les prix producteur et sur les quantités totales et en valeurs échangées, pour chaque culture et chaque pays en désagrégé. Les prix donnés par FAOSTAT sont à un niveau de désagrégation inférieur à celui des données disponibles avec FABIO, pour simplifier l'exposé nous nommerons ce niveau \textit{item}. Une table de passage nous permet de passer de ces ?? \textit{item} à ?? \textit{cbs}.
+
+L'utilisation de ces deux bases permet de recouvrir le plus de prix possible. Afin de s'assurer de la cohérence des prix, nous utilisons les données de production totale en quantité et en valeur des \textit{items}, agrégées au niveau monde, ainsi nous récupérons un prix moyen pour chaque culture correspondant à la valeur totale produite sur la quantité totale produite, et nous assurons que les prix issus des données producteurs et des données de commerce, dans chaque pays ne sont pas trop éloignés de cette valeur. La procédure de conservation des prix est la suivante~:
+\begin{itemize}
+    \item utiliser les 80\,\% des prix d'\textit{item}, les plus proches du prix moyen mondial trouvé~;
+    \item calculer la moyenne et l'écart type de la répartition de ces prix~;
+    \item calculer pour l'ensemble des prix (pas uniquement les 80\,\% des prix les plus proches), l'écart à la moyenne en nombre d’écart-type~;
+    \item calculer pour chaque pays l'écart-type moyen pour chaque pays, afin de déterminer si le pays a des prix habituellement élevés par rapport au prix mondiaux~;
+    \item ne conserver que les prix ne s'éloignant pas de plus de deux écart-types en plus de leur écart moyen, calculé à l'étape précédente, des prix mondiaux.
+\end{itemize}
+On applique également ce tri, sur les prix agrégés au niveau supérieur des \textit{cbs}. Ensuite, on agrège les prix restant au niveau des \textit{cbs}.
+
+[expliquer ces affaires de exports imports]
+
+\subsection{Données pour les scenarii contrefactuels}

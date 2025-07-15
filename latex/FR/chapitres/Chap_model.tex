@@ -3,9 +3,11 @@ Cette section présente le modèle de commerce agricole en équilibre partiel ut
 
 \section{Setups}
 
-Les pays sont indexés par $i$ or $j \in \mathcal{J}$, les biens par $k \in \mathcal{K}$, avec $k=0$ le bien non-agricol jouant le rôle de numéraire, $k = l$ les produits de l’élevage, $k = g$ l’herbe, $k \in \mathcal{K}^c$ les cultures ($\mathcal{K}^c \in \mathcal{K}$), et $k_nc \in \mathcal{K}^nc$ les produits agricoles non issus de la culture, c’est-à-dire les produits résultants d’un processus agro-industriel ($\mathcal{K}^nc \subset \mathcal{K}$). On note $\mathcal{K}^a = \mathcal{K}^c \cup \mathcal{K}^p \cup l$ l’ensemble représentant l’ensemble des biens agricoles qui peuvent être exportés, l’herbe n’étant pas exportable, elle ne fait pas partie de cet ensemble, elle n’est utilisée que pour l’alimentation de l’élevage. Les prix de production sont notés en minuscule, tandis que les prix de consommation le sont en majuscule.
+Les pays sont indexés par $i$ or $j \in \mathcal{J}$, les biens par $k \in \mathcal{K}$, avec $k=0$ le bien non-agricol jouant le rôle de numéraire, $k = livestock$ les produits de l’élevage, $k = g$ l’herbe, $k \in \mathcal{K}^c$ les cultures ($\mathcal{K}^c \in \mathcal{K}$), et $k_nc \in \mathcal{K}^{nc}$ les produits agricoles non issus de la culture, c’est-à-dire les produits résultants d’un processus agro-industriel ($\mathcal{K}^{nc} \subset \mathcal{K}$). On note $\mathcal{K}^a = \mathcal{K}^c \cup \mathcal{K}^{nc} \cup livestock$ l’ensemble représentant l’ensemble des biens agricoles qui peuvent être exportés, l’herbe n’étant pas exportable, elle ne fait pas partie de cet ensemble, elle n’est utilisée que pour l’alimentation de l’élevage. Les prix de production sont notés en minuscule, tandis que les prix de consommation le sont en majuscule.
 
 Pour plus de clarté, l’annexe \ref{appendix:variables}, référence tous les noms des variables et paramètres utilisés dans cette étude.
+
+Nous considérons un modèle en volume et non en valeur.
 
 \section{Modèle en niveau}
 \subsection{Consommation}
@@ -14,68 +16,59 @@ On considère que l’utilité des ménages dans le pays $j$ $U_j$, suit une rel
 \begin{equation}\label{eq_u}
 	U_j = C_j^0 + \beta_j^{1/\epsilon} \ln C_j,
 \end{equation}
-
 avec $\epsilon > 0$ l’élasticité de prix de demande pour le panier de biens agricoles inverse, $\beta_j > 0$ est un paramètre décrivant la demande pour les biens agricoles.
 
-Considérons une demande pour les biens agricoles non-élastique aux revenus\footnote{cf e (Comin et al., 2021).  La quantité de nourriture consommée étant plafonnée par des besoins physiologiques, mais elle peut aussi être réduite significativement si les revenus ne sont trop faible pour se procurer suffisamment de nourriture. Cette hypothèse est donc quelque peu hasardeuse dans les pays à bas revenus, dans ces pays une baisse des revenus peut conduire à une baisse de la consommation alimentaire, alors que dans les pays à plus haut revenus, les revenus resteront majoritairement suffisants pour couvrir les besoins alimentaires}.
+Considérons une demande pour les biens agricoles non-élastique aux revenus\footnote{cf. (Comin et al., 2021).  La quantité de nourriture consommée étant plafonnée par des besoins physiologiques, mais elle peut aussi être réduite significativement si les revenus ne sont trop faible pour se procurer suffisamment de nourriture. Cette hypothèse est donc quelque peu hasardeuse dans les pays à bas revenus, dans ces pays une baisse des revenus peut conduire à une baisse de la consommation alimentaire, alors que dans les pays à plus haut revenus, les revenus resteront majoritairement suffisants pour couvrir les besoins alimentaires}.
 
 On note la consommation de l’ensemble du panier de biens agricoles dans le pays $j$, $C_j$, qui s’exprime comme une CES des différents biens agricoles,
-\begin{equation}\label{eq_cj}
+\begin{equation}\label{eq_cj1}
 	C_j = \left[ \sum_{k \in \mathcal{K}^a} (\beta_{j}^k)^{1/\kappa} (C_{j}^k)^{(\kappa-1)/\kappa} \right]^{\kappa/(\kappa-1)},
 \end{equation}
-
 avec $\kappa > 0$ l’élasticité de substitution entre biens agricoles, on considère sa valeur identique dans chaque pays, $C_j^k$ représente la consommation pour le produit $k$, et $\beta_{j}^k$ est un paramètre exogène de préférence pour le bien $k$ dans le pays $j$.
 
-Étant donné l’utilité des ménages de l’équation \ref{eq_u}, la maximisation de la demande implique la relation suivante~:
-
-\begin{equation}
-	C_j = \beta_j (P_j)^{-\epsilon},
-\end{equation}
-
-avec $P_j$ le prix du panier de biens agricoles dans le pays $j$, tel que
-
+Étant donné l’utilité des ménages de l’équation \ref{eq_u}, la maximisation de la demande implique la relation suivante
 \begin{equation}\label{eq_pj}
-	P_j = \left[ \sum_{k \in \mathcal{K}^a} \beta_{j}^k (P_{j}^k)^{1-\kappa} \right]^{1/(1-\kappa)},
+	P_j: C_j = \beta_j (P_j)^{-\epsilon},
 \end{equation}
-
+avec $P_j$ le prix du panier de biens agricoles dans le pays $j$, tel que
+\begin{equation}\label{eq_cj}
+	C_j: P_j = \left[ \sum_{k \in \mathcal{K}^a} \beta_{j}^k (P_{j}^k)^{1-\kappa} \right]^{1/(1-\kappa)},
+\end{equation}
 où $P_j^k$ représente le prix du bien $k$ dans le pays $j$.
 
-Les équations \ref{eq_pj} et \ref{eq_cj} donnent permettent d’exprimer la demande pour le bien agricole $k$~:
+Les équations \ref{eq_cj} et \ref{eq_cj1} permettent d’exprimer la demande pour le bien agricole $k$
 \begin{equation}
-	C_j^k = \beta_j^k \left(\frac{P_j^k}{P_j} \right)^{-\kappa} C_j.
+	C_j^k: C_j^k = \beta_j^k \left(\frac{P_j^k}{P_j} \right)^{-\kappa} C_j.
 \end{equation}
 
-La demande pour le bien extérieur découle de l’ensemble des consommations $E_j$, ce qui donne~:
+La demande pour le bien extérieur découle de l’ensemble des consommations $E_j$, ce qui donne
 \begin{equation}
-	P_j^0 C_j^0 = E_j - P_jC_j.
+	C_j^0 : P_j^0 C_j^0 = E_j - P_jC_j.
 \end{equation}
-
 
 
 \subsection{Échange}
 
-Pour les échanges entre pays, on considère une hypothèse de préférences des biens locaux d’Armington, avec l’élasticité associée $\sigma >0$ et $\neq$. Seuls les échanges inter-pays sont considérés, les transports sont supposés sans frictions à l’intérieur même des pays. On note les coûts iceberg du transport du bien $k$ du pays $i$ vers le pays $j$ $\tau_{ij}^k$, ainsi le prix dans le pays $j$ du bien $k$ produit dans le pays $i$ est $tau_{ij}^k P_i^k$, et le prix total du bien $k$ dans le $j$ est données par une CES des prix d’importations~:
-
+Pour les échanges entre pays, on considère une hypothèse de préférences des biens locaux d’Armington, avec l’élasticité associée $\sigma >0$ et $\neq$. Seuls les échanges inter-pays sont considérés, les transports sont supposés sans frictions à l’intérieur même des pays. On note les coûts iceberg du transport du bien $k$ du pays $i$ vers le pays $j$ $\tau_{ij}^k$, ainsi le prix dans le pays $j$ du bien $k$ produit dans le pays $i$ est $tau_{ij}^k P_i^k$, et le prix total du bien $k$ dans le $j$ est données par une CES des prix d’importations
 \begin{equation}
-	P_j^k = \left[ \sum_{k \in \mathcal{J}} \beta_{ij}^k \left(\tau_{ij}^k p_i^k \right)^{1-\sigma} \right]^{1/(1-\sigma)}.
+	X_j^k: P_j^k = \left[ \sum_{i \in \mathcal{J}} \beta_{ij}^k \left(\tau_{ij}^k p_i^k \right)^{1-\sigma} \right]^{1/(1-\sigma)}.
 \end{equation}
 
-La quantité totale importée de biens $k$ dans le pays $j$, $X_j^k$ est donc égale à la somme des consommations finales $C_j^k$ et intermédiaires $x_j^k$ de $k$ dans le pays (par soucis de simplicité, on considère que les consommations nationales dans les imports, i.e. si le pays est en autarcie, $C_j + x_j = X_j = X_{jj}$)~:
+La quantité totale importée de biens $k$ dans le pays $j$, $X_j^k$ est donc égale à la somme des consommations finales $C_j^k$ et intermédiaires $x_j^k$ de $k$ dans le pays (par soucis de simplicité, on considère que les consommations nationales dans les imports, i.e. si le pays est en autarcie, $C_j + x_j = X_j = X_{jj}$)
 \begin{equation}
-	X_i^k = C_j^k + x_j^k.
+	P_j^k: X_j^k = C_j^k + x_j^k.
 \end{equation}
 
-La condition de zéro profit [how?] permet d’exprimer la quantité de bien importé depuis chaque pays $i$~:
+La condition de zéro profit permet d’exprimer la quantité de bien importé depuis chaque pays $i$
 \begin{equation}
-	X_{ij}^k = \beta_{ij}^k \left( \frac{\tau_{ij}^k p_i^k}{P_j^k}\right)^{- \sigma} X_{j}^k.
+	X_{ij}^k: X_{ij}^k = \beta_{ij}^k \left( \frac{\tau_{ij}^k p_i^k}{P_j^k}\right)^{- \sigma} X_{j}^k.
 \end{equation}
 
-Les imports sont néanmoins contraints par la capacité à payer ces imports, l’ensemble des dépenses du pays étant égales à l’ensemble des revenus~:
+Les imports sont néanmoins contraints par la capacité à payer ces imports, l’ensemble des dépenses du pays étant égales à l’ensemble des revenus
 \begin{equation}
-	E_j = w_j N_j + r_j L_j + B_j,
+	E_j: E_j = w_j N_j + r_j L_j + \sum_{k \in \mathcal{K},i \in \mathcal{J}} \left(\hat{X}_{ij}^k X_{ij}^k - \hat{X}_{ji}^k X_{ji}^k \right),
 \end{equation}
 avec $w_j$ les salaires, $N_j$ la quantité de travailleurs, $r_j$ le loyer des terres agricoles, $L_i$ la quantité totale de celles-ci, et $b_j$ la balance commerciale.
-
 
 \subsection{Production}
 On considère séparément les productions issues du sol, les cultures, de l’agriculture, les produits animaliers et d’autres processus agro-industriels, les produits transformés d’origine végétale. Seules les cultures utilisent de la terre, l’espace utilisé par l’élevage est compté au travers de l’alimentation des animaux.
@@ -85,71 +78,173 @@ Le bien extérieur utilise donc pas de terres, et n’utilisant pas de biens agr
 
 \subsubsection{Cultures}
 
-Nous considérons dans chaque pays un seul champ, de qualité homogène et de surface constante, avec des cultures différentes. Pour chaque culture, on représente les rendements $Y_i^k$ par isoélastique qui dépend de la surface allouée $s_i^k L_i$ et de la quantité d’entrant apportée~:
-\begin{equation}\label{eq_pi}
-	Y_i^k = y_i^k \left( \frac{F_i^k}{s_i^k L_i} \right) ^{\varsigma_i^k/(1+\varsigma_i^k)},
+Nous considérons dans chaque pays un seul champ, de qualité homogène et de surface constante, avec des cultures différentes. Pour chaque culture, on représente les rendements $Y_i^k$ par isoélastique qui dépend de la surface allouée $s_i^k L_i$ et de la quantité d’entrant apportée
+\begin{equation}\label{eq_yik}
+	Y_i^k: Y_i^k = y_i^k \left( \frac{F_i^k}{s_i^k L_i} \right) ^{\varsigma_i^k/(1+\varsigma_i^k)},
 \end{equation}
 avec $\varsigma_i^k > 0$ l’élasticité de rendement, et $y_i^k$ un paramètre de niveau de rendements.
 
-Parallèlement, pour représenter l’hétérogénéité des cultures et d’éviter une spécialisation totale, nous utilisons une fonction de coût de production multilogit $f$ permet de traduire les coûts importants d’une trop faible ou trop importante spécialisation (risque de perte d’une culture qui représente l’ensemble des revenus, travail de trop de terres concentré sur un moment trop court nécessitant un nombre élevé d’ouvriers agricoles et de machines, ou à l’inverse trop de cultures différentes avec leurs particularités et leur calendrier différent), en affectant le profit par hectare $\pi_i^k$ d’un coût de gestion en plus de celui des entrants $F_i^k$~:
-
-\begin{equation}
-	\pi_i^k = \sum_{k \in \mathcal{K}^c} [p_i^k Y_i^k - p_i^0 F_i^k/(s_i^k L_i)]s_i^k - W_i f(s_i^k),
+Parallèlement, pour représenter l’hétérogénéité des cultures et d’éviter une spécialisation totale, nous utilisons une fonction de coût de production multilogit $f$ permet de traduire les coûts importants d’une trop faible ou trop importante spécialisation (risque de perte d’une culture qui représente l’ensemble des revenus, travail de trop de terres concentré sur un moment trop court nécessitant un nombre élevé d’ouvriers agricoles et de machines, ou à l’inverse trop de cultures différentes avec leurs particularités et leur calendrier différent), en affectant le profit par hectare d’un coût de gestion en plus de celui des entrants $F_i^k$, par condition de zéro-profit ce profit par hectare est égal au loyer par hectare $r_i^k$
+\begin{equation}\label{eq_rik}
+	r_i^k = \sum_{k \in \mathcal{K}^c} [p_i^k Y_i^k - p_i^0 F_i^k/(s_i^k L_i)]s_i^k - W_i f(s_i^k),
 \end{equation}
-
 avec $f(s_i^k) = \sum_{k \in \mathcal{K}^c} c_i^k s_i^k + a^{-1} \sum_{k \in \mathcal{K}} s_i^k \ln s_i^k$, où $c_i^k$ est un paramètre qui permet de reproduire la répartition initiale des cultures $s_i^k$, et $a > 0$ est un paramètre de comportement qui régit l’élasticité des surfaces cultivées.
 
-On obtient ensuite l’expression des $s_i^k$, en dérivant \ref{eq_pi} sous condition de $\sum_{k\in \mathcal{K}^c} s_i^k = 1$~:
+On obtient ensuite l’expression des $s_i^k$, en dérivant \ref{eq_rik} sous condition de $\sum_{k\in \mathcal{K}^c} s_i^k = 1$
 \begin{equation}\label{eq_s1}
-	s_i^k = \frac{\exp(a \tilde{\pi}_i^k)}{\sum_{l \in \mathcal{K}^c} \exp(a \tilde{\pi}_i^l)},
+	s_i^k = \frac{\exp(a \pi_i^k)}{\sum_{l \in \mathcal{K}^c} \exp(a \pi_i^l)},
+\end{equation}
+avec $\pi_i^k = [p_i^k Y_i^k - p_i^0 F_i^k/(s_i^k L_i) - W_i c_i^k]/W_i$.
+
+En posant $\phi_i = \log \sum_{k \in \mathcal{K}^c} \exp(a \pi_i^k)$, on peut simplifier \ref{eq_s1} en
+\begin{equation}\label{eq_sik}
+	s_i^k: s_i^k = \exp(a \pi_i^k - \phi_i).
 \end{equation}
 
-avec $\tilde{\pi}_i^k = [p_i^k Y_i^k - p_i^0 F_i^k/(s_i^k L_i) - W_i c_i^k]/W_i$.
-
-En posant $\phi_i = \log \sum_{k \in \mathcal{K}^c} \exp(a \tilde{\pi}_i^k)$, on peut simplifier \ref{eq_s1} en~:
+On obtient la demande totale en entrant, en maximisant les profits, ce qui donne
 \begin{equation}
-	s_i^k = \exp(a \tilde{\pi}_i^k - \phi_i).
+	F_i^k: F_i^k = s_i^k L_i \left( \frac{\varsigma_i^k}{1+\varsigma_i^k} \right)^{1+\varsigma_i^k} \left( \frac{p_i^k}{p_i^0} y_i^k \right)^{1+\varsigma_i^k},
 \end{equation}
-
-On obtient la demande totale en entrant, en maximisant les profits sous condition de (??), , ce qui donne~:
+et nous permet de réécrire l’expression du profit réel $\pi_i^k$, comme
 \begin{equation}
-	F_i^k = s_i^k L_i \left( \frac{\varsigma_i^k}{1+\varsigma_i^k} \right)^{1+\varsigma_i^k} \left( \frac{p_i^k}{p_i^0} y_i^k \right)^{1+\varsigma_i^k},
-\end{equation}
-
-et nous permet de réécrire l’expression du profit réel $\pi_i^k$, comme~:
-\begin{equation}
-	\tilde{\pi}_i^k = \frac{\left( \varsigma_i^k \right)^{\varsigma_i^k}}{\left(  p_i^0 \right)^{\varsigma_i^k}W_i} \left( \frac{p_i^k y_i^k}{1+\varsigma_i^k }\right)^{1+\varsigma_i^k}-c_i^k.
+	\pi_i^k : \pi_i^k = \frac{\left( \varsigma_i^k \right)^{\varsigma_i^k}}{\left(  p_i^0 \right)^{\varsigma_i^k}W_i} \left( \frac{p_i^k y_i^k}{1+\varsigma_i^k }\right)^{1+\varsigma_i^k} - c_i^k.
 \end{equation}
 
 
 \subsubsection{Produits transformés}
-Dans cette section, nous n’abordons que les biens issus exclusivement d’un processus ou métabolique (?) ou agro-industriel, plusieurs secteurs d’activité peuvent produire un même bien, ainsi la production totale d’un bien est la somme de ses productions dans chaque activité $a$~:
-\begin{equation}
-	Q_i^k = \sum_{\{a|k\in \mathcal{O}(a)\}} Q_i^{ak},
+Dans cette section, nous n’abordons que les biens issus exclusivement d’un processus ou métabolique (?) ou agro-industriel, plusieurs secteurs d’activité peuvent produire un même bien, ainsi la production totale d’un bien est la somme de ses productions dans chaque activité $a$
+\begin{equation}\label{eq_qik}
+	Q_i^k: Q_i^k = \sum_{a|k\in \mathcal{O}(a)} Q_i^{ak},
 \end{equation}
 avec $\mathcal{O}(a)$ désigne l’ensemble des biens produits par l’activité $a$.
 
-\paragraph{Produits d’origine animale}
-La production de produits animales est régit par une fonction Léontief, du travail nécessaire $N_i^\text{livestock}$, de son efficacité $A_i^\text{livestock}$ et de la quantité de nourriture nécessaire pour l’alimentation des animaux $x_i^\text{feed}$ et d’un paramètre d’assimilation par l’organisme (??) $\mu_i^\text{feed}$~:
+\paragraph{Produits d’origine animale} La production de produits animale est régi par une fonction Léontief, du travail nécessaire $N_i^\text{livestock}$, de son efficacité $A_i^\text{livestock}$ et de la quantité de nourriture nécessaire pour l’alimentation des animaux $x_i^\text{feed}$ et d’un paramètre d’assimilation par l’organisme, i.e. le nombre d’unités de nourriture nécessaire pour produire une du bien $k$, $\mu_i^\text{feed}$
 \begin{equation}
 	Q_i^{\text{livestock}} = \min \left(\frac{x^{\text{feed}}_i}{\mu^{\text{feed}}_i}, \frac{N_i^\text{livestock}}{A_i^\text{livestock}}\right),
 \end{equation}
 
 $x_i^\text{feed}$ est composé comme une CES des produits que les animaux peuvent manger, comme suit
-
 \begin{equation}
-	x_i^\text{feed} = \left[ \sum_{k \in \mathcal{O}(\text{feed})} (\beta_i^{k, \text{feed}})^{1/\kappa_{feed}} (x_i^k)^{(\kappa_{\text{feed}} - 1) / \kappa_{\text{feed}}}  \right]^{\kappa_{\text{feed}}/(\kappa_{\text{feed}} - 1)}.
+	x_i^\text{feed} = \left[ \sum_{k \in \mathcal{O}(\text{feed})} (\beta_i^{k, \text{feed}})^{1/\kappa_{feed}} (x_i^k)^{(\kappa_{\text{feed}} - 1) / \kappa_{\text{feed}}}  \right]^{\kappa_{\text{feed}}/(\kappa_{\text{feed}} - 1)},
+\end{equation}
+avec $\kappa_{\text{feed}}$ l’élasticité de substitution entre aliments, et $\beta_i^{k, \text{feed}}$ un paramètre technique.
+
+Ce qui donne, en minimisant les coûts de nourriture
+\begin{align}
+	                                       & p_i^{\text{livestock}}                                       = A_i^\text{livestock} W_i + \mu^\text{feed}_i P^{\text{feed}}_i,
+	\\
+	\label{eq_xfeedik} x^{\text{feed},k}_i & :  x^{\text{feed},k}_i                    = \beta_i^{k, \text{feed}} \left( \frac{P_i^k}{P^{\text{feed}}_i} \right)^{-\kappa_{\text{feed}}} \mu^\text{feed}_i Q_i^{\text{livestock}},                                                                                                           \\
+	\label{eq_pfeedi} P_i^\text{feed}      & :      \mu^{\text{feed}}_i Q_i^{\text{livestock}} = x^{\text{feed}}_i = \left[\sum_{k \in \mathcal{K}^c} (\beta_i^{k, \text{feed}})^{1/\kappa_{\text{feed}}} (x^{\text{feed},k}_i)^{(\kappa_{\text{feed}} - 1)/\kappa_{\text{feed}}} \right]^{\kappa_{\text{feed}}/(\kappa_{\text{feed}} - 1)},
+	\\
+	                                       & P^{\text{feed}}_i                                           = \left[ \sum_{k \in \mathcal{K}^c} \beta_i^{k, \text{feed}} (P_i^k)^{1 - \kappa_{\text{feed}}}\right]^{1/(1 - \kappa_{\text{feed}})},
+\end{align}
+avec $P_i^\text{feed}$ le prix associé au panier de nourriture $x_i^\text{feed}$.
+
+\paragraph{Produits d’origine végétale} Similairement aux produits issus de l’élevage, le processus de transformation pour obtenir ces produits d’origine végétale est modélisé par une fonction Léontief. Cependant, ici nous considérons qu’un processus peut produire plusieurs produits différents (e.g. le processus d’extraction d’huile, produit de l’huile et du tourteau), on considère par contre que ces processus ne prennent qu’un seul produit en entrée
+\begin{equation}
+	Q_i^a = \min \left( \frac{N^a_i}{A_i^a}, x^{ak}_i\right)= \max \left( \left\{ \frac{Q_i^{al}}{\nu^{al}_i} \right\}_{l|l\in\mathcal{O}(a)} \right),
+\end{equation}
+où $Q_i^a$ correspond au niveau d’activité du procédé, $\nu_i^{al}$ correspond au taux d’efficacité, $k \in \mathcal{I}(a)$ correspond à l’input et $l \in \mathcal{O}(a)$ aux outputs.
+
+On obtient
+\begin{align}
+	\label{eq_xiak}x^{ak}_i & : x^{ak}_i = Q_i^a,            \\
+	Q_i^{al}                & : Q_i^{al} = \nu_i^{al} Q_i^a, \\
+	\label{eq_nia} N_i^a    & :    N_i^a = A_i^a Q_i^a,
+\end{align}
+et la condition de non-profit conduit à
+\begin{equation}
+	W_i N_i^a + P_i^k x_i^{ak} = \sum_{{l|l\in \mathcal{O}(a)}} p_i^l Q_i^{al},
+\end{equation}
+ce qui donne
+\begin{equation}\label{eq_qia}
+	Q_i^a: A_i^a W_i + P_i^k = \sum_{l|l\in \mathcal{O}(a)} \nu_i^{al} p_i^{l}.
 \end{equation}
 
-Ce qui conduit au prix de production suivant, en l’abscence de profit~:
+Par convention, chaque activité est associée à un output principal tandis que les autres sorties sont secondaires (e.g. dans le cas du traitement des oléagineux, il s’agit de l’huile.). Les autres sorties sont déterminées à partir des conditions du premier ordre. En indexant par $\mathbf{l}$ l’output principal, le processus est caractérisé par le système d’équations suivant~:
+\begin{align}
+	Q_i^{a \mathbf{l}} & : A_i^a W_i + P_i^k = \sum_{l\in \mathcal{O}(a)} \nu_i^{al} p_i^{l},                                           \\
+	Q_i^{al}           & : Q_i^{al}=\left( \nu_i^{al} / \nu_i^{a \mathbf{l}} \right)Q_i^{a \mathbf{l}}, \text{ for } l \neq \mathbf{l}, \\
+	N_i^a              & : N_i^a=A_i^a Q_i^{a \mathbf{l}} / \nu_i^{a \mathbf{l}},                                                       \\
+	x_i^{ak}           & :x_i^{ak}=Q_i^{a \mathbf{l}} / \nu_i^{a \mathbf{l}}.
+\end{align}
+
+\subsection{Équilibres de marché}
+\subsubsection{Équilibre des biens}
+\paragraph{Production} Côté production, les quantités produites doivent égaler l’ensemble des imports (en considérant toujours que si le pays $i$ est en autarcie $C_i^k = Q_i^k = X_{ii}^k = X_i^k$)~:
 \begin{equation}
-	p_i^{\text{livestock}} = A_i^\text{livestock} W_i + \mu^\text{feed}_i P^{\text{feed}}_i.
+	p_i^k: Q_i^k = \sum_{j \in \mathcal{J}} \tau_{ij}^k X_{ij}^k \text{, for } k \neq 0.
 \end{equation}
 
+Pour le bien extérieur, on a
+\begin{equation}
+	p_i^0: \sum_{i \in \mathcal{J}} Q_i^0 = \sum_{i \in \mathcal{J}} \left( C_i^0 + \sum_{k \in \mathcal{K}^c} F_i^k \right).
+\end{equation}
 
-\paragraph{Produits d’origine végétale}
+\paragraph{Consommation} Côté consommation, l’ensemble des imports correspond à l’ensemble des consommations finales et intermédiaires
+\begin{equation}
+	P_i^k: X_i^k=C_i^k + x_i^{\text{feed},k} + \sum_{a | k \in \mathcal{I}(a)} x_i^{ak}.
+\end{equation}
 
+\subsubsection{Équilibre du travail}
+La somme de besoin en travail ne doit pas excéder ce que le pays est capable de fournir, et par simplification, on considère que le taux d’emploi ne change pas, ce qui donne
+\begin{equation}\label{eq_wi}
+	W_i: N_i=\sum_a N_i^a.
+\end{equation}
 
 \section{Modèle en changement relatif}
 
-Nous adoptons le système d’équation précédent en changement relatif, en posant $\hat{x} = prime{x}/x$, le changement relatif de la variable $x$ entre son état à l’équilibre de référence $x$, et celui dans le scénario contractuel $prime{x}$. Considérer les changements relatifs plutôt que les valeurs en niveau permet de se débarrasser de nombreux paramètres compliqués à paramétrés, ainsi nous n’avons pas besoin de calibrer des paramètres comme ceux de préférences $\beta$, car les préférences sont considérées identiques entre les situations de référence et contractuelles. L’implication directe d’une calibration en variation, et que si $x = 0$, alors $\prime{x} = 0$.
+Nous adoptons le système d’équation précédent en changement relatif, en posant $\hat{x} = x’ x$, le changement relatif de la variable $x$ entre son état à l’équilibre de référence $x$, et celui dans le scénario contractuel $x’$. Considérer les changements relatifs plutôt que les valeurs en niveau permet de se débarrasser de nombreux paramètres compliqués à paramétrés, ainsi nous n’avons pas besoin de calibrer des paramètres comme ceux de préférences $\beta$, car les préférences sont considérées identiques entre les situations de référence et contractuelles. L’implication directe d’une calibration en variation, et que si $x = 0$, alors $x’ = 0$.
+
+En posant $\alpha_j^{\text{C},k} = {(P_j^k C_j^k)}/{(P_j C_j)}$, $\alpha^{\text{feed},k}_j = {(P_j^k x^{\text{feed},k}_j)} /{(P^\text{feed}_j x^\text{feed}_j)}$ et $\alpha^{\text{Trade},k}_{ij} = (\tau_{ij}^k p_i^k X_{ij}^k)/(P_j^kX_{j}^k)$, et en transformant les équations \ref{eq_pj}-\ref{eq_yik},\ref{eq_sik}-\ref{eq_qik}, \ref{eq_xfeedik}-\ref{eq_pfeedi}, \ref{eq_xiak}-\ref{eq_nia}, \ref{eq_qia}-\ref{eq_wi}, on obtient le système d'équation suivant.
+
+\paragraph{Condition de non-profit}
+\begin{align}
+	\hat{C}_j                & : \hat{P}_j = \left[ \sum_{k \in \mathcal{K}^a} \alpha_j^{\text{C},k} \left(\hat{P}_j^k\right)^{1- \kappa} \right]^{1/(1 - \kappa)},                                                                                                 \\
+	\hat{Q}_i^0              & :\hat{p}_i^0=\hat{W}_i,                                                                                                                                                                                                              \\
+	\hat{Q}_i^{a \mathbf{l}} & : W_i \hat{W}_i N_i^a \hat{N}_i^a + P_i^k \hat{P}_i^k x_i^{ak} \hat{x}_i^{ak} = \sum_{l\in \mathcal{O}(a)} p_i^l \hat{p}_i^l Q_i^{al} \hat{Q}_i^{al}, \text{ pour } \mathbf{l} \notin \{0, \mathcal{K}^c\}                           \\
+	\hat{Q}_i^k              & : {\pi_i^k} \prime = \left( \frac{y_i^k}{1+\varsigma_i^k} \right)^{1+\varsigma_i^k} {\varsigma_i^k}^{\varsigma_i^k} \frac{({p_i^k}\prime)^{1+ \varsigma_i^k}}{W_i (P_i^0)^{\varsigma_i^k}} - c_i^k, \text{ pour } k\in \mathcal{K}^c \\
+	\hat{X}_j^k              & : \hat{P}_j^k = \left[ \sum_{i \in \mathcal{J}} \alpha_{ij}^{\text{Trade},k} \left(\hat{p}_i^k\right)^{1 - \sigma} \right]^{1/(1 - \sigma)},                                                                                         \\
+	\hat{x}_j^{\text{feed}}  & : \hat{P}_j^{\text{feed}} = \left[ \sum_{k \in\mathcal{K}^c} \alpha_j^{\text{feed},k} \left(\hat{P}_j^k\right)^{1 - \kappa_\text{feed}} \right]^{1/(1 - \kappa_\text{feed})}.
+\end{align}
+
+\paragraph{Condition d'équilibre de marchés}
+\begin{align}
+	\hat{P}_j               & : \hat{C}_j=\hat{P}_j^{-\epsilon},                                                                                                                        \\
+	\hat{p}_i^k             & : Q_i^k \hat{Q}_i^k = \sum_{j \in \mathcal{J}} \tau_{ij}^k X_{ij}^k \hat{X}_{ij}^k, \text{ for } k \neq 0,                                                \\
+	** \hat{p}_i^0          & : \sum_{i \in \mathcal{J}} \hat{Q}_i^0 Q_i^0 = \sum_{i \in \mathcal{J}} \left( \hat{C}_j^0 C_j^0  + \sum_{k \in \mathcal{K}^c} \hat{F}_i^k F_i^k \right), \\
+	\hat{P}_j^k             & : X_j^k (\hat{X}_j^k) = C_j^k  \hat{C}_j^k + x_j^{\text{feed},k} \hat{x}_j^{\text{feed},k} + \sum_{a | k \in \mathcal{I}(a)} x_i^{ak} \hat{x}_i^{ak},     \\
+	\hat{P}_j^{\text{feed}} & :\hat{x}_i^{\text{feed}}=\hat{Q}_i^{\text{livestock}},                                                                                                    \\
+	** \hat{W}_i            & : N_i=\sum_a N_i^a \hat{N}_i^a.
+\end{align}
+
+\paragraph{Condition du premier ordre}
+\begin{align}
+	** \hat{C}_j^0            & : P_j^0 C_j^0 \hat{C}_j^0 = E_j \hat{E}_j - P_jC_j (\hat{P}_j)^{1 - \epsilon},                                                      \\
+	\hat{C}_j^k               & : \hat{C}_j^k = (\hat{P}_j^k)^{-\kappa} (\hat{P}_j)^{\kappa - \epsilon},                                                            \\
+	\hat{Q}_i^{al}            & : \hat{Q}_i^{al}=\hat{Q}_i^{a \mathbf{l}}, \text{ pour } l \neq \mathbf{l},                                                         \\
+	\hat{N}_i^a               & : \hat{N}_i^a=
+	\begin{cases}
+		\hat{Q}_i^{a \mathbf{l}}, \text{ si } a \notin \text{crops} \\
+		\left[\sum_{k \in \mathcal{K}^c} {s_i^k}\prime \left(c_i^k+a^{-1} \ln {s_i^k}\prime  \right) \right] L_i / N_i^{\text{crops}}, \text{ si } a \in \text{crops},
+	\end{cases}                                    \\
+	\hat{x}_i^{ak}            & :\hat{x}_i^{ak}=\hat{Q}_i^{a \mathbf{l}}, \text{ pour } k \neq \text{livestock},                                                    \\
+	\hat{x}^{\text{feed},k}_j & : \hat{x}^{\text{feed},k}_j = \left({\hat{P}_j^k} /{\hat{P}_j^{\text{feed}}} \right)^{-\kappa_{\text{feed}}} \hat{x}_j^\text{feed}, \\
+	\hat{X}_{ij}^k            & : \hat{X}_{ij}^k = (\hat{p}_i^k/\hat{P}_j^k)^{-\sigma} \hat{X}_j^k \text{ (équation de gravité)},                                   \\
+	\hat{s}_{i}^{k}           & : \hat{s}_i^k s_i^k =\exp \left( a {\pi_i^k}\prime - \phi_i\prime \right),                                                          \\
+	\phi_i\prime              & : \phi_i\prime = \ln \sum_{k \in \mathcal{K}^c} \exp(a {\pi_i^k}\prime),                                                            \\
+	\hat{F}_i^k               & : \hat{F}_i^k = \hat{Q}_i^k (\hat{s}_i^k)^{- 1 / (1 + \varsigma_i^k)},                                                              \\
+	{\pi_i^k}\prime           & : \hat{Q}_i^k = \hat{s}_i^k \left(\hat{p}_i^k \right)^{\varsigma_i^k}, \text{ for } k\in \mathcal{K}^{c}.
+\end{align}
+
+\paragraph{Équation de compatibilité}
+\begin{align}
+	** \hat{E}_i & : E_i \hat{E}_i = W_i \hat{W}_i N_i + r_i \hat{r}_i L_i + \sum_{k \in \mathcal{K},j \in \mathcal{J}} \left(\hat{X}_{ji}^k X_{ji}^k - \hat{X}_{ij}^k X_{ij}^k \right), \\
+	** \hat{r}_i & : r_i \hat{r}_i= W_i\prime \sum_k {s_i^k}\prime \left( {\pi_i^k}\prime -a^{-1} \ln {s_i^k}\prime\right),                                                              \\
+	\hat{Q}_i^k  & : Q_i^k \hat{Q}_i^k= \sum_{a|k\in \mathcal{O}(a)} Q_i^{ak} \hat{Q}_i^{ak}.
+\end{align}
+
+** En pratique, étant donné que l'on a posé le bien extérieur comme numéraire, le modèle est un modèle d'équilibre partiel, ce qui fait que nous n'avons pas besoin des équations d'équilibre général, soit des équations déterminant $C_j^0, E_j, W_i, r_i$, et on pose $\hat{p}_i^0=\hat{W}_i=1$.
+
+
+	[rajouter le comment on trouve a, et c, et reprendre pour que y ait bien l'équation de Y à la fin aussi]
