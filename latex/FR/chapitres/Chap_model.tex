@@ -88,17 +88,17 @@ Parallèlement, pour représenter l’hétérogénéité des cultures et d’év
 \begin{equation}\label{eq_rik}
 	r_i^k = \sum_{k \in \mathcal{K}^c} [p_i^k Y_i^k - p_i^0 F_i^k/(s_i^k L_i)]s_i^k - W_i f(s_i^k),
 \end{equation}
-avec $f(s_i^k) = \sum_{k \in \mathcal{K}^c} c_i^k s_i^k + a^{-1} \sum_{k \in \mathcal{K}} s_i^k \ln s_i^k$, où $c_i^k$ est un paramètre qui permet de reproduire la répartition initiale des cultures $s_i^k$, et $a > 0$ est un paramètre de comportement qui régit l’élasticité des surfaces cultivées.
+avec $f(s_i^k) = \sum_{k \in \mathcal{K}^c} c_i^k s_i^k + a_i^{-1} \sum_{k \in \mathcal{K}} s_i^k \ln s_i^k$, où $c_i^k$ est un paramètre qui permet de reproduire la répartition initiale des cultures $s_i^k$, et $a_i > 0$ est un paramètre de comportement qui régit l’élasticité des surfaces cultivées.
 
 On obtient ensuite l’expression des $s_i^k$, en dérivant \ref{eq_rik} sous condition de $\sum_{k\in \mathcal{K}^c} s_i^k = 1$
 \begin{equation}\label{eq_s1}
-	s_i^k = \frac{\exp(a \pi_i^k)}{\sum_{l \in \mathcal{K}^c} \exp(a \pi_i^l)},
+	s_i^k = \frac{\exp(a_i \pi_i^k)}{\sum_{l \in \mathcal{K}^c} \exp(a_i \pi_i^l)},
 \end{equation}
 avec $\pi_i^k = [p_i^k Y_i^k - p_i^0 F_i^k/(s_i^k L_i) - W_i c_i^k]/W_i$.
 
-En posant $\phi_i = \log \sum_{k \in \mathcal{K}^c} \exp(a \pi_i^k)$, on peut simplifier \ref{eq_s1} en
+En posant $\phi_i = \log \sum_{k \in \mathcal{K}^c} \exp(a_i \pi_i^k)$, on peut simplifier \ref{eq_s1} en
 \begin{equation}\label{eq_sik}
-	s_i^k: s_i^k = \exp(a \pi_i^k - \phi_i).
+	s_i^k: s_i^k = \exp(a_i \pi_i^k - \phi_i).
 \end{equation}
 
 On obtient la demande totale en entrant, en maximisant les profits, ce qui donne
@@ -163,10 +163,10 @@ ce qui donne
 
 Par convention, chaque activité est associée à un output principal tandis que les autres sorties sont secondaires (e.g. dans le cas du traitement des oléagineux, il s’agit de l’huile.). Les autres sorties sont déterminées à partir des conditions du premier ordre. En indexant par $\mathbf{l}$ l’output principal, le processus est caractérisé par le système d’équations suivant~:
 \begin{align}
-	Q_i^{a \mathbf{l}} & : A_i^a W_i + P_i^k = \sum_{l\in \mathcal{O}(a)} \nu_i^{al} p_i^{l},                                           \\
-	Q_i^{al}           & : Q_i^{al}=\left( \nu_i^{al} / \nu_i^{a \mathbf{l}} \right)Q_i^{a \mathbf{l}}, \text{ for } l \neq \mathbf{l}, \\
-	N_i^a              & : N_i^a=A_i^a Q_i^{a \mathbf{l}} / \nu_i^{a \mathbf{l}},                                                       \\
-	x_i^{ak}           & :x_i^{ak}=Q_i^{a \mathbf{l}} / \nu_i^{a \mathbf{l}}.
+	Q_i^{a \mathbf{l}} & : A_i^a W_i + P_i^k = \sum_{l\in \mathcal{O}(a)} \nu_i^{al} p_i^{l},                                             \\
+	Q_i^{al}           & : Q_i^{al} = \left( \nu_i^{al} / \nu_i^{a \mathbf{l}} \right)Q_i^{a \mathbf{l}}, \text{ for } l \neq \mathbf{l}, \\
+	N_i^a              & : N_i^a = A_i^a Q_i^{a \mathbf{l}} / \nu_i^{a \mathbf{l}},                                                       \\
+	x_i^{ak}           & :x_i^{ak} = Q_i^{a \mathbf{l}} / \nu_i^{a \mathbf{l}}.
 \end{align}
 
 \subsection{Équilibres de marché}
@@ -223,16 +223,16 @@ En posant $\alpha_j^{\text{C},k} = {(P_j^k C_j^k)}/{(P_j C_j)}$, $\alpha^{\text{
 	** \hat{C}_j^0            & : P_j^0 C_j^0 \hat{C}_j^0 = E_j \hat{E}_j - P_jC_j (\hat{P}_j)^{1 - \epsilon},                                                      \\
 	\hat{C}_j^k               & : \hat{C}_j^k = (\hat{P}_j^k)^{-\kappa} (\hat{P}_j)^{\kappa - \epsilon},                                                            \\
 	\hat{Q}_i^{al}            & : \hat{Q}_i^{al}=\hat{Q}_i^{a \mathbf{l}}, \text{ pour } l \neq \mathbf{l},                                                         \\
-	\hat{N}_i^a               & : \hat{N}_i^a=
+	\hat{N}_i^a               & : \hat{N}_i^a =
 	\begin{cases}
 		\hat{Q}_i^{a \mathbf{l}}, \text{ si } a \notin \text{crops} \\
-		\left[\sum_{k \in \mathcal{K}^c} {s_i^k}\prime \left(c_i^k+a^{-1} \ln {s_i^k}\prime  \right) \right] L_i / N_i^{\text{crops}}, \text{ si } a \in \text{crops},
+		\left[\sum_{k \in \mathcal{K}^c} {s_i^k}\prime \left(c_i^k+a_i^{-1} \ln {s_i^k}\prime  \right) \right] L_i / N_i^{\text{crops}}, \text{ si } a \in \text{crops},
 	\end{cases}                                    \\
 	\hat{x}_i^{ak}            & :\hat{x}_i^{ak}=\hat{Q}_i^{a \mathbf{l}}, \text{ pour } k \neq \text{livestock},                                                    \\
 	\hat{x}^{\text{feed},k}_j & : \hat{x}^{\text{feed},k}_j = \left({\hat{P}_j^k} /{\hat{P}_j^{\text{feed}}} \right)^{-\kappa_{\text{feed}}} \hat{x}_j^\text{feed}, \\
 	\hat{X}_{ij}^k            & : \hat{X}_{ij}^k = (\hat{p}_i^k/\hat{P}_j^k)^{-\sigma} \hat{X}_j^k \text{ (équation de gravité)},                                   \\
-	\hat{s}_{i}^{k}           & : \hat{s}_i^k s_i^k =\exp \left( a {\pi_i^k}\prime - \phi_i\prime \right),                                                          \\
-	\phi_i\prime              & : \phi_i\prime = \ln \sum_{k \in \mathcal{K}^c} \exp(a {\pi_i^k}\prime),                                                            \\
+	\hat{s}_{i}^{k}           & : \hat{s}_i^k s_i^k = \exp \left( a_i {\pi_i^k}\prime - \phi_i\prime \right),                                                       \\
+	\phi_i\prime              & : \phi_i\prime = \ln \sum_{k \in \mathcal{K}^c} \exp(a_i {\pi_i^k}\prime),                                                          \\
 	\hat{F}_i^k               & : \hat{F}_i^k = \hat{Q}_i^k (\hat{s}_i^k)^{- 1 / (1 + \varsigma_i^k)},                                                              \\
 	{\pi_i^k}\prime           & : \hat{Q}_i^k = \hat{s}_i^k \left(\hat{p}_i^k \right)^{\varsigma_i^k}, \text{ for } k\in \mathcal{K}^{c}.
 \end{align}
@@ -240,11 +240,11 @@ En posant $\alpha_j^{\text{C},k} = {(P_j^k C_j^k)}/{(P_j C_j)}$, $\alpha^{\text{
 \paragraph{Équation de compatibilité}
 \begin{align}
 	** \hat{E}_i & : E_i \hat{E}_i = W_i \hat{W}_i N_i + r_i \hat{r}_i L_i + \sum_{k \in \mathcal{K},j \in \mathcal{J}} \left(\hat{X}_{ji}^k X_{ji}^k - \hat{X}_{ij}^k X_{ij}^k \right), \\
-	** \hat{r}_i & : r_i \hat{r}_i= W_i\prime \sum_k {s_i^k}\prime \left( {\pi_i^k}\prime -a^{-1} \ln {s_i^k}\prime\right),                                                              \\
-	\hat{Q}_i^k  & : Q_i^k \hat{Q}_i^k= \sum_{a|k\in \mathcal{O}(a)} Q_i^{ak} \hat{Q}_i^{ak}.
+	** \hat{r}_i & : r_i \hat{r}_i = W_i\prime \sum_k {s_i^k}\prime \left( {\pi_i^k}\prime -a_i^{-1} \ln {s_i^k}\prime\right),                                                           \\
+	\hat{Q}_i^k  & : Q_i^k \hat{Q}_i^k = \sum_{a|k\in \mathcal{O}(a)} Q_i^{ak} \hat{Q}_i^{ak}.
 \end{align}
 
 ** En pratique, étant donné que l'on a posé le bien extérieur comme numéraire, le modèle est un modèle d'équilibre partiel, ce qui fait que nous n'avons pas besoin des équations d'équilibre général, soit des équations déterminant $C_j^0, E_j, W_i, r_i$, et on pose $\hat{p}_i^0=\hat{W}_i=1$.
 
 
-	[rajouter le comment on trouve a, et c, et reprendre pour que y ait bien l'équation de Y à la fin aussi]
+	[rajouter le comment on trouve a_i, et c, et reprendre pour que y ait bien l'équation de Y à la fin aussi]
