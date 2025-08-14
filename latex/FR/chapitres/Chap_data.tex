@@ -27,7 +27,7 @@ Nous avons utilisé les données de prix issus des bases FAOSTAT sur les prix pr
 
 L'utilisation de ces deux bases permet de recouvrir le plus de prix possible. Afin de s'assurer de la cohérence des prix, nous utilisons les données de production totale en quantité et en valeur des \textit{items}, agrégées au niveau monde, ainsi nous récupérons un prix moyen pour chaque culture correspondant à la valeur totale produite sur la quantité totale produite, et nous assurons que les prix issus des données producteurs et des données de commerce, dans chaque pays ne sont pas trop éloignés de cette valeur. La procédure de conservation des prix est la suivante~:
 \begin{itemize}
-    \item utiliser les 80\,\% des prix d'\textit{item}, les plus proches du prix moyen mondial trouvé~;
+    \item utiliser les {80\,\%} des prix d'\textit{item}, les plus proches du prix moyen mondial trouvé~;
     \item calculer la moyenne et l'écart type de la répartition de ces prix~;
     \item calculer pour l'ensemble des prix (pas uniquement les 80\,\% des prix les plus proches), l'écart à la moyenne en nombre d’écart-type~;
     \item calculer pour chaque pays l'écart-type moyen pour chaque pays, afin de déterminer si le pays a des prix habituellement élevés par rapport au prix mondiaux~;
@@ -35,6 +35,6 @@ L'utilisation de ces deux bases permet de recouvrir le plus de prix possible. Af
 \end{itemize}
 On applique également ce tri, sur les prix agrégés au niveau supérieur des \textit{cbs}. Ensuite, on agrège les prix restant au niveau des \textit{cbs}.
 
-[expliquer ces affaires de exports imports]
+% [expliquer ces affaires de exports imports]
 
 \subsection{Données pour les scenarii contrefactuels}
