@@ -4,14 +4,17 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage{enumitem} % For customizing itemize environment
 \usepackage{parskip} % For customizing paragraph spacing
-\usepackage[colorlinks=true,linkcolor=gray]{hyperref} % For clickable links in the table of contents
+\usepackage[colorlinks=true,linkcolor=gray,citecolor=gray]{hyperref} % For clickable links in the table of contents
 \usepackage{tocloft} % For customizing the table of contents
 \usepackage{xcolor}
 \usepackage{amsmath} % For math equation
 \usepackage{bbm} % For math fonts
+\usepackage[T1]{fontenc}    % Use T1 font encoding (for proper hyphenation and accented characters)
+\usepackage[utf8]{inputenc} % Allow UTF-8 input characters
 \usepackage{fancyhdr}
 \usepackage{pdflscape}
-\usepackage{biblatex}
+\usepackage[style=authoryear]{biblatex}
+
 
 % Customize itemize environment to remove spaces
 \setlist[itemize]{noitemsep, topsep=0pt, before=\vspace{-\baselineskip}}
@@ -31,10 +34,13 @@
 \widowpenalty=10000
 \clubpenalty=10000
 \brokenpenalty=10000
+\allowdisplaybreaks % allow page break in equation {align}
 
 % Customize headers and footers
 \renewcommand{\headrulewidth}{0.25pt}
 \renewcommand{\footrulewidth}{0.25pt}
+\setlength{\headheight}{12.1638pt}
+\addtolength{\topmargin}{-0.1638pt}
 
 % Change item from bullet points to dashes
 \renewcommand{\labelitemi}{\normalfont\bfseries \textendash}
@@ -42,7 +48,8 @@
 \raggedbottom
 \flushbottom
 
-\bibliography{biblio.bib}
+\bibliography{memoire.bib}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{%
@@ -72,10 +79,10 @@
 \chapter{Introduction}
 \input{chapitres/Intro}
 
-\chapter{Intuition}\label{intuition}
+\chapter{Intuitions}\label{intuition}
 \input{chapitres/Chap_intuition}
 
-\chapter{Model}\label{model}
+\chapter{Modèle}\label{model}
 \input{chapitres/Chap_model}
 
 \chapter{Implémentation}\label{data}

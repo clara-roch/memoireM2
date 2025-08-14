@@ -1,0 +1,133 @@
+\documentclass[11pt]{article}
+
+% Conditional compilation
+\usepackage[wp]{optional} % Optional content handling (e.g., for working papers)
+\usepackage{ifpdf} % Detect if processing with pdfTeX
+
+% Fonts and encoding
+\usepackage[T1]{fontenc} % Use T1 font encoding (for proper hyphenation and accented characters)
+\usepackage[utf8]{inputenc} % Allow UTF-8 input characters
+\usepackage{mathptmx} % Use Times font for text and math
+
+% Language
+\usepackage[french]{babel} % English language hyphenation and typographical rules
+
+% Mathematics
+\usepackage{amsmath} % Advanced mathematical formulas
+\usepackage{amsthm} % Theorem environments
+\usepackage{amsfonts} % Additional mathematical fonts
+%% Theorem-like environments
+\newtheorem{prop}{Proposition}
+
+% Formatting and spacing
+\usepackage{fullpage} % Set margins to reasonable defaults
+\usepackage{setspace} % Adjust line spacing
+\setstretch{1.15} % Set line spacing
+\usepackage{microtype} % Improves typography with micro-typographical adjustments
+\usepackage[toc, page]{appendix} % Appendices with their own numbering
+
+% Floats
+\usepackage{caption} % Customize captions
+\usepackage{subcaption} % Support for sub-captions
+
+% Tables
+\usepackage{array} % Extended array and tabular environments
+\usepackage{booktabs} % Professional-quality tables
+\usepackage{tabularx} % Tables with adjustable-width columns
+\usepackage[flushleft, para]{threeparttable} % Tables with notes
+\usepackage{longtable} % Tables that span multiple pages
+\usepackage{dcolumn} % Align table columns on decimal points
+\newcolumntype{d}[1]{D{.}{.}{#1}} % Define 'd' column type for decimal alignment
+
+% Figures and graphics
+\usepackage{graphicx} % Include graphics
+\graphicspath{{.}{../output/figures/serif/}} % Set graphics search path
+
+% Color
+\usepackage{xcolor} % Color support
+\definecolor{DarkBlue}{rgb}{0,0.08,0.45}
+\definecolor{DarkRed}{rgb}{0.5,0,0}
+
+% Cross-referencing and hyperlinks
+\usepackage[plain]{fancyref} % Enhanced referencing capabilities
+\ifpdf%
+  \usepackage{hyperref}% Hyperlinks in PDF
+  \hypersetup{%
+    bookmarksopen=true,%
+    naturalnames=true,%
+    citecolor=DarkRed,%
+    urlcolor=DarkBlue,%
+    linkcolor=DarkRed,%
+    filecolor=DarkBlue,%
+    colorlinks=true,%
+    pdfstartview={FitH}}%
+  \usepackage{bookmark}% Advanced bookmark management
+  \bookmarksetup{%
+    open,%
+    numbered,%
+    depth=5, % Use depth specified instead of 'tocdepth'
+  }%
+  \pdfminorversion=7 % Adjust minimal PDF version for compatibility
+\fi
+
+% Bibliography
+\usepackage{natbib} % Flexible bibliography support
+\bibliographystyle{apalike4} % Bibliography style
+\setlength{\bibsep}{0.2\baselineskip} % Adjust spacing between bibliography entries
+
+% Author and title information
+\usepackage[noblocks]{authblk} % Author affiliations
+\renewcommand\Affilfont{\small} % Set affiliation font size to small
+\setlength{\affilsep}{2em} % Space between affiliations
+\renewcommand\Authand{\hspace{2em}} % Adjust spacing between authors
+
+\title{Titre\thanks{Thanks}}
+\date{\today}%
+\author[3,1]{Christophe Gouel}%
+\affil[1]{CEPII, 20 avenue de Ségur, 75007, Paris, France}%
+\affil[3]{Université Paris-Saclay, INRAE, AgroParisTech, Paris-Saclay Applied Economics, 91120, Palaiseau, France}%
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  \setlength\parindent{0pt}%
+  \setlength\parskip{1ex  plus  0.6ex  minus  0.4ex}%
+  \noindent%
+  \input{abstract_200}
+
+  \emph{Keywords:} Fossil fuels, Greenhouse Gases, International Trade, Tariffs.
+\end{abstract}
+
+\newpage
+
+\input{carbon-bias-tariffs-body}
+
+%\clearpage
+\ifpdf\pdfbookmark{Appendix}{sec:Appendix}\fi
+\appendix
+
+\begin{center}
+  \Large
+  \textbf{Appendix}
+\end{center}
+
+\renewcommand\theequation{A\arabic{equation}}
+\setcounter{equation}{0}
+\renewcommand\thefigure{A\arabic{figure}}
+\setcounter{figure}{0}
+\renewcommand\thetable{A\arabic{table}}
+\setcounter{table}{0}
+
+\input{carbon-bias-tariffs-A-body}
+\input{carbon-bias-tariffs-SA-body}
+
+\ifpdf\pdfbookmark{References}{sec:references}\fi
+\bibliography{./carbon-bias-tariffs}
+
+\end{document}
+
+%%% Local Variables:
+%%% TeX-master: t
+%%% End:
