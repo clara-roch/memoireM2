@@ -1,145 +1,112 @@
-\chapter{Intuition}\label{appendix:intuitions}
+\chapter{Annexes}
 
-\section{Tariff}\label{appendix:intuitions_tariff}
+\section{Ouverture - effet d'une subventon sur les émissions des GES}\label{appendix:subventions}
 
-First, we express $P_F$ as a function of $t$ and the elasticities.
+Dans cette annexe, on considère l'introduction d'une subvention à la production dans le pays $H$. Cela change nos fonctions d'offre, comme suit~:
+$$
+    S_F = S_F^0\left(1 + \eta_F\frac{P_F - P_F^0}{P_F^0}\right),
+$$
+et avec la subvention $s$,
+$$
+    S_H = S_H^0\left(1 + \eta_H\frac{P_H + s - P_H^0}{P_H^0}\right).
+$$
+Pour simplifier, on assume $P_H = P_F = P$.
 
-Starting from the equation
-$$
-    D_H - S_H = S_F - D_F,
-$$
-and using the definitions of demand and supply, we obtain:
-$$
-    D_H^0\left(1+\epsilon_H \frac{P_H - P_H^0}{P_H^0}\right) - S_H^0\left(1+\eta_H \frac{P_H - P_H^0}{P_H^0}\right) = S_F^0 \left(1+\eta_F \frac{P_F - P_F^0}{P_F^0}\right) - D_F^0\left(1+\epsilon_F \frac{P_F - P_F^0}{P_F^0}\right).
-$$
-We then factorize by $\frac{P_i-P_i^0}{P_i^0}$ for $i = H,F$:
-$$
-    \frac{P_H - P_H^0}{P_H^0} [D_H^0 \epsilon_H - S_H^0 \eta_H] + D_H^0 - S_H^0 = \frac{P_F - P_F^0}{P_F^0} [S_F^0 \eta_F - D_F^0 \epsilon_F] + S_F^0 - D_F^0.
-$$
-Noting that $D_H^0 - S_H^0 = S_F^0 - D_F^0$, we obtain:
-$$
-    \frac{P_H - P_H^0}{P_H^0} [D_H^0 \epsilon_H - S_H^0 \eta_H] = \frac{P_F - P_F^0}{P_F^0} [S_F^0 \eta_F - D_F^0 \epsilon_F].
-$$
-
-Using the aggregated elasticities defined in Chapter \ref{Sec_tariff}, we have
-$$
-    \frac{P_F}{P_F^0}= -\frac{\mu_H (1 - t/P_H^0) - \chi_F}{\eta-\epsilon}\frac{X_F^0}{D^0}.
-$$
-
-Multiplying both sides by $P_F^0$, a straightforward derivation yields:
-$$
-    \frac{\partial P_F}{\partial t} = \frac{\mu_H}{\eta - \epsilon} \frac{X_F^0}{D^0} \frac{P_F^0}{P_H^0} < 0.
-$$
-
-Assuming an initial tariff of zero, i.e. $P_F^0 = P_H^0$, we have:
-$$
-    \frac{P_F}{P_F^0} = - \frac{(1 - t/P_H^0)\mu_H - \chi_F}{\chi_F - \mu_H} = 1+\frac{\mu_H}{\chi_F - \mu_H}\frac{t}{P_H^0}.
-$$
-
-Assuming an initial tariff of zero and uniform elasticities across countries, the price and its derivative are given by:
+Introduire une subvention conduit aux fonctions de prix et à leur dérivée suivante~:
 \begin{align*}
-    P_F                             & = P_F^0 + t \frac{\mu_H}{\eta_i - \epsilon_i} \frac{X_F^0}{D^0}, \\
-    \frac{\partial P_F}{\partial t} & = \frac{\mu_H}{\eta_i - \epsilon_i} \frac{X_F^0}{D^0} < 0.
+    \frac{P}{P^0}                 & = 1 + \frac{\eta_H}{\mu_H - \chi_F} \frac{s \, S_H^0}{P^0 X_F^0}, \\
+    \frac{\partial P}{\partial s} & = \frac{\eta_H}{\mu_H - \chi_F} \frac{S_H^0}{X_F^0} < 0.
 \end{align*}
-
-Regarding total production $Q$, with an initial tariff of zero we have:
-\begin{align*}
-    Q                             & = Q^0 + \frac{- \frac{t}{P_H^0}\eta_i(S_H^0 \chi_F + S_F^0 \mu_H)}{\mu_H - \chi_F}, \\
-    \frac{\partial Q}{\partial t} & = \eta_i \frac{S_H^0 \chi_F + S_F^0 \mu_H}{\chi_F - \mu_H}\frac{1}{P_H^0}.
-\end{align*}
-
-For emissions, using $E_i = e_i S_i$, we obtain the results presented in Section \ref{Sec_tariff}. In addition, assuming an initial tariff of zero and equal elasticities (i.e., $\eta_H = \eta_F = \eta_i$ and $\epsilon_H = \epsilon_F = \epsilon_i$), we have:
-\begin{align*}
-    E                             & = E^0 + \frac{\frac{t}{P_H^0} \eta_i (E_H^0 \chi_F + E_F^0 \mu_H)}{\chi_F - \mu_H}, \\[1mm]
-    \frac{\partial E}{\partial t} & = \eta_i \frac{E_H^0 \chi_F + E_F^0 \mu_H}{\chi_F - \mu_H}\frac{1}{P_H^0}.
-\end{align*}
-
-\section{Subvention}\label{appendix:intuitions_subvention}
-
-By rewriting the equilibrium equation with the new supply functions,
+Nous pouvons donc dire que l'introduction d'une aide à la production dans le pays domestique réduira les prix dans l'ensemble des pays faisant partis du marché.
+La production totale devient~:
 $$
-    D_H^0\left(1+\epsilon_H \frac{P - P^0}{P^0}\right) - S_H^0\left(1+\eta_H \frac{P + s - P^0}{P^0}\right) = S_F^0 \left(1+\eta_F \frac{P - P^0}{P^0}\right) - D_F^0\left(1+\epsilon_F \frac{P - P^0}{P^0}\right),
+    S = S^0 + \eta_H \frac{s \, S_H^0}{P^0}\left[1 - \frac{\eta}{\chi_F - \mu_H}\frac{S^0}{X_F^0}\right],
 $$
-we obtain the price and its derivative as presented in Section \ref{Sec_subvention}.
+et sa dérivée
+$$
+    \frac{\partial S}{\partial s} = \frac{\eta_H S_H^0}{P^0}\left[1 - \frac{\eta}{\chi_F - \mu_H}\frac{S^0}{X_F^0}\right].
+$$
+Étant donné que $X_F^0(\chi_F - \mu_H) = \eta S^0 - \epsilon D^0$ et $\epsilon < 0$, on a
+$$
+    1 > \frac{\eta}{\chi_F - \mu_H}\frac{S^0}{X_F^0},
+$$
+ce qui implique qu'une subvention augmentera la production totale.
 
-When elasticities are uniform across countries, so that $\epsilon_i = \epsilon$ and $\eta_i = \eta$, we have:
-\begin{align*}
-    \frac{P}{P^0}                 & = 1 + \frac{\eta}{\mu_H - \chi_F} \frac{s S_H^0}{P^0 X_F^0}, \\
-    \frac{\partial P}{\partial s} & = -\frac{\eta}{\chi_F - \mu_H} \frac{S_H^0}{X_F^0} < 0.
-\end{align*}
-
-With regard to supply, we have:
+En maintenant notre hypothèse de linéarité entre les émissions et la production, on a~:
 $$
-    S = S_F + S_H =  S^0 + S^0 \eta \frac{P- P^0}{P^0} + S_H \eta_H \frac{s}{P^0},
+    E = E^0 + \eta_H \frac{s}{P^0}\left[E_H^0 - \frac{\eta_H E_H^0 + \eta_F E_F^0}{\chi_F - \mu_H}\frac{S_H^0}{X_F^0}\right],
 $$
-which yields the results in Section \ref{Sec_subvention}.
-
-For emissions, using again $E = e_H S_H + e_F S_F$, in the case of uniform elasticities the introduction of the subsidy results in higher emissions only if
+et donc
 $$
-    \frac{E_H^0}{\eta S_H^0} > \frac{E^0}{(\eta - \epsilon)S^0}.
+    \frac{\partial E}{\partial s} = \frac{\eta_H}{P^0}\left[E_H^0 - \frac{\eta_H E_H^0 + \eta_F E_F^0}{\chi_F - \mu_H}\frac{S_H^0}{X_F^0}\right].
 $$
+Dans ce cas, le signe de la dérivée est ambigu~; il dépend de la relation entre $(\eta - \epsilon)E_H^0 S^0$ et $(\eta_H E_H^0 + \eta_F E_F^0) S_H^0$, si le premier est plus grand que le second, alors la subvention augmentera les émissions totales.
 
 
 \section{Variables}\label{appendix:variables}
 
 One can find here a list of the variables used in the model from chapter \ref{model}, for more clarity.
 
-\begin{tabular}{c|l|l}
-    \multicolumn{1}{c}{Name}                    & \multicolumn{1}{|c|}{Description}                                  & \multicolumn{1}{c}{Type} \\
-    \hline
-    $\beta_*^* \ge 0$                           & preference parameter (exogenous)                                   & param                    \\
+\begin{table}[h!]
+    \begin{tabular}{c|l|l}
+        \multicolumn{1}{c}{\textbf{Name}}           & \multicolumn{1}{|c|}{\textbf{Description}}                         & \multicolumn{1}{c}{\textbf{Type}} \\
+        \hline
+        $\beta_*^* \ge 0$                           & preference parameter (exogenous)                                   & param                             \\
 
-    $\kappa > 0 \neq 1$                         & elasticity of substitution between agr product                     & param                    \\
+        $\kappa > 0 \neq 1$                         & elasticity of substitution between agr product                     & param                             \\
 
-    $\kappa_{\text{feed}} > 0$                  & elasticity of substitution between various feed crops              & param                    \\
+        $\kappa_{\text{feed}} > 0$                  & elasticity of substitution between various feed crops              & param                             \\
 
-    $\sigma > 0 \neq 1$                         & Armington elasticity of substitution                               & param                    \\
+        $\sigma > 0 \neq 1$                         & Armington elasticity of substitution                               & param                             \\
 
-    $\epsilon > 0$                              & opposite of price elasticity of demand for the agricultural bundle & param                    \\
+        $\epsilon > 0$                              & opposite of price elasticity of demand for the agricultural bundle & param                             \\
 
-    $p_j^k$ and $P_j^k$                         & producer and consummer price                                       & variables                \\
+        $p_j^k$ and $P_j^k$                         & producer and consummer price                                       & variables                         \\
 
-    $\tau_{ij}^k \ge 1$                         & iceberg cost from $i$ to $j$ for $k$, here $=1$                    & param                    \\
+        $\tau_{ij}^k \ge 1$                         & iceberg cost from $i$ to $j$ for $k$, here $=1$                    & param                             \\
 
-    $C_j^0$                                     & consumption of non-agr product, $P_j^0 = 1$                        & variable                 \\
+        $C_j^0$                                     & consumption of non-agr product, $P_j^0 = 1$                        & variable                          \\
 
-    $C_j^k$                                     & consumption                                                        & variable                 \\
+        $C_j^k$                                     & consumption                                                        & variable                          \\
 
-    ${x^a}_j^k, {x^\text{feed}}_j^k$            & intermediate consumption of $k$ by activity $a$                    & variable                 \\
+        ${x^a}_j^k, {x^\text{feed}}_j^k$            & intermediate consumption of $k$ by activity $a$                    & variable                          \\
 
-    ${x}_j^k = {x^a}_j^k + {x^\text{feed}}_j^k$ & total intermediate consumption of $k$                              & variable                 \\
+        ${x}_j^k = {x^a}_j^k + {x^\text{feed}}_j^k$ & total intermediate consumption of $k$                              & variable                          \\
 
-    ${\mu_i^\text{feed}}$                       & conversion ratio                                                   & param                    \\
+        ${\mu_i^\text{feed}}$                       & conversion ratio                                                   & param                             \\
 
-    $A_i^0 > 0$                                 & labor productivity (in money), equal to wages $A_i^0 = w_i$        & param                    \\
+        $A_i^0 > 0$                                 & labor productivity (in money), equal to wages $A_i^0 = w_i$        & param                             \\
 
-    $N_i^*$                                     & labor demand $i$                                                   & variable                 \\
+        $N_i^*$                                     & labor demand $i$                                                   & variable                          \\
 
-    $r_i^k$                                     & per hectare land rents                                             & variables                \\
+        $r_i^k$                                     & per hectare land rents                                             & variables                         \\
 
-    $s_i^k$                                     & share of field in country $i$ allocated to $k$                     & variable                 \\
+        $s_i^k$                                     & share of field in country $i$ allocated to $k$                     & variable                          \\
 
-    $Q_i^k$                                     & production                                                         & variable                 \\
+        $Q_i^k$                                     & production                                                         & variable                          \\
 
-    $Q_i^a$                                     & level of activity of $a$                                           & variable                 \\
+        $Q_i^a$                                     & level of activity of $a$                                           & variable                          \\
 
-    $Q_i^{al} Q_i^{a}$,                         & production of output $l$, or main output throught $a$              & variable                 \\
+        $Q_i^{al} Q_i^{a}$,                         & production of output $l$, or main output throught $a$              & variable                          \\
 
-    $\nu_i^{al} = Q_i^{al} / Q_i^a$             & mass proportion of output $l$ in the process $a$                   & parameter                \\
+        $\nu_i^{al} = Q_i^{al} / Q_i^a$             & mass proportion of output $l$ in the process $a$                   & parameter                         \\
 
-    $y_i^k$                                     & yield parameter                                                    & param                    \\
+        $y_i^k$                                     & yield parameter                                                    & param                             \\
 
-    $Y_i^k$                                     & yield level                                                        & variable                 \\
+        $Y_i^k$                                     & yield level                                                        & variable                          \\
 
-    $\varsigma_i^k > 0$                         & yield elasticity                                                   & param                    \\
+        $\varsigma_i^k > 0$                         & yield elasticity                                                   & param                             \\
 
-    $F_i^k$                                     & quantity of land-intensifying inputs                               & variables                \\
+        $F_i^k$                                     & quantity of land-intensifying inputs                               & variables                         \\
 
-    $a_i > 0$                                   & behavioral parameter that governs the acreage elasticity           & param                    \\
+        $a_i > 0$                                   & behavioral parameter that governs the acreage elasticity           & param                             \\
 
-    $X_{ij}^k$                                  & volume of bilateral export between $i$ and $j$ for good $k$        & variable                 \\
+        $X_{ij}^k$                                  & volume of bilateral export between $i$ and $j$ for good $k$        & variable                          \\
 
-    $E_i$                                       & expenditures                                                       & variable                 \\
+        $E_i$                                       & expenditures                                                       & variable                          \\
 
-    $W_i$                                       & Wages                                                              & variable                 \\
-\end{tabular}
+        $W_i$                                       & Wages                                                              & variable                          \\
+    \end{tabular}
+    \caption{Récapitulatif des notations utilisées dans le modèle}
+    \label{table:variable}
+\end{table}

@@ -10,11 +10,13 @@
 \usepackage{amsmath} % For math equation
 \usepackage{bbm} % For math fonts
 \usepackage[T1]{fontenc}    % Use T1 font encoding (for proper hyphenation and accented characters)
-\usepackage[utf8]{inputenc} % Allow UTF-8 input characters
+\usepackage[utf8]{inputenc} % Allow UTF-8 input characters% Language
+\usepackage[french]{babel} % French language hyphenation and typographical rules
 \usepackage{fancyhdr}
 \usepackage{pdflscape}
 \usepackage[style=authoryear]{biblatex}
-
+\usepackage{lscape}
+\usepackage{tabularx}
 
 % Customize itemize environment to remove spaces
 \setlist[itemize]{noitemsep, topsep=0pt, before=\vspace{-\baselineskip}}
@@ -95,11 +97,8 @@
 \input{chapitres/Concl}
 
 \newpage
-\pagenumbering{roman}
 \printbibliography
 
-\newpage
-\pagenumbering{arabic}
 \appendix
 \input{chapitres/Annexes}
 

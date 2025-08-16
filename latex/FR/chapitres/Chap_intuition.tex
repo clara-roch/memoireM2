@@ -36,9 +36,7 @@ Pour simplifier la suite des calculs, nous introduisons les élasticités agrég
 
 Pour chaque politique on examine ses effets sur les émissions totales à travers leur impact sur les prix internationaux (prix du pays $F$) et sur la production totale.
 
-\section{Introduction d'un droit de douane dans le pays domestique}\label{Sec_tariff}
-
-Considérons une première politique, où le pays $H$ met en place un droit de douane à l'importation $t$. Cela implique les relations suivantes~:
+Considérons que le pays $H$ met en place un droit de douane à l'importation $t$. Cela implique les relations suivantes~:
 $$
     P_H = P_F + t.
 $$
@@ -73,47 +71,3 @@ $$
 Ici, le signe est le même que celui de $E_H^0 \eta_H \chi_F + E_F^0 \eta_F \mu_H$. Autrement dit, l'effet de l'augmentation des tarifs douaniers sur les émissions totales est ambigu~; des émissions nationales plus importantes $E_H^0$ augmentent la probabilité que l'augmentation des droits de douanes augmente les émissions globales.
 
 Voir annexe \ref{appendix:intuitions_tariff} pour le détail des calculs et pour des cas particuliers.
-
-\section{Introduction d'une subvention à la production dans le pays importateur}\label{Sec_subvention}
-
-Dans cette section, on considère l'introduction d'une subvention à la production dans le pays $H$. Cela change nos fonctions d'offre, comme suit~:
-$$
-    S_F = S_F^0\left(1 + \eta_F\frac{P_F - P_F^0}{P_F^0}\right),
-$$
-et avec la subvention $s$,
-$$
-    S_H = S_H^0\left(1 + \eta_H\frac{P_H + s - P_H^0}{P_H^0}\right).
-$$
-Pour simplifier, on assume $P_H = P_F = P$.
-
-Introduire une subvention conduit aux fonctions de prix et à leur dérivé suivante~:
-\begin{align*}
-    \frac{P}{P^0}                 & = 1 + \frac{\eta_H}{\mu_H - \chi_F} \frac{s \, S_H^0}{P^0 X_F^0}, \\
-    \frac{\partial P}{\partial s} & = \frac{\eta_H}{\mu_H - \chi_F} \frac{S_H^0}{X_F^0} < 0.
-\end{align*}
-Nous pouvons donc dire que l'introduction d'une aide à la production dans le pays domestique réduira les prix dans l'ensemble des pays faisant partis du marché.
-La production total devient~:
-$$
-    S = S^0 + \eta_H \frac{s \, S_H^0}{P^0}\left[1 - \frac{\eta}{\chi_F - \mu_H}\frac{S^0}{X_F^0}\right],
-$$
-et sa dérivée
-$$
-    \frac{\partial S}{\partial s} = \frac{\eta_H S_H^0}{P^0}\left[1 - \frac{\eta}{\chi_F - \mu_H}\frac{S^0}{X_F^0}\right].
-$$
-Étant donné que $X_F^0(\chi_F - \mu_H) = \eta S^0 - \epsilon D^0$ et $\epsilon < 0$, on a
-$$
-    1 > \frac{\eta}{\chi_F - \mu_H}\frac{S^0}{X_F^0},
-$$
-ce qui implique qu'une subvention augmentera la production totale.
-
-En maintenant notre hypothèse de linéarité entre les émissions et la production, on a~:
-$$
-    E = E^0 + \eta_H \frac{s}{P^0}\left[E_H^0 - \frac{\eta_H E_H^0 + \eta_F E_F^0}{\chi_F - \mu_H}\frac{S_H^0}{X_F^0}\right],
-$$
-et donc
-$$
-    \frac{\partial E}{\partial s} = \frac{\eta_H}{P^0}\left[E_H^0 - \frac{\eta_H E_H^0 + \eta_F E_F^0}{\chi_F - \mu_H}\frac{S_H^0}{X_F^0}\right].
-$$
-Dans ce cas, le signe de la dérivée est ambigu~; il dépend de la relation entre $(\eta - \epsilon)E_H^0 S^0$ et $(\eta_H E_H^0 + \eta_F E_F^0) S_H^0$, si le premier est plus grand que le second, alors la subvention augmentera les émissions totales.
-
-Voir annexe \ref{appendix:intuitions_subvention} pour plus de détails.

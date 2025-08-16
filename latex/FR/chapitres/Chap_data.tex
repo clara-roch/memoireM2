@@ -1,28 +1,12 @@
-- tidy\_faostat (récupération données, agrégation + nettoyage)
+\section{Données et traitement}
 
-- tidy\_fabio (agrégation, nettoyage des losses, et process)
-
-- valeur arbitraire choisit en fonction des autres papiers ou de la plouf (du coup la plouf pour le share cost labor et land )
-
-\section{Modèle à trois régions}
-Afin de simplifier le modèle, nous considérons, trois régions principales~: la Chine, les États-Unis (EUA) et le reste du monde (RoW)~; les valeurs de productions et de consommation de la Chine et des EUA sont suffisamment significatives pour être comparées à celles du reste du monde (entre zéro et deux ordres de grandeurs en moins, e.g. la consommation de céréales dans le reste du monde est de 4.01e11, tandis que celles de la Chine et des EUA 1.35e11 et 4.28e10~; pour le sucre on a dans le même ordre 1.17e11, 3.72e10, et 6.99e9), ce qui nous permet de considérer ces trois régions en parallèle.
-
-Pour les cultures, nous les agrégeons par grandes catégories selon les catégories suivantes lorsque c’est possible~: fruits et légumes, céréales, tubercules, culture à sucre, à huile, non-alimentaires. Les animaux vivants sont retirés, car ils ne sont qu’un intermédiaire entre leur nourriture et les produits issus de l’élevage, que nous considérons tous sous la même catégorie. Les tourteaux et les huiles sont considérés séparément.
+Le modèle est calibré sur des données de 2017, dernière année disponible dans les données GTAP.
 
 
-\section{Données}
-\subsection{Paramètres de comportement}
-Nous faisons les mêmes choix sur le paramétrage que dans Gouel (2025).
-
-\subsection{Données et traitement pour l’équilibre initial}
-
-Le modèle est calibré sur des données de 2017, 2017 correspond à la dernière année disponible dans les données GTAP.
-
-
-\subsubsection{Quantités et valeurs}
+\subsection{Quantités et valeurs}
 Les données sont disponibles à l'échelle \textit{cbs}, qui correspond à une agrégation partielle, qui est celle de la colonne de gauche de l'annexe (??).
 
-\subsubsection{Prix}
+\subsection{Prix}
 Nous avons utilisé les données de prix issus des bases FAOSTAT sur les prix producteur et sur les quantités totales et en valeurs échangées, pour chaque culture et chaque pays en désagrégé. Les prix donnés par FAOSTAT sont à un niveau de désagrégation inférieur à celui des données disponibles avec FABIO, pour simplifier l'exposé nous nommerons ce niveau \textit{item}. Une table de passage nous permet de passer de ces ?? \textit{item} à ?? \textit{cbs}.
 
 L'utilisation de ces deux bases permet de recouvrir le plus de prix possible. Afin de s'assurer de la cohérence des prix, nous utilisons les données de production totale en quantité et en valeur des \textit{items}, agrégées au niveau monde, ainsi nous récupérons un prix moyen pour chaque culture correspondant à la valeur totale produite sur la quantité totale produite, et nous assurons que les prix issus des données producteurs et des données de commerce, dans chaque pays ne sont pas trop éloignés de cette valeur. La procédure de conservation des prix est la suivante~:
@@ -37,4 +21,27 @@ On applique également ce tri, sur les prix agrégés au niveau supérieur des \
 
 % [expliquer ces affaires de exports imports]
 
-\subsection{Données pour les scenarii contrefactuels}
+
+\section{Paramètres de comportement}
+Nous faisons les mêmes choix sur le paramétrage que dans \cite{Gouel2025}. Le tableau \label{tab:ela} résume les valeurs choisies pour les élasticités, ainsi que l'origine de ces choix.
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+        \textbf{Élasticité}        & \textbf{Description}                                          & \textbf{Origine}                                   \\ \hline
+        $\epsilon = 0.5$           & opposé de prix de la demande pour le panier de bens agricoles & \cite{Comin2021}                                   \\
+        $\kappa = 0.6$             & de substitution à la consommation                             & Valeur usuelle dans la littérature \cite{Rude2000} \\
+        $\kappa_\text{feed} = 0.9$ & de substitution dans l'alimentation animale                   & \cite{Rude2000}                                    \\
+        $\varsigma = 0.25$         & prix rendement des cultures                                   & \cite{Keeney2009}                                  \\
+        $\sigma_k \in [2.6, 10]$   & de substitution d'Armington                                   & GTAP  \cite{Aguiar2022}                            \\
+        \hline
+    \end{tabularx}
+    \caption{Origine des paramètres}
+    \label{tab:ela}
+\end{table}
+
+Nous pouvons remarquer que l'élasticité de substitution entre les biens pour l'alimentation animal est plus élevée que celle pour l'alimentation humaine, cela témoigne deux choses, d'abord que l'alimentation animale est constitués d'un panel d'aliments moins diversifiés (les animaux mangent principalement des céréales et des tourteaux), ensuite que les humains veulent manger tel ou tel aliment, et non pas que pour son apport calorique.
+
+Le choix de l'élasticité $\varsigma$ vient d'une moyenne des valeurs de l'étude GTAP \cite{Miller2009} qui porte sur les bio-carburants, idéalement la valeur aurait dû être différenciée entre les différentes cultures dans les différents pays pour exprimer les différentes rigidités dans chaque pays.
+
+Les valeurs des élasticités de substitutions d'Armington, viennent quant à elles de la base de données GTAP \footcite{Aguiar2022}.
