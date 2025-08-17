@@ -3,25 +3,6 @@
 Le modèle est calibré sur des données de 2017, dernière année disponible dans les données GTAP. Comme souligné dans \cite{Gouel2021} il est important qu'un modèle recouvre le plus de biens agricoles, afin que l'élasticité $\varepsilon$ correspondent réellement à l'inverse de l'élasticité de la demande pour les biens agricoles, qui est estimé dans des papiers comme \cite{Comin2021} et non pas juste à une partie d'entre eux, nous avons donc choisi de représenter l'ensemble (ou presque) des éléments biens disponibles dans FABIO, en les agrégeant en trente-et-un groupes, qui représentent des éléments uniques ou bien des ensembles, les biens uniques, ont été choisi de telle sorte qu'ils représentent chacun plus d'un pourcent de la production mondiale totale\footnote{cf. table 2 de \cite{Gouel2021}}, les autres sont regroupés par catégories. Quant aux pays, nous avons choisi de les rassembler en quatorze régions, correspondant au regroupement des pays par sous-continents, en évitant d'avoir une région reste du monde, qui malgré qu'elle apparaisse dans les données FABIO\footnote{Modèle basé sur les données de FAOSTAT, représentant les échanges entre pays, les productions et les usages finaux, regroupant 186 pays et 127 biens agricoles, recouvrant ?? de la production mondiale \cite{Bruckner2019}} et GTAP\footnote{Base de données GTAP, représente l'économie mondiale, en se basant sur des données de comptabilité nationale, de commerce, de production, etc., répartie en vingt-et-une catégories de biens, et en 160 régions.}, n'avait pas de sens géographique ou politique\footnote{L'annexe \ref{annexe:reg} donne l'attribution des pays aux régions.}.
 
 
-\subsection{Prix - FAOSTAT -- \textbf{à reprendre}}\label{subsec:prix}
-
-Les données sont disponibles à l'échelle \textit{cbs}, qui correspond à une agrégation partielle, qui est celle de la colonne de gauche de l'annexe (??).
-
-Nous avons utilisé les données de prix issus des bases FAOSTAT sur les prix producteur et sur les quantités totales et en valeurs échangées, pour chaque culture et chaque pays en désagrégé. Les prix donnés par FAOSTAT sont à un niveau de désagrégation inférieur à celui des données disponibles avec FABIO, pour simplifier l'exposé nous nommerons ce niveau \textit{item}. Une table de passage nous permet de passer de ces ?? \textit{item} à ?? \textit{cbs}.
-
-L'utilisation de ces deux bases permet de recouvrir le plus de prix possible. Afin de s'assurer de la cohérence des prix, nous utilisons les données de production totale en quantité et en valeur des \textit{items}, agrégées au niveau monde, ainsi nous récupérons un prix moyen pour chaque culture correspondant à la valeur totale produite sur la quantité totale produite, et nous assurons que les prix issus des données producteurs et des données de commerce, dans chaque pays ne sont pas trop éloignés de cette valeur. La procédure de conservation des prix est la suivante~:
-\begin{itemize}
-    \item utiliser les {80\,\%} des prix d'\textit{item}, les plus proches du prix moyen mondial trouvé~;
-    \item calculer la moyenne et l'écart type de la répartition de ces prix~;
-    \item calculer pour l'ensemble des prix (pas uniquement les 80\,\% des prix les plus proches), l'écart à la moyenne en nombre d’écart-type~;
-    \item calculer pour chaque pays l'écart-type moyen pour chaque pays, afin de déterminer si le pays a des prix habituellement élevés par rapport au prix mondiaux~;
-    \item ne conserver que les prix ne s'éloignant pas de plus de deux écart-types en plus de leur écart moyen, calculé à l'étape précédente, des prix mondiaux.
-\end{itemize}
-On applique également ce tri, sur les prix agrégés au niveau supérieur des \textit{cbs}. Ensuite, on agrège les prix restant au niveau des \textit{cbs}.
-
-% [expliquer ces affaires de exports imports]
-
-
 \subsection{Quantités - FABIO}
 
 Les données relatives aux quantités produites, consommées et échangées proviennent du modèle FABIO. Les données brutes\footnote{cf. annexe de \cite{Bruckner2019}, pour voir des représentations graphiques des matrices.} étaient sous la forme de matrice de production $x$ (de dimensions $1 \times (card(pays)+card(biens))$), de demande finale $y$ (de dimension $(card(pays)+card(biens)) \times (card(pays)+card(uses))$) et d'échanges $z$ (et de dimensions $(card(pays)+card(biens)) \times (card(pays)+card(biens))$). Nous avons retiré certains secteurs qui ne nous intéressaient pas (alcools et éthanol) représentant ??~\% de la production totale, la production de \textit{Sweeteners, Other} représentant ??~\%, ainsi que la production d'huile et de tourteaux provenant de céréales représentant ??~\%. Pour éviter d'avoir une région \textit{reste du monde} inconsistante nous l'avons retirée (??~\%).
@@ -66,9 +47,26 @@ Le tableau \ref{tab:prod_item} montre la production en valeurs des différents b
     \end{threeparttable}
 \end{table}
 
+
+\subsection{Prix - FAOSTAT \textbf{-- à reprendre}}\label{subsec:prix}
+
+Afin de transformer nos données en volumes en données en valeurs, nous avons récupéré les prix de FAOSTAT. Nous avions besoins des données prix producteurs, cependant, les données FAOSTAT sur ces derniers ne correspondaient pas entièrement aux biens que nous avons dans les tables FABIO, ils nous donc fallut complété avec des données de prix issus des tables de commerce\footnote{Table \textit{Producer Prices} et \textit{Crops and livestock products}}.
+
+Certaines données de prix étaient incohérentes, et résultaient en un déséquilibre des chaînes de valeurs une fois l'agrégation faite avec les données FABIO, il a donc fallut les traiter pour s'assurer de garder uniquement des bons prix. Tout d'abords nous avons calculé pour chaque biens à l'échelle FAOSTAT, une valeur moyenne en en divisant la valeur totale échangée sur la quantité totale échangée. Nous assurons ensuite que les prix issus des données FAOSTAT producteurs et de commerce, dans chaque pays ne sont pas trop éloignés de cette valeur. La procédure de conservation des prix est la suivante~:
+\begin{itemize}
+    \item utiliser les {80\,\%} des prix d'\textit{item}, les plus proches du prix moyen mondial trouvé, pour calculer une moyenne et un écart-type pour d'une répartition resserré des prix~;
+    \item calculer pour l'ensemble des prix (pas uniquement les 80\,\% des prix les plus proches), l'écart à la moyenne en nombre d’écart-type~;
+    \item calculer pour chaque pays l'écart-type moyen pour chaque pays, afin de déterminer si le pays a des prix habituellement élevés par rapport au prix mondiaux~;
+    \item ne conserver que les prix ne s'éloignant pas de plus de deux écart-types en plus de l'écart-type moyen du pays des prix mondiaux.
+\end{itemize}
+Nous faisons ce tri, sur les données brutes de FAOSTAT, puis sur celles obtenues en agrégeant les données conservées après ce premier tri, au niveau FABIO, cette fois-ci nous nous assurons qu'après agrégation, les prix sont toujours suffisamment proche de la moyenne calculé pour ce niveau d'agrégation en prenant l'ensemble des valeur échangées, sur l'ensemble des quantités échangées.
+
+Finalement, ces deux étapes de prix, nous conduisent à avoir des prix manquant (~\%). Nous reconstruisons donc les prix à l'aide d'un multiplicateur calculé par pays et groupe de produits (comme définit dans la colonne de gauche de l'annexe \ref{annexe:item}). Ce multiplicateur sera plus élevé pour un pays avec des prix en moyenne plus haut, et plus élevé également pour les biens avec un prix plus élevé que la moyenne. Ainsi, le multiplicateur le plus élevé correspond au bœuf au Japon. Nous reconstruisons ensuite les prix à l'échelle FABIO manquant, en récupérant le premier prix non-nul obtenu par la multiplication de notre multiplicateur avec le prix moyen dans nos données du bien à l'échelle FABIO, puis avec le prix moyen dans nos données à l'échelle bien de notre modèle et enfin avec le prix moyen FABIO monde du bien à l'échelle du modèle. \textbf{Revenir sur ce paragraphe qui est surement incrompréhensible\dots}
+
+
 \subsection{Droits de douanes - MAcMap}
 
-Nous avons récupéré les données relatives aux droits de douanes mises à dispositions par \cite{Guimbard2012}, via la base de données MAcMap-HS6 (pour Market Access Map, selon la classification SH6) les données ne concernent cependant pas l'année 2017, nous avons donc pris les données de l'année 2016. Cette base rend compte des droits de douanes bilatéraux d'environ 190 pays importateurs et 220 exportateurs, sur 5\,000 produits. Le traitement a donc consisté en une agrégation selon nos régions et nos biens, en pondérant les droits de douanes par les quantités échangées. Pour les valeurs manquantes dans certains pays, nous les avons émulées en considérant que ces pays échangés dans les mêmes proportions que le monde entier. Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle. La table \ref{tab:macmap}, expose certains des droits de douane existants.
+Nous avons récupéré les données relatives aux droits de douanes mises à dispositions par \cite{Guimbard2012}, via la base de données MAcMap-HS6 (pour Market Access Map, selon la classification SH6) les données ne concernent cependant pas l'année 2017, nous avons donc pris les données de l'année 2016. Cette base rend compte des droits de douanes bilatéraux d'environ 190 pays importateurs et 220 exportateurs, sur 5\,000 produits. Le traitement a donc consisté en une agrégation selon nos régions et nos biens, en pondérant les droits de douanes par les quantités échangées. Pour les valeurs manquantes dans certains pays, nous les avons émulées en considérant que ces pays échangés dans les mêmes proportions que le monde entier. Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle. La table \ref{tab:macmap}, expose certains des droits de douane existants. \textbf{Construire tableau}
 
 
 \subsection{Usage d'énergie et usage d'entrants - GTAP}
@@ -97,7 +95,7 @@ Les données GTAP, nous permettent de traiter les informations relatives aux ém
     \end{threeparttable}
 \end{table}
 
-Parallèlement, le tableau \ref{tab:em_reg} suivant représente les émissions par régions. \textbf{reprendre pour mettre prod et conso, avec \%}
+Parallèlement, le tableau \ref{tab:em_reg} suivant représente les émissions par régions. \textbf{Reprendre le tableau pour mettre prod et conso (le pb, c'est que données en valeurs\dots), avec \%}
 
 \begin{table}[h]
     \centering
