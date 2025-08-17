@@ -62,6 +62,20 @@ Nous effectuons ce tri sur les données brutes de FAOSTAT, puis sur celles obten
 
 Finalement, ces deux étapes de traitement des prix conduisent à un taux de prix manquants de 63\,\%. Nous reconstruisons donc les prix à l'aide d'un multiplicateur calculé par pays et par groupe de produits (tel que défini dans la colonne de gauche de l'annexe \ref{annexe:item}). Ce multiplicateur sera plus élevé pour un pays ayant, en moyenne, des prix plus élevés, et également pour les biens dont le prix est supérieur à la moyenne. Ainsi, le multiplicateur le plus élevé correspond au bœuf au Japon. Nous reconstruisons ensuite les prix manquants à l'échelle FABIO en récupérant le premier prix non nul obtenu en multipliant notre multiplicateur par le prix moyen présent dans nos données du bien à l'échelle FABIO, puis par le prix moyen à l'échelle du bien de notre modèle et enfin par le prix moyen mondial de ce bien à l'échelle du modèle. \textbf{Revenir sur ce paragraphe qui est sûrement incompréhensible\dots}
 
+
+\subsection{Droits de douanes - MAcMap}
+
+Nous avons récupéré les données relatives aux droits de douanes mises à dispositions par \cite{Guimbard2012}, via la base de données MAcMap-HS6 (pour Market Access Map, selon la classification SH6) les données ne concernent cependant pas l'année 2017, nous avons donc pris les données de l'année 2016. Cette base rend compte des droits de douanes bilatéraux d'environ 190 pays importateurs et 220 exportateurs, sur 5\,000 produits. Le traitement a donc consisté en une agrégation selon nos régions et nos biens, en pondérant les droits de douanes par les quantités échangées. Pour les valeurs manquantes dans certains pays, nous les avons émulées en considérant que ces pays échangés dans les mêmes proportions que le monde entier. Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle. La table \ref{tab:macmap}, expose certains des droits de douane existants. \textbf{Construire tableau}
+
+
+\subsection{Usage d'énergie et usage d'entrants - GTAP}
+
+Nous avons récupéré de la base de donnée GTAP 11\footcite{Aguiar2022}, les informations concernant le coût de la terre, l'usage de fertilisants (nous avons réalloué ceux alloués aux bêtes, au fourrage, étant donné que dans notre modèle, les animaux, n'occupent de l'espace que par ce qu'ils mangent), ainsi que l'utilisation d'énergie à la ferme (que nous utilisons ensuite dans le traitement des émissions). Ce traitement nous permet donc d'avoir les informations relatives à prix de la terre et à l'usage d'entrants, soient $r$ et $F$ dans notre modèle.
+
+
+\subsection{Émissions de GES - FAOSTAT}
+
+Les données GTAP, nous permettent de traiter les informations relatives aux émissions. Nous avons suivi l'allocation des émissions proposée dans \cite{Valin2023}. Le tableau \ref{tab:em_allocation}, représente cette allocation, et le pourcentage sur les émissions totales.
 \begin{table}[h]
     \centering
     \begin{threeparttable}
