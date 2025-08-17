@@ -28,7 +28,7 @@ Les données relatives aux quantités produites, consommées et échangées prov
 
 Nous avons ensuite converti ces valeurs en quantité avec les prix issus du traitement de la section \ref{subsec:prix}, afin d'éviter tout problème d'équilibre, dû à une inconsistance des prix, nous avons réévalué, pays par pays, les prix des outputs de certains processus à la hausse pour permettre un équilibre entre les coûts des inputs et la valeur des outputs produits. Pour éviter toute perturbation entre des processus consécutifs sur une même chaîne de valeur, nous avons fait ce traitement dans l'ordre de ces chaînes.
 
-En parallèle, nous avons créé une table de correspondance des processus à partir des processus existants dans la matrice $z$, privée des auto-consommation correspondant à des pertes ou à un usage pour la production de semences (ayant fait le choix de ne pas prendre en compte ces possibilités dans les équations du modèle). Cette matrice référence tous les processus existants réellement dans les données, nous nous sommes basé$\cdot$e$\cdot$s sur les processus proposés dans FABIO, en considérants néanmoins tous les laits comme étant issus du même processus. Cette table nous permet de créer ensuite deux matrices d'usage et de production, telles que $use$ (dimensions ) représente l'ensemble des flux de biens vers des processus, et $make$ (dimensions ) représente l'ensemble des productions issues de chaque processus. Ces matrices donnent ainsi plus d'informations une fois les pays et les biens agrégés, que les matrices agrégées $x$ et $z$\footnote{Nous n'avons pas utilisé les matrices $make$ and $use$ de FABIO, car celles-ci n'étaient pas équilibrées avec les autres matrices $x$, $y$ et $z$}.
+En parallèle, nous avons créé une table de correspondance des processus à partir des processus existants dans la matrice $z$, privée des auto-consommation correspondant à des pertes ou à un usage pour la production de semences (ayant fait le choix de ne pas prendre en compte ces possibilités dans les équations du modèle)\footnote{D'après \cite{Bruckner2019}, les quantités utilisées pour la production de semences représentent 1,4~\% de la consommation des biens issus de culture}. Cette matrice référence tous les processus existants réellement dans les données, nous nous sommes basé$\cdot$e$\cdot$s sur les processus proposés dans FABIO, en considérants néanmoins tous les laits comme étant issus du même processus. Cette table nous permet de créer ensuite deux matrices d'usage et de production, telles que $use$ (dimensions ) représente l'ensemble des flux de biens vers des processus, et $make$ (dimensions ) représente l'ensemble des productions issues de chaque processus. Ces matrices donnent ainsi plus d'informations une fois les pays et les biens agrégés, que les matrices agrégées $x$ et $z$\footnote{Nous n'avons pas utilisé les matrices $make$ and $use$ de FABIO, car celles-ci n'étaient pas équilibrées avec les autres matrices $x$, $y$ et $z$}.
 
 Nous avons ensuite agrégés les matrices selon notre choix de régions et de biens agricoles, tout en vaillant à conserver des valeurs positives dans chaque processus, et en empêchant illusions de pertes et de semences engendrées par l'agrégation.
 
@@ -36,11 +36,39 @@ Pour certaines régions, même après agrégations, certains processus étaient 
 
 Finalement, nous avons à partir de nos matrices agrégées $use$, $make$ et $y$, l'ensemble des données nécessaires pour le modèle, vis-à-vis des consommations $C$, des productions $Q$, et des usages intermédiaires $x$, $X$. FABIO fournissant également des données relatifs aux surfaces, nous avons aussi les informations relatives à $s$, $L$ et $y$. Ces données sont en valeurs, cependant étant donné que nous étudions les variations, l'ensemble des prix est posé à 1, ce qui nous permet également d'avoir les informations sur les prix $P$.
 
+Le tableau \ref{tab:prod_item} montre la production en valeurs des différents biens retenus. L'annexe \ref{annexe:item_prc} présente la composition des biens, et leur origine et usage, dans les différents procédés.
 
-\subsection{Droits de douanes - MAcMAP}
 
-Nous avons récupéré les données relatives aux droits de douanes mises à dispositions par \cite{Guimbard2012}, via la base de données MAcMap-hS6 (pour Market Access Map, selon la classification SH6) les données ne concernent cependant pas l'année 2017, nous avons donc pris les données de l'année 2016. Cette base rend compte des droits de douanes bilatéraux d'environ 190 pays importateurs et 220 exportateurs, sur 5\,000 produits. Le traitement a donc consisté en une agrégation selon nos régions et nos biens, en pondérant les droits de douanes par les quantités échangées. Pour les valeurs manquantes dans certains pays, nous les avons émulées en considérant que ces pays échangés dans les mêmes proportions que le monde entier. Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle. La table \ref{tab:macmap}, expose certains des droits de douane existants.
+\begin{table}[h]
+    \centering
+    \begin{threeparttable}
+        % Premier mini-tableau (colonne gauche)
+        \begin{minipage}[t]{0.49\textwidth}
+            \centering
+            \begin{tabularx}{\textwidth}{p{1.8in}c}
+                \textbf{Biens} & \textbf{Part (\%)} \\ \hline
+                % Première moitié de vos données
+                \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/tab_latex/outputs/prod_item_part1.tex
+                \hline
+            \end{tabularx}
+        \end{minipage}
+        \begin{minipage}[t]{0.49\textwidth}
+            \centering
+            \begin{tabularx}{\textwidth}{p{2in}c}
+                \textbf{Biens} & \textbf{Part (\%)}                                                                                               \\ \hline
+                % Seconde moitié de vos données
+                \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/tab_latex/outputs/prod_item_part2.tex \\
+                \hline
+            \end{tabularx}
+        \end{minipage}
+        \caption{Allocation des émissions}
+        \label{tab:prod_item}
+    \end{threeparttable}
+\end{table}
 
+\subsection{Droits de douanes - MAcMap}
+
+Nous avons récupéré les données relatives aux droits de douanes mises à dispositions par \cite{Guimbard2012}, via la base de données MAcMap-HS6 (pour Market Access Map, selon la classification SH6) les données ne concernent cependant pas l'année 2017, nous avons donc pris les données de l'année 2016. Cette base rend compte des droits de douanes bilatéraux d'environ 190 pays importateurs et 220 exportateurs, sur 5\,000 produits. Le traitement a donc consisté en une agrégation selon nos régions et nos biens, en pondérant les droits de douanes par les quantités échangées. Pour les valeurs manquantes dans certains pays, nous les avons émulées en considérant que ces pays échangés dans les mêmes proportions que le monde entier. Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle. La table \ref{tab:macmap}, expose certains des droits de douane existants.
 
 
 \subsection{Usage d'énergie et usage d'entrants - GTAP}
@@ -70,6 +98,7 @@ Les données GTAP, nous permettent de traiter les informations relatives aux ém
 \end{table}
 
 Parallèlement, le tableau \ref{tab:em_reg} suivant représente les émissions par régions. \textbf{reprendre pour mettre prod et conso, avec \%}
+
 \begin{table}[h]
     \centering
     \begin{threeparttable}
