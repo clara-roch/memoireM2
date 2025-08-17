@@ -5,9 +5,9 @@ Pour se faire considérons un marché à deux pays, avec un pays importateur $H$
 Nous désignons les fonctions d'offre et de demande pour les deux pays, avec le pays $i \in \{H, F\}$, comme suit~:
 $$
     S_i = S_i^0\left(1 + \eta_i\frac{P_i - P_i^0}{P_i^0}\right), \qquad
-    D_i = D_i^0\left(1 + \epsilon_i\frac{P_i - P_i^0}{P_i^0}\right),
+    D_i = D_i^0\left(1 + \varepsilon_i\frac{P_i - P_i^0}{P_i^0}\right),
 $$
-où $S_i$ et $D_i$ représentent respectivement les quantités produites et demandées par le pays $i$, $P_i$ est le prix dans le pays $i$, et $\eta_i$ ainsi que $\epsilon_i$ sont les élasticités de l'offre et de la demande dans le pays $i$. Ici, $X^0$ désigne la valeur initiale de $X$.
+où $S_i$ et $D_i$ représentent respectivement les quantités produites et demandées par le pays $i$, $P_i$ est le prix dans le pays $i$, et $\eta_i$ ainsi que $\varepsilon_i$ sont les élasticités de l'offre et de la demande dans le pays $i$. Ici, $X^0$ désigne la valeur initiale de $X$.
 
 Étant donné que les pays constituent l'entièreté de l'économie, la différence entre la demande et la production dans un pays est égale à la différence à l'inverse de celle du pays extérieur, ainsi~:
 $$
@@ -18,7 +18,7 @@ Pour simplifier la suite des calculs, nous introduisons les élasticités agrég
 \begin{itemize}
     \item élasticité de demande totale
           $$
-              \epsilon = \frac{\partial D}{\partial P_F} \frac{P_F^0}{D^0} = \left( \epsilon_H \frac{D_H^0}{P_H^0} + \epsilon_F \frac{D_F^0}{P_F^0} \right)\frac{P_F^0}{D^0} < 0,
+              \varepsilon = \frac{\partial D}{\partial P_F} \frac{P_F^0}{D^0} = \left( \varepsilon_H \frac{D_H^0}{P_H^0} + \varepsilon_F \frac{D_F^0}{P_F^0} \right)\frac{P_F^0}{D^0} < 0,
           $$
     \item élasticité d'offre totale
           $$
@@ -26,11 +26,11 @@ Pour simplifier la suite des calculs, nous introduisons les élasticités agrég
           $$
     \item élasticité de la demande d'importation domestique
           $$
-              \mu_H = \frac{\partial (D_H - S_H)}{\partial P_H} \frac{P_H^0}{M_H^0} = \frac{\epsilon_H D_H^0 - \eta_H S_H^0}{M_H^0} < 0,
+              \mu_H = \frac{\partial (D_H - S_H)}{\partial P_H} \frac{P_H^0}{M_H^0} = \frac{\varepsilon_H D_H^0 - \eta_H S_H^0}{M_H^0} < 0,
           $$
     \item élasticité de l'offre à l'exportation étrangère
           $$
-              \chi_F = \frac{\partial (S_F - D_F)}{\partial P_F} \frac{P_F^0}{X_F^0} = \frac{\eta_F S_F^0 - \epsilon_F D_F^0}{X_F^0} > 0.
+              \chi_F = \frac{\partial (S_F - D_F)}{\partial P_F} \frac{P_F^0}{X_F^0} = \frac{\eta_F S_F^0 - \varepsilon_F D_F^0}{X_F^0} > 0.
           $$
 \end{itemize}
 
@@ -43,11 +43,11 @@ $$
 
 Sous la politique douanière, les prix dans le pays exportateur deviennent
 $$
-    \frac{P_F}{P_F^0} = -\frac{\mu_H (1 - t/P_H^0) - \chi_F}{\eta - \epsilon}\frac{X_F^0}{D^0},
+    \frac{P_F}{P_F^0} = -\frac{\mu_H (1 - t/P_H^0) - \chi_F}{\eta - \varepsilon}\frac{X_F^0}{D^0},
 $$
 et varient négativement selon $t$~:
 $$
-    \frac{\partial P_F}{\partial t} = \frac{\mu_H}{\eta - \epsilon} \frac{X_F^0}{D^0} \frac{P_F^0}{P_H^0} < 0.
+    \frac{\partial P_F}{\partial t} = \frac{\mu_H}{\eta - \varepsilon} \frac{X_F^0}{D^0} \frac{P_F^0}{P_H^0} < 0.
 $$
 
 La production totale des deux pays est donnée par

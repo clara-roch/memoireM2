@@ -17,6 +17,10 @@
 \usepackage[style=authoryear]{biblatex}
 \usepackage{lscape}
 \usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}      % For enhanced column types
+\usepackage{booktabs}   % For better horizontal rules (\toprule, \midrule, \bottomrule)
+\usepackage{threeparttable}
 
 % Customize itemize environment to remove spaces
 \setlist[itemize]{noitemsep, topsep=0pt, before=\vspace{-\baselineskip}}
@@ -25,12 +29,21 @@
 \setlength{\parskip}{1em} % Add space between paragraphs
 
 % Customize the table of contents
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \renewcommand{\cftsecfont}{\normalfont} % Remove bold from section titles
 \renewcommand{\cftsecpagefont}{\normalfont} % Remove bold from page numbers
 \setlength{\cftbeforesecskip}{0pt} % Remove space before section titles
 \setlength{\cftsecindent}{1em} % Indent section titles
-\setlength{\cftaftertoctitleskip}{0pt} % enlève l’espace entre Contents et la 1er ligne de la table des matières
+\setlength{\cftaftertoctitleskip}{1cm} % enlève l’espace entre Contents et la 1er ligne de la table des matières
+
+% Redéfinir la couleur pour toutes les entrées TOC/LOF/LOT, tout en gardant les liens cliquables
+\makeatletter
+\AtBeginDocument{%
+  \addtocontents{toc}{\protect\hypersetup{linkcolor=black}}%
+  \addtocontents{lof}{\protect\hypersetup{linkcolor=black}}%
+  \addtocontents{lot}{\protect\hypersetup{linkcolor=black}}%
+}
+\makeatother
 
 % Avoid widow and orphin lines
 \widowpenalty=10000
@@ -46,6 +59,10 @@
 
 % Change item from bullet points to dashes
 \renewcommand{\labelitemi}{\normalfont\bfseries \textendash}
+
+% Point médiant
+\def\cdt{\kern-0.5pt\ensuremath\cdot\kern-0.5pt}
+
 
 \raggedbottom
 \flushbottom

@@ -5,16 +5,16 @@ Cette section présente le modèle de commerce agricole en équilibre partiel ut
 
 Les pays sont indexés par $i$ et $j \in \mathcal{J}$, les biens par $k \in \mathcal{K}$, avec $k=0$ le bien non-agricole jouant le rôle de numéraire, $k \in \mathcal{K}^l$ les produits de l’élevage, $k = g$ l’herbe, $k_c \in \mathcal{K}^c$ les cultures ($\mathcal{K}^c \in \mathcal{K}$), et $k_{nc} \in \mathcal{K}^{nc}$ les produits agricoles non issus de la culture, c’est-à-dire les produits résultants d’un processus agro-industriel ($\mathcal{K}^{nc} \subset \mathcal{K}$). On note $\mathcal{K}^a = \mathcal{K}^c \cup \mathcal{K}^{nc} \cup \mathcal{K}^l$ l’ensemble des biens agricoles qui peuvent être exportés, l’herbe n’étant pas exportable, elle ne fait pas partie de cet ensemble, elle n’est utilisée que pour l’alimentation de l’élevage. Les prix de production sont notés en minuscule, tandis que les prix de consommation le sont en majuscule. Nous considérons un modèle en volume et non en valeur.
 
-Pour plus de clarté, l’annexe \ref{appendix:variables},référence tous les noms des variables et paramètres utilisés dans cette étude.
+Pour plus de clarté, l’annexe \ref{appendix:variables}, référence tous les noms des variables et paramètres utilisés dans cette étude.
 
 \section{Modèle en niveau}
 \subsection{Consommation}
 
 On considère que l’utilité des ménages dans le pays $j$ $U_j$, suit une relation quasi-linéaire avec la consommation de bien non-agricole $C_j^0$
 \begin{equation}\label{eq_u}
-    U_j = C_j^0 + \beta_j^{1/\epsilon} \ln C_j,
+    U_j = C_j^0 + \beta_j^{1/\varepsilon} \ln C_j,
 \end{equation}
-avec $\epsilon > 0$ l’élasticité de prix de demande pour le panier de biens agricoles inverse, $\beta_j > 0$ est un paramètre décrivant la demande pour les biens agricoles.
+avec $\varepsilon > 0$ l’élasticité de prix de demande pour le panier de biens agricoles inverse, $\beta_j > 0$ est un paramètre décrivant la demande pour les biens agricoles.
 
 Considérons une demande pour les biens agricoles non-élastique aux revenus\footnote{cf. ~\cite{Comin2021}.  La quantité de nourriture consommée est plafonnée par des besoins physiologiques, mais elle peut aussi être réduite significativement si les revenus sont trop faibles pour se procurer suffisamment de nourriture. Cette hypothèse est donc quelque peu hasardeuse dans les pays à bas revenus, dans ces pays une baisse des revenus peut conduire à une baisse notable de la consommation alimentaire, alors que dans les pays à plus haut revenus, ils resteront majoritairement suffisants pour couvrir les besoins alimentaires}.
 
@@ -26,7 +26,7 @@ avec $\kappa > 0$ l’élasticité de substitution entre biens agricoles, on con
 
 Étant donné l’utilité des ménages de l’équation \ref{eq_u}, la maximisation de la demande implique la relation suivante
 \begin{equation}\label{eq_pj}
-    P_j: C_j = \beta_j (P_j)^{-\epsilon},
+    P_j: C_j = \beta_j (P_j)^{-\varepsilon},
 \end{equation}
 avec $P_j$ le prix du panier de biens agricoles dans le pays $j$, tel que
 \begin{equation}\label{eq_cj}
@@ -171,7 +171,7 @@ Par convention, chaque activité est associée à un output principal tandis que
 \end{align}
 
 \subsection{Équilibres de marché}
-\subsubsection{Équilibre des biens}
+\subsubsection{Équilibre marché des biens}
 \paragraph{Production} Côté production, les quantités produites doivent égaler l’ensemble des imports (en considérant toujours que si le pays $i$ est en autarcie $C_i^k = Q_i^k = X_{ii}^k = X_i^k$)~:
 \begin{equation}
     p_i^k: Q_i^k = \sum_{j \in \mathcal{J}} \tau_{ij}^k X_{ij}^k \text{, for } k \neq 0.
@@ -187,7 +187,7 @@ Pour le bien extérieur, on a
     P_i^k: X_i^k=C_i^k + x_i^{\text{feed},k} + \sum_{a | k \in \mathcal{I}(a)} x_i^{ak}.
 \end{equation}
 
-\subsubsection{Équilibre du travail}
+\subsubsection{Équilibre marché du travail}
 La somme de besoin en travail ne doit pas excéder ce que le pays est capable de fournir, et par simplification, on considère que le taux d’emploi ne change pas, ce qui donne
 \begin{equation}\label{eq_wi}
     W_i: N_i=\sum_a N_i^a.
@@ -211,7 +211,7 @@ En posant $\alpha_j^{\text{C},k} = {(P_j^k C_j^k)}/{(P_j C_j)}$, $\alpha^{\text{
 
 \paragraph{Condition d’équilibre de marchés}
 \begin{align}
-    \hat{P}_j               & : \hat{C}_j=\hat{P}_j^{-\epsilon},                                                                                                                        \\
+    \hat{P}_j               & : \hat{C}_j=\hat{P}_j^{-\varepsilon},                                                                                                                     \\
     \hat{p}_i^k             & : Q_i^k \hat{Q}_i^k = \sum_{j \in \mathcal{J}} \tau_{ij}^k X_{ij}^k \hat{X}_{ij}^k, \text{ for } k \neq 0,                                                \\
     ** \hat{p}_i^0          & : \sum_{i \in \mathcal{J}} \hat{Q}_i^0 Q_i^0 = \sum_{i \in \mathcal{J}} \left( \hat{C}_j^0 C_j^0  + \sum_{k \in \mathcal{K}^c} \hat{F}_i^k F_i^k \right), \\
     \hat{P}_j^k             & : X_j^k (\hat{X}_j^k) = C_j^k  \hat{C}_j^k + x_j^{\text{feed},k} \hat{x}_j^{\text{feed},k} + \sum_{a | k \in \mathcal{I}(a)} x_i^{ak} \hat{x}_i^{ak},     \\
@@ -221,8 +221,8 @@ En posant $\alpha_j^{\text{C},k} = {(P_j^k C_j^k)}/{(P_j C_j)}$, $\alpha^{\text{
 
 \paragraph{Condition du premier ordre}
 \begin{align}
-    ** \hat{C}_j^0            & : P_j^0 C_j^0 \hat{C}_j^0 = E_j \hat{E}_j - P_jC_j (\hat{P}_j)^{1 - \epsilon},                                                      \\
-    \hat{C}_j^k               & : \hat{C}_j^k = (\hat{P}_j^k)^{-\kappa} (\hat{P}_j)^{\kappa - \epsilon},                                                            \\
+    ** \hat{C}_j^0            & : P_j^0 C_j^0 \hat{C}_j^0 = E_j \hat{E}_j - P_jC_j (\hat{P}_j)^{1 - \varepsilon},                                                   \\
+    \hat{C}_j^k               & : \hat{C}_j^k = (\hat{P}_j^k)^{-\kappa} (\hat{P}_j)^{\kappa - \varepsilon},                                                         \\
     \hat{Q}_i^{al}            & : \hat{Q}_i^{al}=\hat{Q}_i^{a \mathbf{l}}, \text{ pour } l \neq \mathbf{l},                                                         \\
     \hat{N}_i^a               & : \hat{N}_i^a =
     \begin{cases}

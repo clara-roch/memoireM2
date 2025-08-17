@@ -1,6 +1,6 @@
 \chapter{Annexes}
 
-\section{Ouverture - effet d'une subventon sur les émissions des GES}\label{appendix:subventions}
+\section{Ouverture - effet d'une subvention sur les émissions des GES}\label{appendix:subventions}
 
 Dans cette annexe, on considère l'introduction d'une subvention à la production dans le pays $H$. Cela change nos fonctions d'offre, comme suit~:
 $$
@@ -26,7 +26,7 @@ et sa dérivée
 $$
     \frac{\partial S}{\partial s} = \frac{\eta_H S_H^0}{P^0}\left[1 - \frac{\eta}{\chi_F - \mu_H}\frac{S^0}{X_F^0}\right].
 $$
-Étant donné que $X_F^0(\chi_F - \mu_H) = \eta S^0 - \epsilon D^0$ et $\epsilon < 0$, on a
+Étant donné que $X_F^0(\chi_F - \mu_H) = \eta S^0 - \varepsilon D^0$ et $\varepsilon < 0$, on a
 $$
     1 > \frac{\eta}{\chi_F - \mu_H}\frac{S^0}{X_F^0},
 $$
@@ -40,8 +40,61 @@ et donc
 $$
     \frac{\partial E}{\partial s} = \frac{\eta_H}{P^0}\left[E_H^0 - \frac{\eta_H E_H^0 + \eta_F E_F^0}{\chi_F - \mu_H}\frac{S_H^0}{X_F^0}\right].
 $$
-Dans ce cas, le signe de la dérivée est ambigu~; il dépend de la relation entre $(\eta - \epsilon)E_H^0 S^0$ et $(\eta_H E_H^0 + \eta_F E_F^0) S_H^0$, si le premier est plus grand que le second, alors la subvention augmentera les émissions totales.
+Dans ce cas, le signe de la dérivée est ambigu~; il dépend de la relation entre $(\eta - \varepsilon)E_H^0 S^0$ et $(\eta_H E_H^0 + \eta_F E_F^0) S_H^0$, si le premier est plus grand que le second, alors la subvention augmentera les émissions totales.
 
+\section{Détails calculs - intuitions droits de douanes}\label{appendix:intuitions_tariff}
+
+First, we express $P_F$ as a function of $t$ and the elasticities.
+
+Starting from the equation
+$$
+    D_H - S_H = S_F - D_F,
+$$
+and using the definitions of demand and supply, we obtain:
+$$
+    D_H^0\left(1+\epsilon_H \frac{P_H - P_H^0}{P_H^0}\right) - S_H^0\left(1+\eta_H \frac{P_H - P_H^0}{P_H^0}\right) = S_F^0 \left(1+\eta_F \frac{P_F - P_F^0}{P_F^0}\right) - D_F^0\left(1+\epsilon_F \frac{P_F - P_F^0}{P_F^0}\right).
+$$
+We then factorize by $\frac{P_i-P_i^0}{P_i^0}$ for $i = H,F$:
+$$
+    \frac{P_H - P_H^0}{P_H^0} [D_H^0 \epsilon_H - S_H^0 \eta_H] + D_H^0 - S_H^0 = \frac{P_F - P_F^0}{P_F^0} [S_F^0 \eta_F - D_F^0 \epsilon_F] + S_F^0 - D_F^0.
+$$
+Noting that $D_H^0 - S_H^0 = S_F^0 - D_F^0$, we obtain:
+$$
+    \frac{P_H - P_H^0}{P_H^0} [D_H^0 \epsilon_H - S_H^0 \eta_H] = \frac{P_F - P_F^0}{P_F^0} [S_F^0 \eta_F - D_F^0 \epsilon_F].
+$$
+
+Using the aggregated elasticities defined in Chapter \ref{intuition}, we have
+$$
+    \frac{P_F}{P_F^0}= -\frac{\mu_H (1 - t/P_H^0) - \chi_F}{\eta-\epsilon}\frac{X_F^0}{D^0}.
+$$
+
+Multiplying both sides by $P_F^0$, a straightforward derivation yields:
+$$
+    \frac{\partial P_F}{\partial t} = \frac{\mu_H}{\eta - \epsilon} \frac{X_F^0}{D^0} \frac{P_F^0}{P_H^0} < 0.
+$$
+
+Assuming an initial tariff of zero, i.e. $P_F^0 = P_H^0$, we have:
+$$
+    \frac{P_F}{P_F^0} = - \frac{(1 - t/P_H^0)\mu_H - \chi_F}{\chi_F - \mu_H} = 1+\frac{\mu_H}{\chi_F - \mu_H}\frac{t}{P_H^0}.
+$$
+
+Assuming an initial tariff of zero and uniform elasticities across countries, the price and its derivative are given by:
+\begin{align*}
+    P_F                             & = P_F^0 + t \frac{\mu_H}{\eta_i - \epsilon_i} \frac{X_F^0}{D^0}, \\
+    \frac{\partial P_F}{\partial t} & = \frac{\mu_H}{\eta_i - \epsilon_i} \frac{X_F^0}{D^0} < 0.
+\end{align*}
+
+Regarding total production $Q$, with an initial tariff of zero we have:
+\begin{align*}
+    Q                             & = Q^0 + \frac{- \frac{t}{P_H^0}\eta_i(S_H^0 \chi_F + S_F^0 \mu_H)}{\mu_H - \chi_F}, \\
+    \frac{\partial Q}{\partial t} & = \eta_i \frac{S_H^0 \chi_F + S_F^0 \mu_H}{\chi_F - \mu_H}\frac{1}{P_H^0}.
+\end{align*}
+
+For emissions, using $E_i = e_i S_i$, we obtain the results presented in Chapter \ref{intuition}. In addition, assuming an initial tariff of zero and equal elasticities (i.e., $\eta_H = \eta_F = \eta_i$ and $\epsilon_H = \epsilon_F = \epsilon_i$), we have:
+\begin{align*}
+    E                             & = E^0 + \frac{\frac{t}{P_H^0} \eta_i (E_H^0 \chi_F + E_F^0 \mu_H)}{\chi_F - \mu_H}, \\[1mm]
+    \frac{\partial E}{\partial t} & = \eta_i \frac{E_H^0 \chi_F + E_F^0 \mu_H}{\chi_F - \mu_H}\frac{1}{P_H^0}.
+\end{align*}
 
 \section{Variables}\label{appendix:variables}
 
@@ -59,7 +112,7 @@ One can find here a list of the variables used in the model from chapter \ref{mo
 
         $\sigma > 0 \neq 1$                         & Armington elasticity of substitution                               & param                             \\
 
-        $\epsilon > 0$                              & opposite of price elasticity of demand for the agricultural bundle & param                             \\
+        $\varepsilon > 0$                           & opposite of price elasticity of demand for the agricultural bundle & param                             \\
 
         $p_j^k$ and $P_j^k$                         & producer and consummer price                                       & variables                         \\
 
@@ -110,3 +163,17 @@ One can find here a list of the variables used in the model from chapter \ref{mo
     \caption{Récapitulatif des notations utilisées dans le modèle}
     \label{table:variable}
 \end{table}
+
+
+\section{Répartition pays par régions}\label{annexe:reg}
+
+\begin{longtable}[h]{p{1.5in}p{4.1in}}
+    \textbf{Régions} & \textbf{Pays} \\         \hline
+    \endfirsthead
+    %
+    \endhead
+    %
+    \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/tab_latex/outputs/dict_reg.tex
+    \hline                           \\
+    \caption{Répartition des pays par région}
+\end{longtable}
