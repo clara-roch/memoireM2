@@ -1,4 +1,4 @@
-\section{Données et traitement}
+\section{Données et traitements}
 
 Le modèle est calibré sur des données de 2017, dernière année disponible dans les données GTAP. Comme souligné dans \cite{Gouel2021} il est important qu'un modèle recouvre le plus de biens agricoles, afin que l'élasticité $\varepsilon$ correspondent réellement à l'inverse de l'élasticité de la demande pour les biens agricoles, qui est estimé dans des papiers comme \cite{Comin2021} et non pas juste à une partie d'entre eux, nous avons donc choisi de représenter l'ensemble (ou presque) des éléments biens disponibles dans FABIO, en les agrégeant en trente-et-un groupes, qui représentent des éléments uniques ou bien des ensembles, les biens uniques, ont été choisi de telle sorte qu'ils représentent chacun plus d'un pourcent de la production mondiale totale\,\footnote{cf. table 2 de \cite{Gouel2021}}, les autres sont regroupés par catégories. Quant aux pays, nous avons choisi de les rassembler en quatorze régions, correspondant au regroupement des pays par sous-continents, en évitant d'avoir une région reste du monde, qui malgré qu'elle apparaisse dans les données FABIO\,\footnote{Modèle basé sur les données de FAOSTAT, représentant les échanges entre pays, les productions et les usages finaux, regroupant 186 pays et 127 biens agricoles, recouvrant ?? de la production mondiale \cite{Bruckner2019}} et GTAP\,\footnote{Base de données GTAP, représente l'économie mondiale, en se basant sur des données de comptabilité nationale, de commerce, de production, etc., répartie en vingt-et-une catégories de biens, et en 160 régions.}, n'avait pas de sens géographique ou politique\,\footnote{L'annexe \ref{annexe:reg} donne l'attribution des pays aux régions.}.
 
@@ -39,7 +39,8 @@ Finalement, nous avons à partir de nos matrices agrégées $use$, $make$ et $y$
 
 \subsection{Droits de douanes - MAcMAP}
 
-Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle.
+Nous avons récupéré les données relatives aux droits de douanes mises à dispositions par \cite{Guimbard2012}, via la base de données MAcMap-hS6 (pour Market Access Map, selon la classification SH6) les données ne concernent cependant pas l'année 2017, nous avons donc pris les données de l'année 2016. Cette base rend compte des droits de douanes bilatéraux d'environ 190 pays importateurs et 220 exportateurs, sur 5\,000 produits. Le traitement a donc consisté en une agrégation selon nos régions et nos biens, en pondérant les droits de douanes par les quantités échangées. Pour les valeurs manquantes dans certains pays, nous les avons émulées en considérant que ces pays échangés dans les mêmes proportions que le monde entier. Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle. La table \ref{tab:macmap}, expose certains des droits de douane existants.
+
 
 
 \subsection{Usage d'énergie et usage d'entrants - GTAP}
@@ -68,7 +69,7 @@ Les données GTAP, nous permettent de traiter les informations relatives aux ém
     \end{threeparttable}
 \end{table}
 
-Parallèlement, le tableau \ref{tab:em_reg} suivant représente les émissions par régions. \textbf{reprendre pour mettre em prod et conso}
+Parallèlement, le tableau \ref{tab:em_reg} suivant représente les émissions par régions. \textbf{reprendre pour mettre prod et conso, avec \%}
 \begin{table}[h]
     \centering
     \begin{threeparttable}
@@ -85,13 +86,10 @@ Parallèlement, le tableau \ref{tab:em_reg} suivant représente les émissions p
         \label{tab:em_reg}
     \end{threeparttable}
 \end{table}
-w
 
 \subsection{Dépense nationale brute - WDI}
 
 Ici nous avons simplement récupéré les données de la banque mondiale relative aux dépenses de consommation finale en dollars constants\,\footnote{référencées NE.CON.TOTL.CD par la banque mondiale}. Ce qui nous permet de donner une valeur à $E$ dans notre modèle.
-
-
 
 
 \section{Paramètres de comportement}
