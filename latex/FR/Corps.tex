@@ -22,8 +22,9 @@
 \usepackage{booktabs}   % For better horizontal rules (\toprule, \midrule, \bottomrule)
 \usepackage{threeparttable}
 
-% Customize itemize environment to remove spaces
+% Customize itemize environment to remove spaces, and change to dashes instead of bullet points
 \setlist[itemize]{noitemsep, topsep=0pt, before=\vspace{-\baselineskip}}
+\renewcommand{\labelitemi}{\normalfont\bfseries \textendash}
 
 % Customize paragraph spacing
 \setlength{\parskip}{1em} % Add space between paragraphs
@@ -56,9 +57,6 @@
 \renewcommand{\footrulewidth}{0.25pt}
 \setlength{\headheight}{12.1638pt}
 \addtolength{\topmargin}{-0.1638pt}
-
-% Change item from bullet points to dashes
-\renewcommand{\labelitemi}{\normalfont\bfseries \textendash}
 
 % Point médiant
 \def\cdt{\kern-0.5pt\ensuremath\cdot\kern-0.5pt}
