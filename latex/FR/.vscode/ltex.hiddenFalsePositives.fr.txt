@@ -1,1 +1,2 @@
 {"rule":"AGREEMENT_POSTPONED_ADJ","sentence":"^\\QPour éviter d'avoir une région reste du monde inconsistante nous avons retiré\\E$"}
+{"rule":"AGREEMENT_POSTPONED_ADJ","sentence":"^\\QPour éviter d'avoir une région reste du monde inconsistante, nous l'avons retirée (??\\E$"}

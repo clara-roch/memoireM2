@@ -4,7 +4,7 @@ Le modèle est calibré sur des données de 2017, dernière année disponible da
 
 \subsection{Quantités - FABIO}
 
-Les données relatives aux quantités produites, consommées et échangées proviennent du modèle FABIO. Les données brutes\footnote{cf. annexe de \cite{Bruckner2019}, pour voir des représentations graphiques des matrices.} étaient sous la forme d'une matrice de production $x$ (de dimensions $1 \times (card(pays)+card(biens))$), d'une demande finale $y$ (de dimension $(card(pays)+card(biens)) \times (card(pays)+card(uses))$) et d'une matrice d'échanges $z$ (de dimensions $(card(pays)+card(biens)) \times (card(pays)+card(biens))$). Nous avons retiré certains secteurs qui ne nous intéressaient pas (alcools et éthanol) représentant ??~\% de la production totale, la production de \textit{Sweeteners, Other} représentant ??~\%, ainsi que la production d'huile et de tourteaux provenant de céréales représentant ??~\%. Pour éviter d'avoir une région \textit{reste du monde} inconsistante, nous l'avons retirée (??~\%).
+Les données relatives aux quantités produites, consommées et échangées proviennent du modèle FABIO. Les données brutes\footnote{cf. annexe de \cite{Bruckner2019}, pour voir des représentations graphiques des matrices.} étaient sous la forme d'une matrice de production $x$, d'une demande finale $y$  et d'une matrice d'échanges $z$. Nous avons retiré certains secteurs qui ne nous intéressaient pas (alcools et éthanol) représentant 3,12~\% de la production totale, la production de \textit{Sweeteners, Other} représentant de 0,01~\%, ainsi que la production d'huile et de tourteaux provenant de céréales représentant moins 0,01~\%. Pour éviter d'avoir une région \textit{reste du monde} inconsistante, nous l'avons retirée (pour 0,01~\%).
 
 Nous avons ensuite converti ces valeurs en quantités avec les prix issus du traitement de la section \ref{subsec:prix}. Afin d'éviter tout problème d'équilibre, dû à une inconsistance des prix, nous avons réévalué, pays par pays, les prix des outputs de certains processus à la hausse pour permettre un équilibre entre les coûts des inputs et la valeur des outputs produits. Pour éviter toute perturbation entre des processus consécutifs sur une même chaîne de valeur, nous avons effectué ce traitement dans l'ordre de ces chaînes.
 
@@ -12,32 +12,29 @@ En parallèle, nous avons créé une table de correspondance des processus à pa
 
 Nous avons ensuite agrégé les matrices selon notre choix de régions et de biens agricoles, tout en veillant à conserver des valeurs positives dans chaque processus et en empêchant les illusions de pertes et de semences engendrées par l'agrégation.
 
-Pour certaines régions, même après agrégation, certains processus étaient incomplets, c'est-à-dire qu'un processus produisait des outputs sans consommer d'inputs, ou bien créait un seul output parmi les multiples nécessaires. Nous avons donc fait le choix de soustraire de nos matrices la production et la consommation des éléments intervenant dans ces processus (??~\%).
+Pour certaines régions, même après agrégation, certains processus étaient incomplets, c'est-à-dire qu'un processus produisait des outputs sans consommer d'inputs, ou bien créait un seul output parmi les multiples nécessaires. Nous avons donc fait le choix de soustraire de nos matrices la production et la consommation des éléments intervenant dans ces processus (représentant 0,01~\% en valeur de la production totale).
 
 Finalement, nous avons, à partir de nos matrices agrégées $use$, $make$ et $y$, obtenu l'ensemble des données nécessaires pour le modèle, vis-à-vis des consommations $C$, des productions $Q$, et des usages intermédiaires $x$, $X$. FABIO fournissant également des données relatives aux surfaces, nous disposons aussi des informations relatives à $s$, $L$ et $y$. Ces données sont en valeurs ; cependant, étant donné que nous étudions les variations, l'ensemble des prix est fixé à 1, ce qui nous permet également d'obtenir les informations sur les prix $P$.
 
-Le tableau \ref{tab:prod_item} montre la production en valeurs des différents biens retenus. L'annexe \ref{annexe:item_prc} présente la composition des biens, ainsi que leur origine et usage dans les différents procédés.
+Le tableau \ref{tab:prod_item} montre la production en valeurs des différents biens retenus. L'annexe \ref{annexe:item_pord} présente la composition des biens, ainsi que leur origine et usage dans les différents procédés.
 
 
 \begin{table}[h]
     \centering
     \begin{threeparttable}
-        % Premier mini-tableau (colonne gauche)
         \begin{minipage}[t]{0.49\textwidth}
             \centering
             \begin{tabularx}{\textwidth}{p{1.8in}c}
-                \textbf{Biens} & \textbf{Part (\%)} \\ \hline
-                % Première moitié de vos données
-                \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/tab_latex/outputs/prod_item_part1.tex
+                \textbf{Biens} & \textbf{Part} (\%) \\ \hline
+                \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/prod_item_part1.tex
                 \hline
             \end{tabularx}
         \end{minipage}
         \begin{minipage}[t]{0.49\textwidth}
             \centering
             \begin{tabularx}{\textwidth}{p{2in}c}
-                \textbf{Biens} & \textbf{Part (\%)}                                                                                               \\ \hline
-                % Seconde moitié de vos données
-                \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/tab_latex/outputs/prod_item_part2.tex \\
+                \textbf{Biens} & \textbf{Part} (\%)                                                                                                   \\ \hline
+                \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/prod_item_part2.tex \\
                 \hline
             \end{tabularx}
         \end{minipage}
@@ -60,12 +57,32 @@ Certaines données de prix étaient incohérentes et entraînaient un déséquil
 \end{itemize}
 Nous effectuons ce tri sur les données brutes de FAOSTAT, puis sur celles obtenues après agrégation des données conservées lors de ce premier tri, au niveau FABIO. Cette fois-ci, nous nous assurons qu'après agrégation, les prix sont toujours suffisamment proches de la moyenne calculée pour ce niveau, en prenant en compte l'ensemble des valeurs et des quantités échangées.
 
-Finalement, ces deux étapes de traitement des prix conduisent à un taux de prix manquants de 63\,\%. Nous reconstruisons donc les prix à l'aide d'un multiplicateur calculé par pays et par groupe de produits (tel que défini dans la colonne de gauche de l'annexe \ref{annexe:item}). Ce multiplicateur sera plus élevé pour un pays ayant, en moyenne, des prix plus élevés, et également pour les biens dont le prix est supérieur à la moyenne. Ainsi, le multiplicateur le plus élevé correspond au bœuf au Japon. Nous reconstruisons ensuite les prix manquants à l'échelle FABIO en récupérant le premier prix non nul obtenu en multipliant notre multiplicateur par le prix moyen présent dans nos données du bien à l'échelle FABIO, puis par le prix moyen à l'échelle du bien de notre modèle et enfin par le prix moyen mondial de ce bien à l'échelle du modèle. \textbf{Revenir sur ce paragraphe qui est sûrement incompréhensible\dots}
+Finalement, ces deux étapes de traitement des prix conduisent à un taux de prix manquants de 63\,\%. Nous reconstruisons donc les prix à l'aide d'un multiplicateur calculé par pays et par groupe de produits (tel que défini dans la colonne de gauche de l'annexe \ref{annexe:item_pord}). Ce multiplicateur sera plus élevé pour un pays ayant, en moyenne, des prix plus élevés, et également pour les biens dont le prix est supérieur à la moyenne. Ainsi, le multiplicateur le plus élevé correspond au bœuf au Japon. Nous reconstruisons ensuite les prix manquants à l'échelle FABIO en récupérant le premier prix non nul obtenu en multipliant notre multiplicateur par le prix moyen présent dans nos données du bien à l'échelle FABIO, puis par le prix moyen à l'échelle du bien de notre modèle et enfin par le prix moyen mondial de ce bien à l'échelle du modèle. \textbf{Revenir sur ce paragraphe qui est sûrement incompréhensible\dots}
 
 
 \subsection{Droits de douanes - MAcMap}
 
-Nous avons récupéré les données relatives aux droits de douanes mises à dispositions par \cite{Guimbard2012}, via la base de données MAcMap-HS6 (pour Market Access Map, selon la classification SH6) les données ne concernent cependant pas l'année 2017, nous avons donc pris les données de l'année 2016. Cette base rend compte des droits de douanes bilatéraux d'environ 190 pays importateurs et 220 exportateurs, sur 5\,000 produits. Le traitement a donc consisté en une agrégation selon nos régions et nos biens, en pondérant les droits de douanes par les quantités échangées. Pour les valeurs manquantes dans certains pays, nous les avons émulées en considérant que ces pays échangés dans les mêmes proportions que le monde entier. Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle. La table \ref{tab:macmap}, expose certains des droits de douane existants. \textbf{Construire tableau}
+Nous avons récupéré les données relatives aux droits de douanes mises à dispositions par \cite{Guimbard2012}, via la base de données MAcMap-HS6 (pour Market Access Map, selon la classification SH6) les données ne concernent cependant pas l'année 2017, nous avons donc pris les données de l'année 2016. Cette base rend compte des droits de douanes bilatéraux d'environ 190 pays importateurs et 220 exportateurs, sur 5\,000 produits. Le traitement a donc consisté en une agrégation selon nos régions et nos biens, en pondérant les droits de douanes par les quantités échangées. Pour les valeurs manquantes dans certains pays, nous les avons émulées en considérant que ces pays échangés dans les mêmes proportions que le monde entier. Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle. Les figures \ref{fig:macmap} montre les valeurs de droits de douanes moyens entre les régions et par produits.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.495\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/reg_reg_tariff.pdf}
+        \caption{Entre pays}
+        \label{fig:reg_reg}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.495\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/item_reg_tariff.pdf}
+        \caption{Différents biens}
+        \label{fig:item_reg}
+    \end{subfigure}
+    \caption{Carte de chaleur des droits de douanes}
+    \label{fig:macmap}
+\end{figure}
+
+Comme on peut le voir sur la sous-figure de gauche \ref{fig:reg_reg}, il y a des droits de douanes et des quantités importées au sein même de nos régions, cela est dû au fait que nos régions sont des agrégats, ainsi ici seule la Chine (CHN) qui est notre seule région-pays, n'a pas de droits de douane en elle. Les abréviations des régions et des biens sont disponibles en annexes.
 
 
 \subsection{Usage d'énergie et usage d'entrants - GTAP}
@@ -81,7 +98,7 @@ Les données GTAP, nous permettent de traiter les informations relatives aux ém
     \begin{threeparttable}
         \begin{tabularx}{\textwidth}{p{1.5in}p{1.2in}p{1.2in}c}
             \textbf{Catégorie} & \textbf{Gaz} & \textbf{Allocation} & \textbf{Part des émissions}\tnote{a} (en \%) \\ \hline
-            \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/tab_latex/outputs/em_alloc.tex
+            \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/em_alloc.tex
             \hline
         \end{tabularx}
         \begin{tablenotes}
@@ -100,7 +117,7 @@ Parallèlement, le tableau \ref{tab:em_reg} suivant représente les émissions p
     \begin{threeparttable}
         \begin{tabularx}{\textwidth}{p{1.9in}cc}
             \textbf{Régions} & \textbf{Émissions totales} (en Mt eqCO\textsubscript{2}) & \textbf{Part des émissions}\tnote{a} (en \%) \\ \hline
-            \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/tab_latex/outputs/em_reg.tex
+            \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/em_reg.tex
             \hline
         \end{tabularx}
         \begin{tablenotes}
@@ -112,7 +129,7 @@ Parallèlement, le tableau \ref{tab:em_reg} suivant représente les émissions p
     \end{threeparttable}
 \end{table}
 
-\subsection{Dépense nationale brute - WDI}
+\subsection{Dépense nationale brute - Banque mondiale}
 
 Ici nous avons simplement récupéré les données de la banque mondiale relative aux dépenses de consommation finale en dollars constants\footnote{référencées NE.CON.TOTL.CD par la banque mondiale}. Ce qui nous permet de donner une valeur à $E$ dans notre modèle.
 
