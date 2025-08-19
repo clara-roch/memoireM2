@@ -19,7 +19,7 @@ Finalement, nous avons, à partir de nos matrices agrégées $use$, $make$ et $y
 Le tableau \ref{tab:prod_item} montre la production en valeurs des différents biens retenus. L'annexe \ref{annexe:item_pord} présente la composition des biens, ainsi que leur origine et usage dans les différents procédés.
 
 
-\begin{table}[h]
+\begin{table}[h!]
     \centering
     \begin{threeparttable}
         \begin{minipage}[t]{0.49\textwidth}
@@ -92,8 +92,9 @@ Nous avons récupéré de la base de donnée GTAP 11\footcite{Aguiar2022}, les i
 
 \subsection{Émissions de GES - FAOSTAT}
 
-Les données GTAP, nous permettent de traiter les informations relatives aux émissions. Nous avons suivi l'allocation des émissions proposée dans \cite{Valin2023}. Le tableau \ref{tab:em_allocation}, représente cette allocation, et le pourcentage sur les émissions totales.
-\begin{table}[h]
+Les données GTAP, nous permettent de traiter les informations relatives aux émissions. Nous avons suivi l'allocation des émissions proposée dans \cite{Valin2023}. Le tableau \ref{tab:em_allocation}, représente cette allocation, et le pourcentage sur les émissions totales. Pour suivre cette allocation nous avons dû réallouer une partie des émissions. En effet, GTAP (par le biais des données sur l'usage d'énergie) ou FABIO allouent des émissions que nous associons à l'usage de terre à des biens qui dans notre modèle n'en utilisent pas (animaux, produits transformés). Nous avons alors réattribué les émissions à un des biens de la chaîne de valeur qui utilise de la terre. Cependant, par soucis de simplicité, nous avons réalloué au pâturage l'ensemble des émissions lié à l'usage de terre par les animaux, sauf qu'étant donné notre fonction de production pour les produits animaliers (panier d'aliments pour les animaux qui dépend du prix des inputs et varie selon l'élasticité prix choisie, et non un seul input comme pour les autres produits transformés), il se peut que notre modèle ne témoigne pas de la bonne variation d'émission pour les animaux (vue qu'elles dépendront alors de l'espace attribuait aux cultures fourragères et non pas à toutes celles utilisées pour leur alimentation).
+
+\begin{table}[h!]
     \centering
     \begin{threeparttable}
         \begin{tabularx}{\textwidth}{p{1.5in}p{1.2in}p{1.2in}c}
@@ -110,9 +111,9 @@ Les données GTAP, nous permettent de traiter les informations relatives aux ém
     \end{threeparttable}
 \end{table}
 
-Parallèlement, le tableau \ref{tab:em_reg} suivant représente les émissions par régions. \textbf{Reprendre le tableau pour mettre prod et conso (le pb, c'est que données en valeurs\dots), avec \%}
+Parallèlement, le tableau \ref{tab:em_reg} suivant représente les émissions par régions. \textbf{Heatmap en cours de prod, pour montrer émissions à la prod et à la conso, avec taille pour volume consommé ou produit et couleur pour intensité carbone}
 
-\begin{table}[h]
+\begin{table}[h!]
     \centering
     \begin{threeparttable}
         \begin{tabularx}{\textwidth}{p{1.9in}cc}
@@ -137,7 +138,7 @@ Ici nous avons simplement récupéré les données de la banque mondiale relativ
 \section{Paramètres de comportement}
 Nous faisons les mêmes choix sur le paramétrage que dans \cite{Gouel2025}. Le tableau \ref{tab:ela} résume les valeurs choisies pour les élasticités, ainsi que l'origine de ces choix.
 
-\begin{table}[h]
+\begin{table}[h!]
     \centering
     \begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
         \textbf{Élasticité}        & \textbf{Description}                                           & \textbf{Origine}                                   \\ \hline
