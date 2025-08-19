@@ -1,3 +1,18 @@
 \section{Conséquence de la suppression des droits de douanes}
 
-\section{Sensibilité aux paramètres}
+Pour comprendre l'effet des droits de douane sur les émissions de GES du secteur, nous partons de la situation actuelle. Nous changeons ensuite de cet équilibre initial les valeurs des droits de douanes pour les annuler, le second équilibre atteint, nous pouvons constater les émissions finales dans cette situation contrefactuelle et déduire de l'impacte des droits de douanes.
+
+La suppression des droits de douanes dans notre modèle, avec le paramétrage présenté, augmente les droits de douanes de l'ensemble du secteur d'environ 6,5~\%\footnote{cf. \ref{subsec:vit_cvg}}.
+
+Cherchons à décomposer les différents effets en jeu ici.
+
+
+\section{Sensibilité du modèle}
+
+\subsection{Sensibilité aux paramètres}
+
+\subsection{Sensibilité à la vitesse de convergence}\label{subsec:vit_cvg}
+
+Pour faire converger le modèle vers une solution, nous opérons une suite d'équilibres intermédiaires représentant chacun un niveau de douane réduit. Nous ne pouvons, en effet actuellement pas atteindre l'équilibre final correspondant à une absence de droits de douane directement à partir de l'équilibre initial, le solveur (\textit{mcp} ou \textit{cns} sous GAMS) ne trouve pas de solution. Une première solution consiste à succéder une suite de chocs de -1~\% (ou de -0,5~\%) de droits de douane. Ce résultat nous conduit à une augmentation totale des émissions de 6,7~\% . À l'inverse, une évolution plus brusque de sept chocs de 10~\% jusqu'à -70~\%, puis de chocs de 4~\% jusqu'à la suppression totale des droits de douane conduit à une augmentation de 6,27~\%.
+
+Cette observation témoigne en partie de l'importance du rythme d'application de politique dans leur impact. Ici, un changement plus brutal conduit à une moindre évolution de notre système. \textbf{Trouver des papiers qui parlent du rythme d'implantation, dans son impact.}

@@ -62,9 +62,9 @@ Finalement, ces deux étapes de traitement des prix conduisent à un taux de pri
 
 \subsection{Droits de douanes - MAcMap}
 
-Nous avons récupéré les données relatives aux droits de douanes mises à dispositions par \cite{Guimbard2012}, via la base de données MAcMap-HS6 (pour Market Access Map, selon la classification SH6) les données ne concernent cependant pas l'année 2017, nous avons donc pris les données de l'année 2016. Cette base rend compte des droits de douanes bilatéraux d'environ 190 pays importateurs et 220 exportateurs, sur 5\,000 produits. Le traitement a donc consisté en une agrégation selon nos régions et nos biens, en pondérant les droits de douanes par les quantités échangées. Pour les valeurs manquantes dans certains pays, nous les avons émulées en considérant que ces pays échangés dans les mêmes proportions que le monde entier. Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle. Les figures \ref{fig:macmap} montre les valeurs de droits de douanes moyens entre les régions et par produits.
+Nous avons récupéré les données relatives aux droits de douanes mises à dispositions par \cite{Guimbard2012}, via la base de données MAcMap-HS6 (pour Market Access Map, selon la classification SH6) les données ne concernent cependant pas l'année 2017, nous avons donc pris les données de l'année 2016. Cette base rend compte des droits de douanes bilatéraux d'environ 190 pays importateurs et 220 exportateurs, sur 5\,000 produits. Le traitement a donc consisté en une agrégation selon nos régions et nos biens, en pondérant les droits de douanes par les quantités échangées. Pour les valeurs manquantes dans certains pays, nous les avons émulées en considérant que ces pays échangés dans les mêmes proportions que le monde entier. Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle. Les figures \ref{fig:macmap}\footnote{Les abréviations des régions et des biens sont disponibles en annexes.} montre les valeurs de droits de douanes moyens entre les régions et par produits.
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \begin{subfigure}[b]{0.495\textwidth}
         \centering
@@ -82,7 +82,7 @@ Nous avons récupéré les données relatives aux droits de douanes mises à dis
     \label{fig:macmap}
 \end{figure}
 
-Comme on peut le voir sur la sous-figure de gauche \ref{fig:reg_reg}, il y a des droits de douanes et des quantités importées au sein même de nos régions, cela est dû au fait que nos régions sont des agrégats, ainsi ici seule la Chine (CHN) qui est notre seule région-pays, n'a pas de droits de douane en elle. Les abréviations des régions et des biens sont disponibles en annexes.
+Comme on peut le voir sur la sous-figure de gauche \ref{fig:reg_reg}, il y a des droits de douanes et des quantités importées au sein même de nos régions, cela est dû au fait que nos régions sont des agrégats, ainsi ici seule la Chine (CHN) qui est notre seule région-pays, n'a pas de droits de douane en elle. Dans le modèle, nous ajustons donc avant tout calcul ces valeurs à zéro.
 
 
 \subsection{Usage d'énergie et usage d'entrants - GTAP}
@@ -111,24 +111,15 @@ Les données GTAP, nous permettent de traiter les informations relatives aux ém
     \end{threeparttable}
 \end{table}
 
-Parallèlement, le tableau \ref{tab:em_reg} suivant représente les émissions par régions. \textbf{Heatmap en cours de prod, pour montrer émissions à la prod et à la conso, avec taille pour volume consommé ou produit et couleur pour intensité carbone}
+Parallèlement, la figure suivante \ref{fig:em} suivant représente les émissions à la production par régions et par bien.
 
-\begin{table}[h!]
+\begin{figure}[h!]
     \centering
-    \begin{threeparttable}
-        \begin{tabularx}{\textwidth}{p{1.9in}cc}
-            \textbf{Régions} & \textbf{Émissions totales} (en Mt eqCO\textsubscript{2}) & \textbf{Part des émissions}\tnote{a} (en \%) \\ \hline
-            \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/em_reg.tex
-            \hline
-        \end{tabularx}
-        \begin{tablenotes}
-            \footnotesize
-            \item[a] La somme des parts ne fait pas 100~\%, car nous avons retiré \textit{a posteriori} les émissions du reste du monde, cela signifi que 3~\% des émissions ne sont pas représentées dû à notre choix de retirer cette dernière région.
-        \end{tablenotes}
-        \caption{Allocation des émissions}
-        \label{tab:em_reg}
-    \end{threeparttable}
-\end{table}
+    \centering
+    \includegraphics[width=\textwidth]{/home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/heatmap_em.pdf}
+    \caption{Carte de chaleur des émissions de GES des différentes productions}
+    \label{fig:em}
+\end{figure}
 
 \subsection{Dépense nationale brute - Banque mondiale}
 
@@ -138,7 +129,7 @@ Ici nous avons simplement récupéré les données de la banque mondiale relativ
 \section{Paramètres de comportement}
 Nous faisons les mêmes choix sur le paramétrage que dans \cite{Gouel2025}. Le tableau \ref{tab:ela} résume les valeurs choisies pour les élasticités, ainsi que l'origine de ces choix.
 
-\begin{table}[h!]
+\begin{table}[hbt!]
     \centering
     \begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
         \textbf{Élasticité}        & \textbf{Description}                                           & \textbf{Origine}                                   \\ \hline
