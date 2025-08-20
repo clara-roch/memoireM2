@@ -43,7 +43,25 @@ Le tableau \ref{tab:prod_item} montre la production en valeurs des différents b
     \end{threeparttable}
 \end{table}
 
-Les figures de l'annexe \ref{annexe:sankey} montrent des diagrammes de Sankey échanges commerciaux entre pays. Nous voyons ainsi que dans chaque région la majorité du commerce est intérieur, puis que les régions extérieures avec lesquelles il y a le plus d'échanges, sont les régions géographiquement les plus proches.
+Les figures \ref{fig:sankey} montrent des diagrammes de Sankey échanges commerciaux entre pays. Nous voyons ainsi avec la figure \ref{fig:sankey1} que dans chaque région la majorité du commerce est intérieur, puis avec \ref{fig:sankey2} que les régions extérieures avec lesquelles il y a le plus d'échanges, sont les régions géographiquement les plus proches. On peut également remarquer quelles sont les régions qui sont nettement plus importatrices (la Chine, Moyen-Orient, Afrique du Nord) et celles plus exportatrices (Asie du SE, Amérique du Sud, Amérique du Nord, Océanie).
+
+\begin{figure}[hbt!]
+    \centering
+    \begin{subfigure}[b]{0.495\textwidth}
+        \centering
+        \includegraphics[clip, trim=2cm 13.7cm 7.3cm 1.3cm, width=\textwidth]{/home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/sankey_all.pdf}
+        \caption{Avec commerce intérieur}
+        \label{fig:sankey1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.495\textwidth}
+        \centering
+        \includegraphics[clip, trim=2cm 13.77cm 7.4cm 1.3cm, width=\textwidth]{/home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/sankey_no_auto.pdf}
+        \caption{Sans commerce intérieur}
+        \label{fig:sankey2}
+    \end{subfigure}
+    \caption{Diagramme de Sankey des échanges entre régions}
+    \label{fig:sankey}
+\end{figure}
 
 \subsection{Prix - FAOSTAT \textbf{-- à reprendre}}\label{subsec:prix}
 
