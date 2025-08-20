@@ -38,11 +38,12 @@ Le tableau \ref{tab:prod_item} montre la production en valeurs des différents b
                 \hline
             \end{tabularx}
         \end{minipage}
-        \caption{Allocation des émissions}
+        \caption{Biens et production}
         \label{tab:prod_item}
     \end{threeparttable}
 \end{table}
 
+Les figures de l'annexe \ref{annexe:sankey} montrent des diagrammes de Sankey échanges commerciaux entre pays. Nous voyons ainsi que dans chaque région la majorité du commerce est intérieur, puis que les régions extérieures avec lesquelles il y a le plus d'échanges, sont les régions géographiquement les plus proches.
 
 \subsection{Prix - FAOSTAT \textbf{-- à reprendre}}\label{subsec:prix}
 
@@ -92,7 +93,7 @@ Nous avons récupéré de la base de donnée GTAP 11\footcite{Aguiar2022}, les i
 
 \subsection{Émissions de GES - FAOSTAT}
 
-Les données GTAP, nous permettent de traiter les informations relatives aux émissions. Nous avons suivi l'allocation des émissions proposée dans \cite{Valin2023}. Le tableau \ref{tab:em_allocation}, représente cette allocation, et le pourcentage sur les émissions totales. Pour suivre cette allocation nous avons dû réallouer une partie des émissions. En effet, GTAP (par le biais des données sur l'usage d'énergie) ou FABIO allouent des émissions que nous associons à l'usage de terre à des biens qui dans notre modèle n'en utilisent pas (animaux, produits transformés). Nous avons alors réattribué les émissions à un des biens de la chaîne de valeur qui utilise de la terre. Cependant, par soucis de simplicité, nous avons réalloué au pâturage l'ensemble des émissions lié à l'usage de terre par les animaux, sauf qu'étant donné notre fonction de production pour les produits animaliers (panier d'aliments pour les animaux qui dépend du prix des inputs et varie selon l'élasticité prix choisie, et non un seul input comme pour les autres produits transformés), il se peut que notre modèle ne témoigne pas de la bonne variation d'émission pour les animaux (vue qu'elles dépendront alors de l'espace attribuait aux cultures fourragères et non pas à toutes celles utilisées pour leur alimentation).
+Les données GTAP, nous permettent de traiter les informations relatives aux émissions. Nous avons suivi l'allocation des émissions proposée dans \cite{Valin2023}. Le tableau \ref{tab:em_allocation}, représente cette allocation, et le pourcentage sur les émissions totales. Pour suivre cette allocation nous avons dû réallouer une partie des émissions. En effet, GTAP (par le biais des données sur l'usage d'énergie) ou FABIO allouent des émissions que nous associons à l'usage de terre à des biens qui dans notre modèle n'en utilisent pas (animaux, produits transformés). Nous avons alors réattribué les émissions à un des biens en amont de la chaîne de valeur permettant de produire ce premier bien, et qui utilise de la terre. Cependant, par soucis de simplicité, nous avons réalloué au pâturage l'ensemble des émissions lié à l'usage de terre par les animaux, sauf qu'étant donné notre fonction de production pour les produits animaliers (panier d'aliments pour les animaux qui dépend du prix des inputs et varie selon l'élasticité prix choisie, et non un seul input comme pour les autres produits transformés), il se peut que notre modèle ne témoigne pas de la bonne variation d'émission pour les animaux (vue qu'elles dépendront alors de l'espace attribué aux cultures fourragères et non pas à toutes celles utilisées pour leur alimentation).
 
 \begin{table}[h!]
     \centering
@@ -111,7 +112,9 @@ Les données GTAP, nous permettent de traiter les informations relatives aux ém
     \end{threeparttable}
 \end{table}
 
-Parallèlement, la figure suivante \ref{fig:em} suivant représente les émissions à la production par régions et par bien.
+Parallèlement, la figure suivante \ref{fig:em} suivant représente les émissions à la production par régions et par bien. Nous pouvons observons que le potentiel émissif des pâtures et cultures fourrages (F\&G) est supérieur à celui d'autres nourritures animales telles que les oléagineux, le maïs ou les \textit{autres céréales} (OSD, MAI et CER). Cela est dû à notre réallocation des émissions associées aux animaux et aux surfaces, uniquement vers les plantes fourragères et pâtures, et non pas vers l'ensemble des cultures contribuant à leur alimentation. Les émissions réelles de ce secteur, sont donc inférieures à celles que nous avons dans notre modèle. En bout de chaîne, une évolution de la taille du cheptel, par son implication sur l'évolution du panier de nourriture, conduira bien à une augmentation des émissions totales, par l'augmentation de la surface allouée à la nourriture animale, donc en particulier des cultures fourragères.
+
+On constate également, que ce qui explique majoritairement le potentiel émissif d'un bien n'est pas son origine, mais bien sa nature\footnote{Pour en témoigner nous avons représenté cette même figure côté consommation en annexe \ref{}}.
 
 \begin{figure}[h!]
     \centering
