@@ -52,25 +52,25 @@ $$
 $$
 and using the definitions of demand and supply, we obtain:
 $$
-    D_H^0\left(1+\epsilon_H \frac{P_H - P_H^0}{P_H^0}\right) - S_H^0\left(1+\eta_H \frac{P_H - P_H^0}{P_H^0}\right) = S_F^0 \left(1+\eta_F \frac{P_F - P_F^0}{P_F^0}\right) - D_F^0\left(1+\epsilon_F \frac{P_F - P_F^0}{P_F^0}\right).
+    D_H^0\left(1+\varepsilon_H \frac{P_H - P_H^0}{P_H^0}\right) - S_H^0\left(1+\eta_H \frac{P_H - P_H^0}{P_H^0}\right) = S_F^0 \left(1+\eta_F \frac{P_F - P_F^0}{P_F^0}\right) - D_F^0\left(1+\varepsilon_F \frac{P_F - P_F^0}{P_F^0}\right).
 $$
 We then factorize by $\frac{P_i-P_i^0}{P_i^0}$ for $i = H,F$:
 $$
-    \frac{P_H - P_H^0}{P_H^0} [D_H^0 \epsilon_H - S_H^0 \eta_H] + D_H^0 - S_H^0 = \frac{P_F - P_F^0}{P_F^0} [S_F^0 \eta_F - D_F^0 \epsilon_F] + S_F^0 - D_F^0.
+    \frac{P_H - P_H^0}{P_H^0} [D_H^0 \varepsilon_H - S_H^0 \eta_H] + D_H^0 - S_H^0 = \frac{P_F - P_F^0}{P_F^0} [S_F^0 \eta_F - D_F^0 \varepsilon_F] + S_F^0 - D_F^0.
 $$
 Noting that $D_H^0 - S_H^0 = S_F^0 - D_F^0$, we obtain:
 $$
-    \frac{P_H - P_H^0}{P_H^0} [D_H^0 \epsilon_H - S_H^0 \eta_H] = \frac{P_F - P_F^0}{P_F^0} [S_F^0 \eta_F - D_F^0 \epsilon_F].
+    \frac{P_H - P_H^0}{P_H^0} [D_H^0 \varepsilon_H - S_H^0 \eta_H] = \frac{P_F - P_F^0}{P_F^0} [S_F^0 \eta_F - D_F^0 \varepsilon_F].
 $$
 
 Using the aggregated elasticities defined in Chapter \ref{intuition}, we have
 $$
-    \frac{P_F}{P_F^0}= -\frac{\mu_H (1 - t/P_H^0) - \chi_F}{\eta-\epsilon}\frac{X_F^0}{D^0}.
+    \frac{P_F}{P_F^0}= -\frac{\mu_H (1 - t/P_H^0) - \chi_F}{\eta-\varepsilon}\frac{X_F^0}{D^0}.
 $$
 
 Multiplying both sides by $P_F^0$, a straightforward derivation yields:
 $$
-    \frac{\partial P_F}{\partial t} = \frac{\mu_H}{\eta - \epsilon} \frac{X_F^0}{D^0} \frac{P_F^0}{P_H^0} < 0.
+    \frac{\partial P_F}{\partial t} = \frac{\mu_H}{\eta - \varepsilon} \frac{X_F^0}{D^0} \frac{P_F^0}{P_H^0} < 0.
 $$
 
 Assuming an initial tariff of zero, i.e. $P_F^0 = P_H^0$, we have:
@@ -80,8 +80,8 @@ $$
 
 Assuming an initial tariff of zero and uniform elasticities across countries, the price and its derivative are given by:
 \begin{align*}
-    P_F                             & = P_F^0 + t \frac{\mu_H}{\eta_i - \epsilon_i} \frac{X_F^0}{D^0}, \\
-    \frac{\partial P_F}{\partial t} & = \frac{\mu_H}{\eta_i - \epsilon_i} \frac{X_F^0}{D^0} < 0.
+    P_F                             & = P_F^0 + t \frac{\mu_H}{\eta_i - \varepsilon_i} \frac{X_F^0}{D^0}, \\
+    \frac{\partial P_F}{\partial t} & = \frac{\mu_H}{\eta_i - \varepsilon_i} \frac{X_F^0}{D^0} < 0.
 \end{align*}
 
 Regarding total production $Q$, with an initial tariff of zero we have:
@@ -90,7 +90,7 @@ Regarding total production $Q$, with an initial tariff of zero we have:
     \frac{\partial Q}{\partial t} & = \eta_i \frac{S_H^0 \chi_F + S_F^0 \mu_H}{\chi_F - \mu_H}\frac{1}{P_H^0}.
 \end{align*}
 
-For emissions, using $E_i = e_i S_i$, we obtain the results presented in Chapter \ref{intuition}. In addition, assuming an initial tariff of zero and equal elasticities (i.e., $\eta_H = \eta_F = \eta_i$ and $\epsilon_H = \epsilon_F = \epsilon_i$), we have:
+For emissions, using $E_i = e_i S_i$, we obtain the results presented in Chapter \ref{intuition}. In addition, assuming an initial tariff of zero and equal elasticities (i.e., $\eta_H = \eta_F = \eta_i$ and $\varepsilon_H = \varepsilon_F = \varepsilon_i$), we have:
 \begin{align*}
     E                             & = E^0 + \frac{\frac{t}{P_H^0} \eta_i (E_H^0 \chi_F + E_F^0 \mu_H)}{\chi_F - \mu_H}, \\[1mm]
     \frac{\partial E}{\partial t} & = \eta_i \frac{E_H^0 \chi_F + E_F^0 \mu_H}{\chi_F - \mu_H}\frac{1}{P_H^0}.

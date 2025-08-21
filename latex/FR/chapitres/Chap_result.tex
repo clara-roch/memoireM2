@@ -4,7 +4,14 @@ Pour comprendre l'effet des droits de douane sur les émissions de GES du secteu
 
 La suppression des droits de douanes dans notre modèle, avec le paramétrage présenté, augmente les droits de douanes de l'ensemble du secteur d'environ 6,5~\%\footnote{cf. \ref{subsec:vit_cvg}}.
 
-Cherchons à décomposer les différents effets en jeu ici.
+Cherchons à décomposer les différents effets en jeu ici. Dans notre modèle réduit du chapitre \ref{intuition} nous concluions que les émissions varient avec les droits de douane selon \ref{eq:eq_intuition_delta_em}\footnote{$\left({\partial E}\right)/\left( {\partial t} \right) = \left( {E_H^0 \eta_H \chi_F + E_F^0 \eta_F \mu_H} \right)/\left( {P_F^0 \mu_H - P_H^0 \chi_F} \right).$}, c'est-à-dire qu'elles augmentent avec l'introduction d'un droit de douane si les émissions du pays producteurs sont suffisamment basses par rapport à celles du pays mettant le droit de douane en place. Cherchons à montrer ce phénomène, en décomposant notre suppression de droits de douane.
+
+\subsection{Suppression des droits de douane d'un pays pour un bien }
+
+Choisissons de retirer les droits de douane, d'un pays et d'un bien vers un autre pays moins émetteur sur ce bien (quantité * potentiel), idéalement ces droits de douane sont élevés. Nous choisissons l'Asie de l'Est comme région importatrice et les deux Amériques et l'Union européenne comme régions exportatrices, car toutes quatre sont respectivement importatrice et exportatrices nettes (cf. figure \ref{fig:sankey2}). On constate également que l'Asie de l'Est importe en valeur beaucoup de produits animaliers. Nous choisissons donc de faire une première décomposition, en retirant les droits de douanes à l'import de produits issus de l'élevage en Asie de l'Est. L'équilibre atteint après avoir changé les droits de douanes conduit à une faible réduction de 0,33~\% des émissions à l'échelle monde. \textbf{en train de reprendre les attributins des émissions}
+
+
+
 
 
 \section{Sensibilité du modèle}
@@ -16,3 +23,5 @@ Cherchons à décomposer les différents effets en jeu ici.
 Pour faire converger le modèle vers une solution, nous opérons une suite d'équilibres intermédiaires représentant chacun un niveau de douane réduit. Nous ne pouvons, en effet actuellement pas atteindre l'équilibre final correspondant à une absence de droits de douane directement à partir de l'équilibre initial, le solveur (\textit{mcp} ou \textit{cns} de GAMS\footnote{\textbf{Allez voir si y a pas des trucs écrits dans le cours de CG. Ou dans doc GAMS\dots}}) ne trouve pas de solution. Une première solution consiste à succéder une suite de chocs de -1~\% (ou de -0,5~\%) de droits de douane. Ce résultat nous conduit à une augmentation totale des émissions de 6,7~\%. À l'inverse, une évolution plus brusque de sept chocs de 10~\% jusqu'à -70~\%, puis de chocs de 4~\% jusqu'à la suppression totale des droits de douane conduit à une augmentation de 6,27~\%.
 
 Cette observation témoigne en partie de l'importance du rythme d'application de politique dans leur impact. Ici, un changement plus brutal conduit à une moindre évolution de notre système. \textbf{Trouver des papiers qui parlent du rythme d'implantation, dans son impact.}
+
+\textbf{Faire un graphe montrant en abscisse \% de droits de douane en -, et en ordonnée \% de GES en +, sauf que gams, et je sais pas comment stocker les valeurs intermédiaires d'une boucle. Demander à CG}
