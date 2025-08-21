@@ -79,9 +79,9 @@ Nous effectuons ce tri sur les données brutes de FAOSTAT, puis sur celles obten
 Finalement, ces deux étapes de traitement des prix conduisent à un taux de prix manquants de 63\,\%. Nous reconstruisons donc les prix à l'aide d'un multiplicateur calculé par pays et par groupe de produits (tel que défini dans la colonne de gauche de l'annexe \ref{annexe:item_pord}). Ce multiplicateur sera plus élevé pour un pays ayant, en moyenne, des prix plus élevés, et également pour les biens dont le prix est supérieur à la moyenne. Ainsi, le multiplicateur le plus élevé correspond au bœuf au Japon. Nous reconstruisons ensuite les prix manquants à l'échelle FABIO en récupérant le premier prix non nul obtenu en multipliant notre multiplicateur par le prix moyen présent dans nos données du bien à l'échelle FABIO, puis par le prix moyen à l'échelle du bien de notre modèle et enfin par le prix moyen mondial de ce bien à l'échelle du modèle. \textbf{Revenir sur ce paragraphe qui est sûrement incompréhensible\dots}
 
 
-\subsection{Droits de douanes - MAcMap}
+\subsection{Droits de douane - MAcMap}
 
-Nous avons récupéré les données relatives aux droits de douanes mises à dispositions par \cite{Guimbard2012}, via la base de données MAcMap-HS6 (pour Market Access Map, selon la classification SH6) les données ne concernent cependant pas l'année 2017, nous avons donc pris les données de l'année 2016. Cette base rend compte des droits de douanes bilatéraux d'environ 190 pays importateurs et 220 exportateurs, sur 5\,000 produits. Le traitement a donc consisté en une agrégation selon nos régions et nos biens, en pondérant les droits de douanes par les quantités échangées. Pour les valeurs manquantes dans certains pays, nous les avons émulées en considérant que ces pays échangés dans les mêmes proportions que le monde entier. Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle. Les figures \ref{fig:macmap}\footnote{Les abréviations des régions et des biens sont disponibles en annexes.} montre les valeurs de droits de douanes moyens entre les régions et par produits.
+Nous avons récupéré les données relatives aux droits de douane mises à dispositions par \cite{Guimbard2012}, via la base de données MAcMap-HS6 (pour Market Access Map, selon la classification SH6) les données ne concernent cependant pas l'année 2017, nous avons donc pris les données de l'année 2016. Cette base rend compte des droits de douane bilatéraux d'environ 190 pays importateurs et 220 exportateurs, sur 5\,000 produits. Le traitement a donc consisté en une agrégation selon nos régions et nos biens, en pondérant les droits de douane par les quantités échangées. Pour les valeurs manquantes dans certains pays, nous les avons émulées en considérant que ces pays échangés dans les mêmes proportions que le monde entier. Ce traitement nous permet donc d'accéder aux valeurs de $T$ dans notre modèle. Les figures \ref{fig:macmap}\footnote{Les abréviations des régions et des biens sont disponibles en annexes.} montre les valeurs de droits de douane moyens entre les régions et par produits.
 
 \begin{figure}[h!]
     \centering
@@ -97,11 +97,11 @@ Nous avons récupéré les données relatives aux droits de douanes mises à dis
         \caption{Différents biens}
         \label{fig:item_reg}
     \end{subfigure}
-    \caption{Carte de chaleur des droits de douanes}
+    \caption{Carte de chaleur des droits de douane}
     \label{fig:macmap}
 \end{figure}
 
-Comme on peut le voir sur la sous-figure de gauche \ref{fig:reg_reg}, il y a des droits de douanes et des quantités importées au sein même de nos régions, cela est dû au fait que nos régions sont des agrégats, ainsi ici seule la Chine (CHN) qui est notre seule région-pays, n'a pas de droits de douane en elle. Dans le modèle, nous ajustons donc avant tout calcul ces valeurs à zéro.
+Comme on peut le voir sur la sous-figure de gauche \ref{fig:reg_reg}, il y a des droits de douane et des quantités importées au sein même de nos régions, cela est dû au fait que nos régions sont des agrégats, ainsi ici seule la Chine (CHN) qui est notre seule région-pays, n'a pas de droits de douane en elle. Dans le modèle, nous ajustons donc avant tout calcul ces valeurs à zéro.
 
 
 \subsection{Usage d'énergie et usage d'entrants - GTAP}
