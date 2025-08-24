@@ -24,7 +24,7 @@
 \usepackage{threeparttable}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage[none]{hyphenat} % No hyphenation (since here we have two languages, it is better to avoid wrong hypenation, and mostly i'm being bully by the table)
+\usepackage{etoolbox} % manage hypens
 
 % Customize itemize environment to remove spaces, and change to dashes instead of bullet points
 \setlist[itemize]{noitemsep, topsep=0pt, before=\vspace{-\baselineskip}}
@@ -55,6 +55,12 @@
 \clubpenalty=10000
 \brokenpenalty=10000
 \allowdisplaybreaks % allow page break in equation {align}
+
+% Désactive la césure SEULEMENT dans les tableaux
+\AtBeginEnvironment{table}{\hyphenpenalty=10000\exhyphenpenalty=10000}
+\AtBeginEnvironment{tabular}{\hyphenpenalty=10000\exhyphenpenalty=10000}
+\AtBeginEnvironment{tabularx}{\hyphenpenalty=10000\exhyphenpenalty=10000}
+\AtBeginEnvironment{longtable}{\hyphenpenalty=10000\exhyphenpenalty=10000}
 
 % Customize headers and footers
 \renewcommand{\headrulewidth}{0.25pt}

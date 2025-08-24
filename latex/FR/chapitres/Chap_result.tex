@@ -95,6 +95,23 @@ Comme on a pu le voir précédemment la suppression des droits de douane, quelqu
 
 \subsection{Sensibilité aux paramètres}
 
+\begin{table}[hbt!]
+    \centering
+
+    \begin{tabular}{c|cccc}
+        Paramètre changé     & Asie de l'Est et produit animalier?? & MAI & ?? & Libéralisation totale \\ \hline
+        $\emptyset$          &                                      &     &    &                       \\
+        $\kappa = ??$        &                                      &     &    &                       \\
+        $\kappa = ??$        &                                      &     &    &                       \\
+        $\kappa_\text{feed}$ &                                      &     &    &                       \\
+        $\sigma = 10$        &                                      &     &    &                       \\
+        $\varsigma =  ??$    & (je sens y va rien se passer)                                           \\
+    \end{tabular}%
+
+    \caption{Conséquence de la suppression des droits de douane liés à chaque bien.}
+    \label{tab:sensibilite_param}
+\end{table}
+
 \subsection{Sensibilité à la vitesse de convergence}\label{subsec:vit_cvg}
 
 Pour faire converger le modèle vers une solution, nous opérons une suite d'équilibres intermédiaires représentant chacun un niveau de douane réduit. Nous ne pouvons, en effet actuellement pas atteindre l'équilibre fil correspondant à une absence de droits de douane directement à partir de l'équilibre initial, le solveur (\textit{mcp} ou \textit{cns} de GAMS\footnote{\textbf{Allez voir si y a pas des trucs écrits dans le cours de CG. Ou dans doc GAMS\dots}}) ne trouve pas de solution. Une première solution consiste à succéder une suite de chocs de -1~\% (ou de -0,5~\%) de droits de douane. Ce résultat nous conduit à une augmentation totale des émissions de 6,7~\%. À l'inverse, une évolution plus brusque de sept chocs de 10~\% jusqu'à -70~\%, puis de chocs de 4~\% jusqu'à la suppression totale des droits de douane conduit à une augmentation de 6,27~\%.
