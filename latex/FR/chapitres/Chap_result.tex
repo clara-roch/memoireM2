@@ -21,24 +21,69 @@ Finalement, on observe un comportement similaire à celui de notre modèle rédu
 
 \subsection{Suppression de droits de douane dans tous les pays sur un seul bien}
 
-\subsubsection{Bien ne servant pas dans un processus}
+\subsubsection{Bien individuel non animal}
 
-Nous supprimons ici les droits de douane de tous les pays sur les fruits et légumes. Les fruits et légumes ne sont pas très émissifs, les droits de douane sont également comparativement assez élevés et les échanges également\footnote{Cf. figures du chapitre \ref{data}}. Intuitivement, on s'attend à ce que la diminution des prix entraîne une augmentation de leur consommation, par contre il n'est pas évidant que cela contribue à l'augmentation ou la réduction totale des émissions~: si cette baisse des prix entraînent une diminution suffisante des coûts pour l'alimentation animale, on peut s'attendre à une augmentation de la consommation de ces produits hautement émetteurs, à l'inverse, il est possible que la consommation d'autres aliments soit remplacée par des fruits et légumes, ce qui conduirait à une réduction totale des émissions.
+Ici nous supprimons alternativement les droits de douane pour un bien à la fois. Intuitivement deux choses peuvent se passer~: ou bien le bien est utilisé dans l'alimentation animale ou bien il ne l'est pas. S'il ne l'est pas, ce bien substituera d'autres aliments, dont les animaliers dans l'alimentation humaine, si au contraire il l'est suffisamment, la suppression des droits de douane conduira à une diminution du prix de l'alimentation animale et donc en bout de chaîne des produits animaliers, qui conduira à une augmentation de leur consommation. Si la consommation de produit animalier augmente, on s'attend à ce que les émissions totales augmentent. Parallèlement, pour un bien qui est utilisé majoritairement dans l'alimentation animale, uniquement dans une partie des pays, la suppression des droits de douane, risque d'augmenter le prix de l'alimentation animale uniquement dans ces pays, car les prix nationaux pour ce bien les pays l'exportant vont augmenter. Cet effet pourrait même aller jusqu'à réduire les émissions de GES dans certains pays. Le tableau \ref{tab:res_item} montre l'impact sur les émissions globales de la suppression, des droits de douane lui correspondant. Intuitivement, une autre chose peu se passer, si le bien n'est pas significativement utilisé dans la consommation animale, mais qu'il a un potentiel émissif supérieur à d'autres biens, l'augmentation des émissions due à celle de sa consommation risque de ne pas recouvrir la diminution des émissions du secteur animal suite à la baisse de sa consommation.
+
+\begin{table}[hbt!]
+    \centering
+    \resizebox{\textwidth}{!}{%
+        \begin{tabular}{l|ccccccccc}
+
+                                                                         & MAI            & RIC\tnote{a}  & WHE           & CAK             & CER             & SOY             & V\&F             & R\&T            & POT              \\ \hline
+            $\Delta$ des émissions totales                               & +1,4           & +0,41         & +0,19         & +0,127          & +0,047          & +0,045          & +0,036           & +0,025          & +0,024           \\
+            $\Delta$ du prix de l'alimentation animale                   & {[}-21;+3,3{]} & {[}-2,3;+4{]} & {[}-3,8;+5{]} & {[}-1,7;+0,3{]} & {[}-1,2;+1,3{]} & {[}-4,9;+4,1{]} & {[}-0,7;+0,47{]} & {[}-1,1;+0,6{]} & {[}-0,5;+0,04{]} \\
+            Nbr de régions avec $\partial E/\partial t >0$               & 5              & 11            & 8             & 7               & 9               & 4               & 8                & 12              & 6                \\
+            Nbr de régions avec $\partial P_\text{feed}/ \partial t > 0$ & 11             & 12            & 10            & 8               & 9               & 12              & 6                & 9               & 3
+        \end{tabular}%
+    }
+    \vspace{0.5em}
+    \resizebox{\textwidth}{!}{%
+        \begin{tabular}{l|cccc|ccccccc|ccc}
+                                                                         & OSD             & SUG             & OCR     & OIL     & BAN     & CIT     & CTS          & PAK     & COT   & OPF   & CTL   & TOM               & SGC     & OILP    \\ \hline
+            $\Delta$ des émissions totales                               & -0,111          & -0,09           & -0,017  & -0,008  & $0^-$   & $0^-$   & $0^-$        & $0^-$   & $0^-$ & $0^-$ & $0^-$ & $0^+$             & $0^+$   & $0^+$   \\
+            $\Delta$ du prix de l'alimentation animale                   & {[}-1,5;+0,2{]} & {[}-0,3;+1,7{]} & $\sim$0 & $\sim$0 & $\sim$0 & $\sim$0 & {[}0;+0,3{]} & $\sim$0 & 0     & 0     & 0     & {[}-0,18;$0^+${]} & $\sim$0 & $\sim$0 \\
+            Nbr de régions avec $\partial E/\partial t >0$               & 10              & 3               & 0       & 9       & 3       & 3       & 0            & 1       & 0     & 0     & 0     & 3                 & 4       & 6       \\
+            Nbr de régions avec $\partial P_\text{feed}/ \partial t > 0$ & 11              & 11              & 9       & 4       & 8       & 4       & 13           & 1       & 0     & 0     & 0     & 1                 & 4       & 13
+        \end{tabular}%
+    }
+    \begin{tablenotes}
+        \item [a] Pour assurer la convergence de cette simulation, il a fallu d'abord libéraliser les importations n'allant pas en Asie de l'Est, puis réduire progressivement les droits de douane appliqués par la région.
+        \item Les colonnes sont classées selon leur impact sur les émissions totales.
+        \item Les valeurs telles quelles ne sont pas significatives, nous nous intéressons plutôt au signe.
+    \end{tablenotes}
+    \caption{Conséquence de la suppression des droits de douane liés à chaque bien.}
+    \label{tab:res_item}
+\end{table}
+
+On observe plusieurs choses~:
+\begin{itemize}
+    \item globalement la suppression des droits de douane conduit à l'augmentation des émissions totales~;
+    \item les biens qui sont utilisés presque exclusivement pour la consommation humaine (tomates, bananes, agrumes, huiles, sucres) ou dans une chaîne de valeur ne permettant pas l'alimentation animale (cultures sucrières, les différents états du coton, cœur de palmier), conduisent à une faible réduction totale des émissions~;
+    \item la diminution des prix de l'alimentation animale dans des pays concorde avec l'augmentation dans d'autres, conduisant à une augmentation des émissions dans une partie uniquement des pays~;
+    \item pour les biens majoritaires dans tous les pays pour l'alimentation animale (maïs, tourteaux et soja), on observe une certaine complémentarité entre les régions, ou le prix de l'alimentation animale est réduite et les émissions du pays augmente ou bien c'est l'inverse~;
+    \item les biens servant aussi bien à l'alimentation animale qu'humaine, conduisent à une augmentation totale des émissions, tout en augmentant dans de nombreux pays le prix de l'alimentation animale.
+\end{itemize}
+
+Regardons plus en détail ce qui se passe lorsque l'on supprime les droits de douane sur le maïs, le riz. Parallèlement, regardons le cas des oléagineux et des autres cultures, qui semblent aller à l'envers des intuitions.
+
+La libération des échanges de maïs, conduit à \textbf{blabla} augmentation des prix à la prod du riz (wtf).
+
+Pour le riz, qui a comparativement un potentiel émissif plutôt élevé, on observe \textbf{blabla}
 
 
-\subsubsection{Bien utilisé pour l'alimentation animale}
 
-Nous supprimons ici les droits de douane de tous les pays sur les tourteaux, étant donné que ces derniers sont produits à partir d'oléagineux, on peut s'attendre à observer une substitution dans les échanges entre les deux, en faveur des tourteaux. Finalement, le prix de la production de produits d'origine animale sera réduite, et on peut s'attendre à une augmentation totale des émissions. \textbf{Rappeler le pourcentage de bouf dans le monde utilisé que pour ces satanées bestioles.}
+En retirant droits  les droits de douane de tous les pays sur les tourteaux et étant donné que ces derniers sont produits à partir d'oléagineux, on s'attendrait à observer une substitution dans les échanges entre les deux, en faveur des tourteaux. Finalement, le prix de la production de produits d'origine animale serait réduite, et on s'attendrait à une augmentation totale des émissions. Sauf que ce n'est pas ce qui se passe. \textbf{Rappeler le pourcentage de bouf dans le monde utilisé que pour ces satanées bestioles. 80 un truc ĉ ça, mais faire un graphe pour qu'on voit avec nos données.}
 
-
-\subsubsection{Tout le panier principal pour l'alimentation animale}
-
-L'alimentation animale est diversifié entre chaque région, par exemple on retrouve dans toute l'Europe une forte quantité de blé, tandis qu'en Asie du SE et du S, on utilise plutôt du riz, en Amérique plutôt du maïs, et en Chine des fruits et légumes. Malgré tout, une tendance forte se dessine. Nous supprimons donc les droits de douane de tous les pays sur les tourteaux, le maïs et le soja. \textbf{\textit{L'annexe \ref{annexe:feed_use} montre la composition des paniers dédier à l'alimentation animale dans chaque région.}} On s'attend à une augmentation totale des émissions.
 
 
 \subsubsection{Produits transformés d'origine animale}
 
 Ici, nous opérons une libération totale des droits de douane sur les produits animaliers, ce qui correspond à une extension du cas vu dans la sous-section \ref{subsec:ae_anp}.
+
+\subsubsection{Du produit animal le moins émetteur}
+
+\textbf{Je crois qu'on va souligner un pb ici, vu que nos fonctions de prod, font qu'on produit en parallèle tous les ANP, on va finir par une augmentation conjointe de tous les ANP}
 
 
 \subsection{Suppression de tous les droits de douane}

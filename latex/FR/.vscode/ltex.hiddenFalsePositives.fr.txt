@@ -1,3 +1,4 @@
 {"rule":"AGREEMENT_POSTPONED_ADJ","sentence":"^\\QPour éviter d'avoir une région reste du monde inconsistante nous avons retiré\\E$"}
 {"rule":"AGREEMENT_POSTPONED_ADJ","sentence":"^\\QPour éviter d'avoir une région reste du monde inconsistante, nous l'avons retirée (??\\E$"}
 {"rule":"FR_SPELLING_RULE","sentence":"^\\QCatégorie Gaz Allocation Part des émissionsa (en %) @@input /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/em_alloc.tex [a] En utilisant les potentiels de réchauffements présentés dans le rapport AR6 du GIEC, i.e. 27 pour CH4 et 273 pour N2O.\\E$"}
+{"rule":"TOO_LONG_PARAGRAPH","sentence":"^\\QLes valeurs telles quelles ne sont pas significatives, nous nous intéressons plutôt au signe.\\E$"}

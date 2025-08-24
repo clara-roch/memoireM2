@@ -18,6 +18,7 @@
 \usepackage{lscape}
 \usepackage{tabularx}
 \usepackage{longtable}
+\usepackage{etoolbox}
 \usepackage{array}      % For enhanced column types
 \usepackage{booktabs}   % For better horizontal rules (\toprule, \midrule, \bottomrule)
 \usepackage{threeparttable}
@@ -63,6 +64,9 @@
 
 % Point médiant
 \def\cdt{\kern-0.5pt\ensuremath\cdot\kern-0.5pt}
+
+% Footnote size in table
+\appto\TPTdoTablenotes{\footnotesize}
 
 
 \raggedbottom
