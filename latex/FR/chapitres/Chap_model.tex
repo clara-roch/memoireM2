@@ -1,11 +1,11 @@
 \textbf{[Bon faut que j'explique pourquoi on utilise un modèle aussi gros pour répondre à la question, \#trititude. "Un peu de discussion sur les choix de modélisation et leur importance serait bienvenue (dedans ou à l'oral). Un autre point qui manque encore est de clarifier la question à laquelle vous souhaitez répondre, et qui justifie pourquoi vous vous embêtez à construire cet énorme modèle, et qui éclaire aussi les choix de modélisation que vous avez faits."]}
 
-Cette section présente le modèle de commerce agricole en équilibre partiel utilisé pour analyser l’impact des politiques sur les émissions de GES. Le modèle est basé sur ~\cite{Gouel2021}, avec des fonctions multilogit remplaçant les fonctions de rendement de Fréchet initialement employées, comme décrit dans ~\cite{Gouel202x}. Alors que l’approche de Fréchet suppose une qualité des terrains hétérogène, entraînant des rendements suivant une distribution de Fréchet par rapport aux taux de spécialisation, l’approche multilogit considère les terrains comme homogènes. À la place, une fonction de gestion — dans laquelle les coûts varient en fonction des différents niveaux de spécialisation — permet d’incorporer l’hétérogénéité.
+Cette section présente le modèle de commerce agricole en équilibre partiel utilisé pour analyser l’impact des politiques sur les émissions de GES. Nous considérons un modèle d'équilibre partiel du secteur agricole s'inspirant de celui de \cite{Gouel2021}, en l'adaptant pour mieux prendre en compte les émissions de GES du secteur. D'abord, l'usage des sols n'est plus représenté par des fonctions de rendement de Fréchet, mais par des fonctions multilogit, comme présenté dans \cite{Gouel202x}. L’approche de Fréchet suppose une qualité des terrains hétérogène, entraînant des rendements suivant une distribution de Fréchet par rapport aux taux de spécialisation, l’approche multilogit considère les terrains comme homogènes, et une fonction de gestion — dans laquelle les coûts varient en fonction des différents niveaux de spécialisation — permet d'assurer la diversification des cultures. Ensuite, nous incluons les fertilisants, et donc les émissions associées. Et enfin, nous prenons en compte les transformations agro-industrielles et métaboliques, afin de pouvoir considérer non pas que les cultures, mais aussi les produits transformés et les produits d'élevages, qui constituent une part non négligeable du panier de consommation finale, et donc des émissions du secteurs.
 
 
 \section{Setups}
 
-Les pays sont indexés par $i$ et $j \in \mathcal{J}$, les biens par $k \in \mathcal{K}$, avec $k=0$ le bien non-agricole jouant le rôle de numéraire, $k \in \mathcal{K}^l$ les produits de l’élevage, $k = g$ l’herbe, $k_c \in \mathcal{K}^c$ les cultures ($\mathcal{K}^c \in \mathcal{K}$), et $k_{nc} \in \mathcal{K}^{nc}$ les produits agricoles non issus de la culture, c’est-à-dire les produits résultants d’un processus agro-industriel ($\mathcal{K}^{nc} \subset \mathcal{K}$). On note $\mathcal{K}^a = \mathcal{K}^c \cup \mathcal{K}^{nc} \cup \mathcal{K}^l$ l’ensemble des biens agricoles qui peuvent être exportés, l’herbe n’étant pas exportable, elle ne fait pas partie de cet ensemble, elle n’est utilisée que pour l’alimentation de l’élevage. Les prix de production sont notés en minuscule, tandis que les prix de consommation le sont en majuscule. Nous considérons un modèle en volume et non en valeur.
+Les pays sont indexés par $i$ et $j \in \mathcal{J}$, les biens par $k \in \mathcal{K}$, avec $k=0$ le bien non-agricole jouant le rôle de numéraire, $k \in \mathcal{K}^l$ les produits de l’élevage, $k = g$ l’herbe, $k_c \in \mathcal{K}^c$ les cultures ($\mathcal{K}^c \in \mathcal{K}$), et $k_{nc} \in \mathcal{K}^{nc}$ les produits agricoles non issus de la culture, c’est-à-dire les produits résultants d’un processus agro-industriel ($\mathcal{K}^{nc} \subset \mathcal{K}$). On note $\mathcal{K}^a = \mathcal{K}^c \cup \mathcal{K}^{nc} \cup \mathcal{K}^l$ l’ensemble des biens agricoles qui peuvent être exportés, l’herbe n’étant pas exportable, elle ne fait pas partie de cet ensemble, elle n’est utilisée que pour l’alimentation de l’élevage. Les prix de production sont notés en minuscule, tandis que les prix de consommation le sont en majuscule. \textbf{s'occuper de la cohérence kc, et grasse et export, et blablabla}
 
 Pour plus de clarté, l’annexe \ref{appendix:variables}, référence tous les noms des variables et paramètres utilisés dans cette étude.
 
@@ -16,71 +16,71 @@ On considère que l’utilité des ménages dans le pays $j$ $U_j$, suit une rel
 \begin{equation}\label{eq_u}
     U_j = C_j^0 + \beta_j^{1/\varepsilon} \ln C_j,
 \end{equation}
-avec $\varepsilon > 0$ l’élasticité de prix de demande pour le panier de biens agricoles inverse, $\beta_j > 0$ est un paramètre décrivant la demande pour les biens agricoles.
+avec $\varepsilon > 0$ l’opposé de l'élasticité de prix de demande pour le panier de biens agricoles, $\beta_j > 0$ est un paramètre caractérisant la demande pour les biens agricoles.
 
-Considérons une demande pour les biens agricoles non-élastique aux revenus\footnote{Cf. ~\cite{Comin2021}.  La quantité de nourriture consommée est plafonnée par des besoins physiologiques, mais elle peut aussi être réduite significativement si les revenus sont trop faibles pour se procurer suffisamment de nourriture. Cette hypothèse est donc quelque peu hasardeuse dans les pays à bas revenus, dans ces pays une baisse des revenus peut conduire à une baisse notable de la consommation alimentaire, alors que dans les pays à plus haut revenus, ils resteront majoritairement suffisants pour couvrir les besoins alimentaires}.
+\textbf{\textit{Considérons une demande pour les biens agricoles non-élastique aux revenus}}\footnote{Cf. \cite{Comin2021}. La quantité de nourriture consommée est plafonnée par des besoins physiologiques, mais elle peut aussi être réduite significativement si les revenus sont trop faibles pour se procurer suffisamment de nourriture. Cette hypothèse est donc quelque peu hasardeuse dans les pays à bas revenus, dans ces pays une baisse des revenus peut conduire à une baisse notable de la consommation alimentaire, alors que dans les pays à plus haut revenus, ils resteront majoritairement suffisants pour couvrir les besoins alimentaires}.
 
 On note la consommation de l’ensemble du panier de biens agricoles dans le pays $j$, $C_j$, qui s’exprime comme une CES des différents biens agricoles,
 \begin{equation}\label{eq_cj1}
     C_j = \left[ \sum_{k \in \mathcal{K}^a} (\beta_{j}^k)^{1/\kappa} (C_{j}^k)^{(\kappa-1)/\kappa} \right]^{\kappa/(\kappa-1)},
 \end{equation}
-avec $\kappa > 0$ l’élasticité de substitution entre biens agricoles, on considère sa valeur identique dans chaque pays, $C_j^k$ représente la consommation pour le produit $k$, et $\beta_{j}^k$ est un paramètre exogène de préférence pour le bien $k$ dans le pays $j$.
+avec $\kappa > 0$ l’élasticité de substitution entre biens agricoles, $C_j^k$ représente la consommation pour le produit $k$, et $\beta_{j}^k$ est un paramètre exogène de préférence pour le bien $k$ dans le pays $j$.
 
 Étant donné l’utilité des ménages de l’équation \ref{eq_u}, la maximisation de la demande implique la relation suivante
 \begin{equation}\label{eq_pj}
-    P_j: C_j = \beta_j (P_j)^{-\varepsilon},
+    C_j = \beta_j (P_j)^{-\varepsilon},
 \end{equation}
 avec $P_j$ le prix du panier de biens agricoles dans le pays $j$, tel que
 \begin{equation}\label{eq_cj}
-    C_j: P_j = \left[ \sum_{k \in \mathcal{K}^a} \beta_{j}^k (P_{j}^k)^{1-\kappa} \right]^{1/(1-\kappa)},
+    P_j = \left[ \sum_{k \in \mathcal{K}^a} \beta_{j}^k (P_{j}^k)^{1-\kappa} \right]^{1/(1-\kappa)},
 \end{equation}
 où $P_j^k$ représente le prix du bien $k$ dans le pays $j$.
 
-Les équations \ref{eq_cj} et \ref{eq_cj1} permettent d’exprimer la demande pour le bien agricole $k$
+Les équations \ref{eq_cj1} et \ref{eq_cj} permettent d’exprimer la demande pour le bien agricole $k$
 \begin{equation}
-    C_j^k: C_j^k = \beta_j^k \left(\frac{P_j^k}{P_j} \right)^{-\kappa} C_j.
+    C_j^k = \beta_j^k \left(\frac{P_j^k}{P_j} \right)^{-\kappa} C_j.
 \end{equation}
 
-La demande pour le bien extérieur découle de l’ensemble des consommations $E_j$, ce qui donne
+La demande pour le bien non-agricole découle de l’ensemble des dépenses $E_j$, ce qui donne
 \begin{equation}
-    C_j^0 : P_j^0 C_j^0 = E_j - P_j C_j.
+    P_j^0 C_j^0 = E_j - P_j C_j.
 \end{equation}
 
 
 \subsection{Commerce}
 
-Pour les échanges entre pays, on considère une hypothèse de préférences des biens locaux d’Armington, avec l’élasticité associée $\sigma >0$ et $\neq 1$. Seuls les échanges inter-pays sont considérés, les transports sont supposés sans frictions à l’intérieur même des pays. On note les coûts iceberg du transport du bien $k$ du pays $i$ vers le pays $j$ $\tau_{ij}^k$ et $T_{ij}^k$ la puissance du droit de douane. Le prix dans le pays $j$ du bien $k$ produit dans le pays $i$ est alors $T_{ij}^k \tau_{ij}^k p_i^k$, et le prix total du bien $k$ dans le $j$ est données par une CES des prix d’importations
+Pour les échanges entre pays, on considère une hypothèse de différenciation par pays d'origine à la Armington, avec l’élasticité associée $\sigma^k >0$ et $\neq 1$. Seuls les échanges inter-pays sont considérés, les transports sont supposés sans frictions à l’intérieur même des pays. On note les coûts iceberg du transport du bien $k$ du pays $i$ vers le pays $j$ $\tau_{ij}^k$ et $T_{ij}^k$ la puissance du droit de douane. Le prix dans le pays $j$ du bien $k$ produit dans le pays $i$ est alors $T_{ij}^k \tau_{ij}^k p_i^k$, et le prix total du bien $k$ dans le $j$ est données par une CES des prix d’importations
 \begin{equation}
-    X_j^k: P_j^k = \left[ \sum_{i \in \mathcal{J}} \beta_{ij}^k \left(T_{ij}^k \tau_{ij}^k p_i^k \right)^{1-\sigma} \right]^{1/(1-\sigma)}.
+    P_j^k = \left[ \sum_{i \in \mathcal{J}} \beta_{ij}^k \left(T_{ij}^k \tau_{ij}^k p_i^k \right)^{1-\sigma^k} \right]^{1/(1-\sigma^k)}.
 \end{equation}
 
-La quantité totale importée de biens $k$ dans le pays $j$, $X_j^k$ est donc égale à la somme des consommations finales $C_j^k$ et intermédiaires $x_j^k$ de $k$ dans le pays (par soucis de simplicité, on considère que les consommations nationales dans les imports, i.e. si le pays est en autarcie, $C_j + x_j = X_j = X_{jj}$)
+La quantité totale importée de biens $k$ dans le pays $j$, $X_j^k$ est égale à la somme des consommations finales $C_j^k$ et intermédiaires $x_j^k$ de $k$ dans le pays (par soucis de simplicité, on considère les consommations nationales dans les imports, i.e. si le pays est en autarcie, $C_j + x_j = X_j = X_{jj}$)
 \begin{equation}
-    P_j^k: X_j^k = C_j^k + x_j^k.
+    X_j^k = C_j^k + x_j^k.
 \end{equation}
 
-La condition de zéro profit permet d’exprimer la quantité de bien importé depuis chaque pays $i$
+La quantité de bien importé depuis chaque pays $i$ est donnée par
 \begin{equation}
-    X_{ij}^k: X_{ij}^k = \beta_{ij}^k \left( \frac{T_{ij}^k \tau_{ij}^k p_i^k}{P_j^k}\right)^{- \sigma} X_{j}^k.
+    X_{ij}^k = \beta_{ij}^k \left( \frac{T_{ij}^k \tau_{ij}^k p_i^k}{P_j^k}\right)^{- \sigma} X_{j}^k.
 \end{equation}
 
-Les imports sont néanmoins contraints par la capacité à payer ces imports, l’ensemble des dépenses du pays étant égales à l’ensemble des revenus
+L’ensemble des dépenses du pays étant égales à l’ensemble des revenus
 \begin{equation}
-    E_j: E_j = W_j N_j + r_j L_j + \sum_{i,k} \left( T_{ij}^k-1 \right)\tau_{ij}^k p_i^k X_{ij}^k + B_j,
+    E_j = W_j N_j + r_j L_j + \sum_{i,k} \left( T_{ij}^k-1 \right)\tau_{ij}^k p_i^k X_{ij}^k,
 \end{equation}
-avec $w_j$ les salaires, $N_j$ la quantité de travailleurs, $r_j$ le loyer des terres agricoles, $L_i$ la quantité totale de celles-ci, et $B_j$ la balance commerciale.
+avec $W_j$ les salaires, $N_j$ la quantité de travailleurs, $r_j$ le loyer des terres agricoles, $L_i$ la quantité totale de celles-ci. Étant donné que le modèle est à équilibre partiel, nous ne considérons pas la balance commerciale, le bien extérieur l'équilibre automatiquement.
 
 \subsection{Production}
-On considère séparément les productions issues du sol, i.e. les cultures, de ceux issus de l’élevage ou de transformation, i.e. les produits animaliers et les produits transformés d’origine végétale. Seules les cultures utilisent de la terre, l’espace utilisé par l’élevage est compté au travers de l’alimentation des animaux.
+On considère séparément le bien non-agricole, les productions issues du sol, i.e. les cultures, de ceux issus de l’élevage ou de transformation, i.e. les produits animaliers et les produits transformés d’origine végétale. Seules les cultures utilisent de la terre, l’espace utilisé par l’élevage est compté au travers de l’alimentation des animaux.
 
 \subsubsection{Bien extérieur}
 Le bien extérieur n’utilise donc pas de terres, et n’utilisant pas de biens agricoles nous considérons qu’il est produit uniquement à partir de travail, et ce, avec toujours le même rendement, que nous notons $A_i^0$, ce qui donne $Q_i^0 = A_i^0 N_i^0$, et donc que le salaire vaut $W_i = A_i^0 p_i^0$, étant donné que le bien extérieur et numéraire on écrit $W_i=A_i^0$.
 
 \subsubsection{Cultures}
 
-Nous considérons dans chaque pays un seul champ, de qualité homogène et de surface constante, avec des cultures différentes. Pour chaque culture, on représente les rendements $Y_i^k$ par une fonction isoélastique qui dépend de la surface allouée $s_i^k L_i$ et de la quantité d’intrants apportée
+Nous considérons dans chaque pays un seul champ, de qualité homogène et de surface constante, avec des cultures différentes. Pour chaque culture, on représente les rendements $Y_i^k$ par une fonction isoélastique qui de la quantité d’intrants apportée
 \begin{equation}\label{eq_yik}
-    Y_i^k: Y_i^k = y_i^k \left( \frac{F_i^k}{s_i^k L_i} \right) ^{\varsigma_i^k/(1+\varsigma_i^k)},
+    Y_i^k = y_i^k \left( \frac{F_i^k}{s_i^k L_i} \right) ^{\varsigma_i^k/(1+\varsigma_i^k)},
 \end{equation}
 avec $\varsigma_i^k > 0$ l’élasticité de rendement, et $y_i^k$ un paramètre de niveau de rendements.
 
@@ -90,7 +90,7 @@ Parallèlement, pour représenter l’hétérogénéité des cultures et éviter
 \end{equation}
 avec $f(s_i^k) = \sum_{k \in \mathcal{K}^c} c_i^k s_i^k + a_i^{-1} \sum_{k \in \mathcal{K}} s_i^k \ln s_i^k$, où $c_i^k$ est un paramètre qui permet de reproduire la répartition initiale des cultures $s_i^k$, et $a_i > 0$ est un paramètre de comportement qui régit l’élasticité des surfaces cultivées.
 
-On obtient ensuite l’expression des $s_i^k$, en dérivant \ref{eq_rik} sous condition de $\sum_{k\in \mathcal{K}^c} s_i^k = 1$
+On obtient ensuite l’expression des $s_i^k$, en maximisant \ref{eq_rik} sous condition de $\sum_{k\in \mathcal{K}^c} s_i^k = 1$
 \begin{equation}\label{eq_s1}
     s_i^k = \frac{\exp(a_i \pi_i^k)}{\sum_{l \in \mathcal{K}^c} \exp(a_i \pi_i^l)},
 \end{equation}
@@ -98,32 +98,32 @@ avec $\pi_i^k = [p_i^k Y_i^k - p_i^0 F_i^k/(s_i^k L_i) - W_i c_i^k]/W_i$.
 
 En posant $\phi_i = \log \sum_{k \in \mathcal{K}^c} \exp(a_i \pi_i^k)$, on peut simplifier \ref{eq_s1} en
 \begin{equation}\label{eq_sik}
-    s_i^k: s_i^k = \exp(a_i \pi_i^k - \phi_i).
+    s_i^k = \exp(a_i \pi_i^k - \phi_i).
 \end{equation}
 
-On obtient la demande totale en entrant, en maximisant les profits, ce qui donne
+On obtient la demande totale en intrant, en maximisant les profits, ce qui donne
 \begin{equation}
-    F_i^k: F_i^k = s_i^k L_i \left( \frac{\varsigma_i^k}{1+\varsigma_i^k} \right)^{1+\varsigma_i^k} \left( \frac{p_i^k}{p_i^0} y_i^k \right)^{1+\varsigma_i^k},
+    F_i^k = s_i^k L_i \left( \frac{\varsigma_i^k}{1+\varsigma_i^k} \right)^{1+\varsigma_i^k} \left( \frac{p_i^k}{p_i^0} y_i^k \right)^{1+\varsigma_i^k},
 \end{equation}
 et nous permet de réécrire l’expression du profit réel $\pi_i^k$, comme
 \begin{equation}
-    \pi_i^k : \pi_i^k = \frac{\left( \varsigma_i^k \right)^{\varsigma_i^k}}{\left(  p_i^0 \right)^{\varsigma_i^k}W_i} \left( \frac{p_i^k y_i^k}{1+\varsigma_i^k }\right)^{1+\varsigma_i^k} - c_i^k.
+    \pi_i^k = \frac{\left( \varsigma_i^k \right)^{\varsigma_i^k}}{\left(  p_i^0 \right)^{\varsigma_i^k}W_i} \left( \frac{p_i^k y_i^k}{1+\varsigma_i^k }\right)^{1+\varsigma_i^k} - c_i^k.
 \end{equation}
 
-Étant donné que $a_i$ caractérise en partie l’élasticité des surfaces cultivées, et que l’on a $\varsigma_i^k$ l’élasticité de rendement, $a_i$ vérifie
+Étant donné que $a_i$ caractérise en partie l’élasticité des surfaces cultivées, et que l’on a $\varsigma_i^k$ l’élasticité de rendement, l'élasticité d'offre d'une culture est donnée par
 \begin{equation*}
     \frac{\partial \ln Q_i^k}{\partial \ln p_i^k} = a_i \frac{p_i^k Y_i^k}{W_i}(1 - s_i^k) + \varsigma_i^k.
 \end{equation*}
 
-Parallèlement, $c_i^k$, on peut réécrire $\pi_i^k$ comme étant égal à $(\ln s_i^k + \phi_i)/a_i$, ce qui donne en remplaçant dans la première expression de $\pi_i^k$
+Parallèlement, on peut réécrire $\pi_i^k$ comme étant égal à $(\ln s_i^k + \phi_i)/a_i$, ce qui donne en remplaçant dans la première expression de $\pi_i^k$, l'expression du paramètre $c_i^k$
 \begin{equation*}
-    c_i^k= \left( p_i^k Y_i^k - p_i^0 F_i^k / \left( s_i^k L_i \right) \right) / W_i - a_i^{-1} \left( \log s_i^k + \phi_i \right).
+    c_i^k = \left( p_i^k Y_i^k - p_i^0 F_i^k / \left( s_i^k L_i \right) \right) / W_i - a_i^{-1} \left( \log s_i^k + \phi_i \right).
 \end{equation*}
 
 \subsubsection{Produits transformés}
 Dans cette section, nous n’abordons que les biens issus exclusivement d’un processus métabolique ou agro-industriel. Plusieurs secteurs d’activité peuvent produire un même bien, ainsi la production totale d’un bien est la somme de ses productions dans chaque activité $a$
 \begin{equation}\label{eq_qik}
-    Q_i^k: Q_i^k = \sum_{a|k\in \mathcal{O}(a)} Q_i^{ak},
+    Q_i^k = \sum_{a|k\in \mathcal{O}(a)} Q_i^{ak},
 \end{equation}
 avec $\mathcal{O}(a)$ l’ensemble des biens produits par l’activité $a$. Naturellement un bien issu d’un processus animal ne peut être aussi issus d’un processus végétal. Pour simplifier les notations, nous posons $k \in \mathcal{I}(a)$ correspond à l’input et $l \in \mathcal{O}(a)$ aux outputs, ainsi que dans la section suivante $a = \text{livestock}$, et dans la suivante $a \in \text{veg-transfo}$.
 
@@ -151,9 +151,9 @@ avec $P_i^\text{feed}$ le prix associé au panier de nourriture $x_i^\text{feed}
 
 \paragraph{Produits d’origine végétale} Similairement aux produits issus de l’élevage, le processus de transformation pour obtenir ces produits d’origine végétale est modélisé par une fonction Léontief. Cependant, ici l’assimilation est parfaite, et les processus ne prennent qu’un seul produit en entrée, nous gardons donc l’équation \ref{eq_qlivestock}, mais avec en remplaçant $\mu_i^\text{feed}$ par 1, et l’agrégat d’inputs $x^{\text{feed}}$ par l’unique input $x^{ak}$, ce qui nous donne
 \begin{align}
-    \label{eq_xiak}x^{ak}_i & : x^{ak}_i = Q_i^a,            \\
-    Q_i^{al}                & : Q_i^{al} = \nu_i^{al} Q_i^a, \\
-    \label{eq_nia} N_i^a    & :    N_i^a = A_i^a Q_i^a,
+    \label{eq_xiak} x^{ak}_i & = Q_i^a,            \\
+    Q_i^{al}                 & = \nu_i^{al} Q_i^a, \\
+    \label{eq_nia}   N_i^a   & = A_i^a Q_i^a,
 \end{align}
 et la condition de non-profit conduit à
 \begin{equation}
@@ -166,33 +166,33 @@ ce qui donne
 
 Par convention, chaque activité est associée à un output principal tandis que les autres sorties sont secondaires (e.g. dans le cas du traitement des oléagineux, il s’agit de l’huile.). Les autres sorties (dans l’exemple, les tourteaux) sont déterminées à partir des conditions du premier ordre. En indexant par $\mathbf{l}$ l’output principal, le processus est caractérisé par le système d’équations suivant~:
 \begin{align}
-    Q_i^{a \mathbf{l}} & : A_i^a W_i + P_i^k = \sum_{l\in \mathcal{O}(a)} \nu_i^{al} p_i^{l},                                             \\
-    Q_i^{al}           & : Q_i^{al} = \left( \nu_i^{al} / \nu_i^{a \mathbf{l}} \right)Q_i^{a \mathbf{l}}, \text{ for } l \neq \mathbf{l}, \\
-    N_i^a              & : N_i^a = A_i^a Q_i^{a \mathbf{l}} / \nu_i^{a \mathbf{l}},                                                       \\
-    x_i^{ak}           & :x_i^{ak} = Q_i^{a \mathbf{l}} / \nu_i^{a \mathbf{l}}.
+    A_i^a W_i + P_i^k & = \sum_{l\in \mathcal{O}(a)} \nu_i^{al} p_i^{l},                                                      \\
+    Q_i^{al}          & = \left( \nu_i^{al} / \nu_i^{a \mathbf{l}} \right)Q_i^{a \mathbf{l}}, \text{ for } l \neq \mathbf{l}, \\
+    N_i^a             & = A_i^a Q_i^{a \mathbf{l}} / \nu_i^{a \mathbf{l}},                                                    \\
+    x_i^{ak}          & = Q_i^{a \mathbf{l}} / \nu_i^{a \mathbf{l}}.
 \end{align}
 
 \subsection{Équilibres de marché}
 \subsubsection{Équilibre marché des biens}
 \paragraph{Production} Côté production, les quantités produites doivent égaler l’ensemble des imports (en considérant toujours que si le pays $i$ est en autarcie $C_i^k = Q_i^k = X_{ii}^k = X_i^k$)~:
 \begin{equation}
-    p_i^k: Q_i^k = \sum_{j \in \mathcal{J}} \tau_{ij}^k X_{ij}^k \text{, for } k \neq 0.
+    Q_i^k = \sum_{j \in \mathcal{J}} \tau_{ij}^k X_{ij}^k \text{, for } k \neq 0.
 \end{equation}
 
 Pour le bien extérieur, on a
 \begin{equation}
-    p_i^0: \sum_{i \in \mathcal{J}} Q_i^0 = \sum_{i \in \mathcal{J}} \left( C_i^0 + \sum_{k \in \mathcal{K}^c} F_i^k \right).
+    \sum_{i \in \mathcal{J}} Q_i^0 = \sum_{i \in \mathcal{J}} \left( C_i^0 + \sum_{k \in \mathcal{K}^c} F_i^k \right).
 \end{equation}
 
 \paragraph{Consommation} Côté consommation, l’ensemble des imports correspond à l’ensemble des consommations finales et intermédiaires
 \begin{equation}
-    P_i^k: X_i^k=C_i^k + x_i^{\text{feed},k} + \sum_{a | k \in \mathcal{I}(a)} x_i^{ak}.
+    X_i^k=C_i^k + x_i^{\text{feed},k} + \sum_{a | k \in \mathcal{I}(a)} x_i^{ak}.
 \end{equation}
 
 \subsubsection{Équilibre marché du travail}
 La somme de besoin en travail ne doit pas excéder ce que le pays est capable de fournir, et par simplification, on considère que le taux d’emploi ne change pas, ce qui donne
 \begin{equation}\label{eq_wi}
-    W_i: N_i=\sum_a N_i^a.
+    N_i=\sum_a N_i^a.
 \end{equation}
 
 \section{Modèle en changement relatif}
@@ -255,11 +255,11 @@ En posant $\alpha_j^{\text{C},k} = {(P_j^k C_j^k)}/{(P_j C_j)}$, $\alpha^{\text{
 
 \section{Limites du modèle}
 
-\paragraph{Changement d’usage des terres} Nous avons posé dans ce modèle $L_i$, la surface totale de terre cultivable dans ce modèle, comme étant fixe, or dans les faits, les surfaces des terres agricoles varient, l’impact de l'utilisation des terres, leur changement et les forêts (LULUCF) représente 51~\% des émissions du secteur agriculture-forêt et changement d'usage des sols (AFOLU), sur la période 1990-2019\footnote{Cf. figure 7.3. ~\cite{IPCCAR6GR3}. La déforestation compte pour 17~\% des émissions globales de GES, la majorité est due à l'agriculture.}. De plus, la méta-analyse de \cite{Huang2023} montre que les émissions de GES ont une relation quadratique avec le changement d'usage des terres. Une amélioration possible du modèle, serait donc de permettre l’augmentation ou la diminution des terres, tout en prenant en compte la qualité moindre de ces terres jusqu’alors non utilisées et l’impossibilité d’utiliser certaines terres. Cette question est prise en compte dans les articles de \cite{Farrokhi2023} dans un modèle d'équilibre général dynamique de commerce, ou de \cite{Costinot2016}.
+\paragraph{Changement d’usage des terres} Nous avons posé dans ce modèle $L_i$, la surface totale de terre cultivable dans ce modèle, comme étant fixe, or dans les faits, les surfaces des terres agricoles varient, l’impact de l'utilisation des terres, leur changement et les forêts (LULUCF) représente 51~\% des émissions du secteur agriculture-forêt et changement d'usage des sols (AFOLU), sur la période 1990-2019\footnote{Cf. figure 7.3. \cite{IPCCAR6GR3}. La déforestation compte pour 17~\% des émissions globales de GES, la majorité est due à l'agriculture.}. De plus, la méta-analyse de \cite{Huang2023} montre que les émissions de GES ont une relation quadratique avec le changement d'usage des terres. Une amélioration possible du modèle, serait donc de permettre l’augmentation ou la diminution des terres, tout en prenant en compte la qualité moindre de ces terres jusqu’alors non utilisées et l’impossibilité d’utiliser certaines terres. Cette question est prise en compte dans les articles de \cite{Farrokhi2023} dans un modèle d'équilibre général dynamique de commerce, ou de \cite{Costinot2016}.
 
 \paragraph{Rotation intra-annuelle des cultures} Certaines cultures combinées à d’autres peuvent occuper une même surface dans une même année, par exemple il est possible de planter un couvert de plantes fourragères avant de cultiver du maïs, ou bien cultiver ensemble sur une même surface plusieurs plantes en même temps, le modèle ne permet pas de représenter de l’usage d’une même terre au cours d’une même année par plusieurs cultures. Cependant, étant donné que le modèle est en variation, ce phénomène continuera d’exister, mais ne changera pas en pourcentage. Nous n’avons pas trouvé de modèle illustrant correctement ce phénomène d’intrication des cultures.
 
-\paragraph{Élasticité différenciée entre les cultures} Une autre limite du modèle en l’état est la substituabilité des produits agricoles entre eux, vis-à-vis de la consommation ($\kappa$ et $\kappa_\text{feed}$), mais aussi de la production ($\varsigma_i^k$). Actuellement, le modèle considère, par exemple que la substitution entre une aubergine et une tomate est la même pour les consommateur$\cdot$ice$\cdot$s que celles entre une tomate et un œuf. De même, quant à l’usage des terres, le modèle, ne prend pas en compte les qualités des terres qui sont plus à même de produire tel ou tel bien, dans la réalité, il faut un sol et un climat différent pour produire du blé ou du riz. Pour représenter ces substitutions différenciées entre les produits, il est possible d’utiliser des fonctions CES imbriquées, comme dans ~\cite{CorreaDias2025} ou ~\cite{Valin2023}, mais également aussi de considérer plusieurs champs par pays, et non un seul comme ici, et d’associer à ces derniers des caractéristiques différentes conduisant à des rendements différents pour chaque culture ou élevage, comme dans ~\cite{Gouel2021}, avec l'utilisation de la base de données du projet GAEZ (mené par IIASA et la FAO). Cependant, augmenter le niveau d'imbrication des CES, signifie également qu'il faut plus d'élasticités, qui ne sont pas nécessairement facile à estimer.
+\paragraph{Élasticité différenciée entre les cultures} Une autre limite du modèle en l’état est la substituabilité des produits agricoles entre eux, vis-à-vis de la consommation ($\kappa$ et $\kappa_\text{feed}$), mais aussi de la production ($\varsigma_i^k$). Actuellement, le modèle considère, par exemple que la substitution entre une aubergine et une tomate est la même pour les consommateur$\cdot$ice$\cdot$s que celles entre une tomate et un œuf. De même, quant à l’usage des terres, le modèle, ne prend pas en compte les qualités des terres qui sont plus à même de produire tel ou tel bien, dans la réalité, il faut un sol et un climat différent pour produire du blé ou du riz. Pour représenter ces substitutions différenciées entre les produits, il est possible d’utiliser des fonctions CES imbriquées, comme dans \cite{CorreaDias2025} ou \cite{Valin2023}, mais également aussi de considérer plusieurs champs par pays, et non un seul comme ici, et d’associer à ces derniers des caractéristiques différentes conduisant à des rendements différents pour chaque culture ou élevage, comme dans \cite{Gouel2021}, avec l'utilisation de la base de données du projet GAEZ (mené par IIASA et la FAO). Cependant, augmenter le niveau d'imbrication des CES, signifie également qu'il faut plus d'élasticités, qui ne sont pas nécessairement facile à estimer.
 
 \paragraph{Changement de méthode de culture} [Je sais pas quoi écrire encore dessus, mais voilà on est là.]
 

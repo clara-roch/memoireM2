@@ -25,6 +25,11 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{etoolbox} % manage hypens
+\usepackage{titlesec} % change chap layout
+
+% Change Chap layout
+\titleformat{\chapter}[hang]
+{\normalfont\huge\bfseries}{\thechapter.\ }{0pt}{\huge}
 
 % Customize itemize environment to remove spaces, and change to dashes instead of bullet points
 \setlist[itemize]{noitemsep, topsep=0pt, before=\vspace{-\baselineskip}}
