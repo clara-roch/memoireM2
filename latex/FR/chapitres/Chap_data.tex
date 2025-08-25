@@ -21,10 +21,13 @@ Le tableau \ref{tab:prod_item} montre la production en valeurs des différents b
 
 \begin{table}[h!]
     \centering
+    \caption{Biens et production}
+    \label{tab:prod_item}
     \begin{threeparttable}
         \begin{minipage}[t]{0.49\textwidth}
             \centering
             \begin{tabularx}{\textwidth}{p{1.8in}c}
+                \hline
                 \textbf{Biens} & \textbf{Part} (\%) \\ \hline
                 \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/prod_item_part1.tex
                 \hline
@@ -33,13 +36,12 @@ Le tableau \ref{tab:prod_item} montre la production en valeurs des différents b
         \begin{minipage}[t]{0.49\textwidth}
             \centering
             \begin{tabularx}{\textwidth}{p{2in}c}
+                \hline
                 \textbf{Biens} & \textbf{Part} (\%)                                                                                                   \\ \hline
                 \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/prod_item_part2.tex \\
                 \hline
             \end{tabularx}
         \end{minipage}
-        \caption{Biens et production}
-        \label{tab:prod_item}
     \end{threeparttable}
 \end{table}
 
@@ -114,9 +116,12 @@ Nous avons récupéré de la base de donnée GTAP 11\footcite{Aguiar2022}, les i
 Les données GTAP, nous permettent de traiter les informations relatives aux émissions. Nous avons suivi l'allocation des émissions proposée dans \cite{Valin2023}. Le tableau \ref{tab:em_allocation}, représente cette allocation, et le pourcentage sur les émissions totales. Pour suivre cette allocation, nous avons dû réallouer une partie des émissions. En effet, GTAP (par le biais des données sur l'usage d'énergie) ou FABIO allouent des émissions que nous associons à l'usage de terre à des biens qui dans notre modèle n'en utilisent pas (animaux, produits transformés). Nous avons alors réattribué les émissions à un des biens en amont de la chaîne de valeur permettant de produire ce premier bien, et qui utilise de la terre. Cependant, par soucis de simplicité, nous avons réalloué au pâturage l'ensemble des émissions lié à l'usage de terre par les animaux, sauf qu'étant donné notre fonction de production pour les produits animaliers (panier d'aliments pour les animaux qui dépend du prix des inputs et varie selon l'élasticité prix choisie, et non un seul input comme pour les autres produits transformés), il se peut que notre modèle ne témoigne pas de la bonne variation d'émission pour les animaux (vue qu'elles dépendront alors de l'espace attribué aux cultures fourragères et non pas à toutes celles utilisées pour leur alimentation). Pour ce qui est des émissions liées à l'usage d'énergie, nous avons réattribué au fourrage, les émissions liées aux animaux vivants, mais nous avons alloué aux quantités produites pour les produits issus d'une transformation. De cette manière les émissions liées à la transformation agro-industrielle des produits transformations est prise en compte. Ainsi, nous considérons deux usages d'énergie, une à la ferme qui est allouée à la surface en terre et une autre à la transformation que l'on alloue à la quantité produite.
 
 \begin{table}[h!]
+    \caption{Allocation des émissions}
+    \label{tab:em_allocation}
     \centering
     \begin{threeparttable}
         \begin{tabularx}{\textwidth}{p{1.77in}p{0.95in}p{1.19in}c}
+            \hline
             \textbf{Catégorie} & \textbf{Gaz} & \textbf{Allocation} & \textbf{Part des émissions}\tnote{a} (en \%) \\ \hline
             \csname @@input\endcsname /home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/em_alloc.tex
             \hline
@@ -125,8 +130,6 @@ Les données GTAP, nous permettent de traiter les informations relatives aux ém
             \footnotesize
             \item[a] En utilisant les potentiels de réchauffements présentés dans le rapport AR6 du GIEC, i.e. 27 pour CH\textsubscript{4} et 273 pour N\textsubscript{2}O. Les pourcentages ne somment pas à 100 à cause des arrondis.
         \end{tablenotes}
-        \caption{Allocation des émissions}
-        \label{tab:em_allocation}
     \end{threeparttable}
 \end{table}
 
@@ -152,7 +155,10 @@ Nous faisons les mêmes choix sur le paramétrage que dans \cite{Gouel2025}. Le 
 
 \begin{table}[hbt!]
     \centering
+    \caption{Origine des paramètres}
+    \label{tab:ela}
     \begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+        \hline
         \textbf{Élasticité}        & \textbf{Description}                                           & \textbf{Origine}                                   \\ \hline
         $\varepsilon$ = 0,5        & opposé de prix de la demande pour le panier de biens agricoles & \cite{Comin2021}                                   \\
         $\kappa =$ 0,6             & de substitution à la consommation                              & Valeur usuelle dans la littérature \cite{Rude2000} \\
@@ -161,8 +167,6 @@ Nous faisons les mêmes choix sur le paramétrage que dans \cite{Gouel2025}. Le 
         $\sigma^k \in$ [2,6\,, 10] & de substitution d'Armington                                    & GTAP  \cite{Aguiar2022}, \cite{Costinot2016}       \\
         \hline
     \end{tabularx}
-    \caption{Origine des paramètres}
-    \label{tab:ela}
 \end{table}
 
 Nous pouvons remarquer que l'élasticité de substitution entre les biens pour l'alimentation animale est plus élevée que celle pour l'alimentation humaine, cela témoigne deux choses, d'abord que l'alimentation animale est constitués d'un panel d'aliments moins diversifiés (les animaux mangent principalement des céréales et des tourteaux), ensuite que les humains veulent manger tel ou tel aliment, et non pas que pour son apport calorique.
