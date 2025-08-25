@@ -2,7 +2,7 @@
 
 Pour comprendre l'effet des droits de douane sur les émissions de GES du secteur, nous partons de la situation actuelle. Nous changeons ensuite de cet équilibre initial les valeurs des droits de douane pour les annuler, le second équilibre atteint, nous pouvons constater les émissions finales dans cette situation contrefactuelle et déduire l'impact des droits de douane.
 
-La suppression des droits de douane dans notre modèle, avec le paramétrage présenté, augmente les émissions totale d'environ 6,1~\%\footnote{Cf. \ref{subsec:vit_cvg}}.
+La suppression des droits de douane dans notre modèle, avec le paramétrage présenté, augmente les émissions totales d'environ 6,1~\%.
 
 Cherchons à décomposer les différents effets en jeu ici. Dans notre modèle réduit du chapitre \ref{intuition} nous concluions que les émissions varient avec les droits de douane selon \ref{eq:eq_intuition_delta_em}\footnote{$\left({\partial E}\right)/\left( {\partial t} \right) = \left( {E_H^0 \eta_H \chi_F + E_F^0 \eta_F \mu_H} \right)/\left( {P_F^0 \mu_H - P_H^0 \chi_F} \right).$}, c'est-à-dire qu'elles augmentent avec l'introduction d'un droit de douane si les émissions du pays exportateurs sont suffisamment basses par rapport à celles du pays mettant le droit de douane en place. Cherchons à montrer ce phénomène, en décomposant notre suppression de droits de douane.
 
@@ -23,46 +23,48 @@ Finalement, on observe un comportement similaire à celui de notre modèle rédu
 
 \subsubsection{Bien individuel non animal}
 
-Ici nous supprimons alternativement les droits de douane pour un bien à la fois, afin de se donner une intuition de se qui se passe lorsque l'on retire tous les droits de douane à la fois. Intuitivement deux choses peuvent se passer~: ou bien le bien est utilisé dans l'alimentation animale ou bien il ne l'est pas. S'il ne l'est pas, ce bien substituera d'autres aliments, dont ceux d'origine animale dans l'alimentation humaine, si au contraire il l'est suffisamment, la suppression des droits de douane conduira à une diminution du prix de l'alimentation animale et donc en bout de chaîne des produits animaliers, qui conduira à une augmentation de leur consommation. Si la consommation de produit animalier augmente, on s'attend à ce que les émissions totales augmentent. Parallèlement, pour un bien qui est utilisé majoritairement dans l'alimentation animale, uniquement dans une partie des pays, la suppression des droits de douane, risque d'augmenter le prix de l'alimentation animale uniquement dans ces pays, car les prix nationaux pour ce bien les pays l'exportant vont augmenter. Cet effet pourrait même aller jusqu'à réduire les émissions de GES dans certains pays. Le tableau \ref{tab:res_item} montre l'impact sur les émissions globales de la suppression, des droits de douane lui correspondant. Intuitivement, une autre chose peu se passer, si le bien n'est pas significativement utilisé dans la consommation animale, mais qu'il a un potentiel émissif supérieur à d'autres biens, l'augmentation des émissions due à celle de sa consommation risque de ne pas recouvrir la diminution des émissions du secteur animal suite à la baisse de sa consommation.
+Ici nous supprimons alternativement les droits de douane pour un bien à la fois, afin de se donner une intuition de ce qui se passe lorsque l'on retire tous les droits de douane à la fois.
+
+Intuitivement deux choses peuvent se passer~: ou bien le bien est utilisé dans l'alimentation animale ou bien il ne l'est pas. S'il ne l'est pas, ce bien substituera d'autres aliments, dont ceux d'origine animale dans l'alimentation humaine, si au contraire il l'est suffisamment, la suppression des droits de douane conduira à une diminution du prix de l'alimentation animale et donc en bout de chaîne des produits animaliers, qui conduira à une augmentation de leur consommation. Si la consommation de produit animalier augmente, on s'attend à ce que les émissions totales augmentent. Parallèlement, pour un bien qui est utilisé majoritairement dans l'alimentation animale, uniquement dans une partie des pays, la suppression des droits de douane, risque d'augmenter le prix de l'alimentation animale uniquement dans ces pays, car les prix nationaux pour ce bien les pays l'exportant vont augmenter. Cet effet pourrait même aller jusqu'à réduire les émissions de GES dans certains pays.
+
+Le tableau \ref{tab:res_item} montre l'impact sur les émissions globales de la suppression, des droits de douane lui correspondant. Intuitivement, une autre chose peu se passer, si le bien n'est pas significativement utilisé dans la consommation animale, mais qu'il a un potentiel émissif supérieur à d'autres biens, l'augmentation des émissions due à celle de sa consommation risque de ne pas recouvrir la diminution des émissions du secteur animal suite à la baisse de sa consommation.
 
 \begin{table}[hbt!]
     \centering
     \caption{Conséquence de la suppression des droits de douane liés à chaque bien (transposée et ordonnée).}
     \label{tab:res_item}
-    \resizebox{\textwidth}{!}{%
-        \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}b{1.7in}|*{4}{>{\centering\arraybackslash}X}}
-            \hline
-            \textbf{Bien}                & \textbf{$\Delta$ des émissions totales} & \textbf{$\Delta$ du prix de l'alimentation animale} & \textbf{Nbr de régions avec $\partial E/\partial t >0$} & \textbf{Nbr de régions avec $\partial P_\text{feed}/ \partial t > 0$} \\
-            \hline
-            Maïs                         & +1,4                                    & {[}-21;+3,3{]}                                      & 5                                                       & 11                                                                    \\
-            Riz                          & +0,41                                   & {[}-2,3;+4{]}                                       & 11                                                      & 12                                                                    \\
-            Blé                          & +0,19                                   & {[}-3,8;+5{]}                                       & 8                                                       & 10                                                                    \\
-            Tourteux                     & +0,127                                  & {[}-1,7;+0,3{]}                                     & 7                                                       & 8                                                                     \\
-            Autres céréales              & +0,047                                  & {[}-1,2;+1,3{]}                                     & 9                                                       & 9                                                                     \\
-            Soja                         & +0,045                                  & {[}-4,9;+4,1{]}                                     & 4                                                       & 12                                                                    \\
-            Autres fruits et légumes     & +0,036                                  & {[}-0,7;+0,47{]}                                    & 8                                                       & 6                                                                     \\
-            Autres racines et tubercules & +0,025                                  & {[}-1,1;+0,6{]}                                     & 12                                                      & 9                                                                     \\
-            Pommes de terres             & +0,024                                  & {[}-0,5;+0,04{]}                                    & 6                                                       & 3                                                                     \\
-            Tomates                      & $0^+$                                   & {[}-0,18;$0^+${]}                                   & 3                                                       & 1                                                                     \\
-            Cultures sucrières           & $0^+$                                   & $\sim$0                                             & 4                                                       & 4                                                                     \\
-            Huile de palme               & $0^+$                                   & $\sim$0                                             & 6                                                       & 13                                                                    \\
-            Bananes                      & $0^-$                                   & $\sim$0                                             & 3                                                       & 8                                                                     \\
-            Agrumes                      & $0^-$                                   & $\sim$0                                             & 3                                                       & 4                                                                     \\
-            Graines de coton             & $0^-$                                   & {[}0;+0,3{]}                                        & 0                                                       & 13                                                                    \\
-            Cœur de palmiers             & $0^-$                                   & $\sim$0                                             & 1                                                       & 1                                                                     \\
-            Coton                        & $0^-$                                   & 0                                                   & 0                                                       & 0                                                                     \\
-            Fruits de palmiers           & $0^-$                                   & 0                                                   & 0                                                       & 0                                                                     \\
-            Peluches de coton            & $0^-$                                   & 0                                                   & 0                                                       & 0                                                                     \\
-            Huiles végétales             & -0,008                                  & $\sim$0                                             & 9                                                       & 4                                                                     \\
-            Autres cultures              & -0,017                                  & $\sim$0                                             & 0                                                       & 9                                                                     \\
-            Sucres                       & -0,09                                   & {[}-0,3;+1,7{]}                                     & 3                                                       & 11                                                                    \\
-            Autres oléagineux            & -0,111                                  & {[}-1,5;+0,2{]}                                     & 10                                                      & 11                                                                    \\
-            \hline
-        \end{tabularx}%
-    }
+    \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}b{1.1in}|*{5}{>{\centering\arraybackslash}X}}
+        \hline
+        \textbf{Bien}      & \textbf{$\Delta$ des émissions totales} & \textbf{$\Delta$ de la valeur moyenne de $P_\text{feed}$} & \textbf{Espace des $\Delta P_\text{feed}$} & \textbf{Nbr de régions avec $\Delta E >0$} & \textbf{Nbr de régions avec $\Delta P_\text{feed} > 0$} \\
+        \hline
+        Maïs               & +1,4                                    & -0,05                                                     & {[}-21;+3,3{]}                             & 5                                          & 11                                                      \\
+        Riz                & +0,41                                   & +0,9                                                      & {[}-2,3;+4{]}                              & 11                                         & 12                                                      \\
+        Blé                & +0,19                                   & +0,7                                                      & {[}-3,8;+5{]}                              & 8                                          & 10                                                      \\
+        Tourteaux          & +0,127                                  & -0,04                                                     & {[}-1,7;+0,3{]}                            & 7                                          & 8                                                       \\
+        Autres céréales    & +0,047                                  & +0,01                                                     & {[}-1,2;+1,3{]}                            & 9                                          & 9                                                       \\
+        Soja               & +0,045                                  & 3,6                                                       & {[}-4,9;+4,1{]}                            & 4                                          & 12                                                      \\
+        Fruits et légumes  & +0,036                                  & -0,03                                                     & {[}-0,7;+0,47{]}                           & 8                                          & 6                                                       \\
+        Racines et tuberc. & +0,025                                  & +0,08                                                     & {[}-1,1;+0,6{]}                            & 12                                         & 9                                                       \\
+        Pommes de terres   & +0,024                                  & -0,03                                                     & {[}-0,5;+0,04{]}                           & 6                                          & 3                                                       \\
+        Tomates            & $0^+$                                   & -0,02                                                     & {[}-0,18;$0^+${]}                          & 3                                          & 1                                                       \\
+        Cultures sucrières & $0^+$                                   & 0                                                         & $\sim$0                                    & 4                                          & 4                                                       \\
+        Huile de palme     & $0^+$                                   & $0^+$                                                     & $\sim$0                                    & 6                                          & 13                                                      \\
+        Bananes            & $0^-$                                   & $0^+$                                                     & $\sim$0                                    & 3                                          & 8                                                       \\
+        Agrumes            & $0^-$                                   & $0^-$                                                     & $\sim$0                                    & 3                                          & 4                                                       \\
+        Graines de coton   & $0^-$                                   & $0^+$                                                     & {[}0;+0,3{]}                               & 0                                          & 13                                                      \\
+        Cœur de palmiers   & $0^-$                                   & $0^+$                                                     & $\sim$0                                    & 1                                          & 1                                                       \\
+        Coton              & $0^-$                                   & 0                                                         & 0                                          & 0                                          & 0                                                       \\
+        Fruits de palmiers & $0^-$                                   & 0                                                         & 0                                          & 0                                          & 0                                                       \\
+        Peluches de coton  & $0^-$                                   & 0                                                         & 0                                          & 0                                          & 0                                                       \\
+        Huiles végétales   & -0,008                                  & +0,01                                                     & $\sim$0                                    & 9                                          & 4                                                       \\
+        Autres cultures    & -0,017                                  & +0,01                                                     & $\sim$0                                    & 0                                          & 9                                                       \\
+        Sucres             & -0,09                                   & +0,09                                                     & {[}-0,3;+1,7{]}                            & 3                                          & 11                                                      \\
+        Oléagineux         & -0,111                                  & +0,15                                                     & {[}-1,5;+0,2{]}                            & 10                                         & 11                                                      \\
+        \hline
+    \end{tabularx}%
+
     \begin{tablenotes}
         \item Les lignes sont classées par ordre décroissant selon leur impact sur les émissions totales.
-        \item Les valeurs telles quelles ne sont pas significatives, nous nous intéressons plutôt au signe.
     \end{tablenotes}
 \end{table}
 
@@ -101,28 +103,29 @@ Nous supprimons d'abord l'ensemble les droits de douane des produits laitiers, i
 
 \subsection{Suppression de tous les droits de douane}
 
-Comme on a pu le voir précédemment la suppression des droits de douane, quelqu'ils soient, semble conduire à une diminution du prix de l'alimentation animale ou bien directement des produits animaliers, ce qui conduit à une augmentation de leur consommation, donc à une augmentation des émissions totales. Similairement à ce que nous avons pu noter au sein des produits non-animalier dans la section \ref{sousec_all_non_kl}, les effets de la suppression des droits de douane de tous les secteurs hors élevage, avec le secteur élevage, ne s'additionner pas parfaitement. La somme de leurs effets est de +6,7~\%, tandis que l'effet d'une libéralisation totale implique une augmentation — légèrement inférieure — de +6,1~\%. Intuitivement, le prix de la production et à la consommation des produits issus de l'élevage sont réduits, mais les autres aliments aussi et étant donné l'élasticité $\kappa$, l'alimentation humaine ne va pas autant être modifiée en faveur de la viande, il faut garder une diversification alimentaire.
+Comme on a pu le voir précédemment la suppression des droits de douane, quelqu'ils soient, semble conduire à une diminution du prix de l'alimentation animale ou bien directement des produits animaliers, ce qui conduit à une augmentation de leur consommation, donc à une augmentation des émissions totales. Similairement à ce que nous avons pu noter au sein des produits non-animalier dans la section \ref{sousec_all_non_kl}, les effets de la suppression des droits de douane de tous les secteurs hors élevage, avec le secteur élevage, ne s'additionner pas parfaitement. La somme de leurs effets est de +6,7~\%, tandis que l'effet d'une libéralisation totale implique une augmentation — légèrement inférieure — de +6,1~\%.
 
-Les résultats montrent bien une augmentation des
+Les résultats montrent une augmentation du prix moyen de l'alimentation animale supérieur à celle observée lorsque seuls les produits d'origine animale voient leur droit de douane retiré, on constate de plus une variation plus grande. Le prix moyen augmente de 5~\% (contre 2,6 dans l'autre contrefactuel), avec une augmentation allant jusqu'à 33~\% en Océanie (contre +29). Ce retrait total des droits de douane conduit à une augmentation des consommations finales des différents biens allant jusqu'à +5,7~\% pour le soja, à - 7,8~\% pour les cultures sucrières. Mais surtout on observe que la quantité totale de produits d'origine animale diminue de 1,8~\%, alors même que les émissions du secteur augmentent pour tous les biens (de +1,6~\% pour les produits laitiers à +9~\% pour les volailles). Les émissions du secteur sont portées majoritairement par l'Océanie (+63~\%), l'Asie de l'Est (+47~\%), l'Asie du SE (+20~\%) et le Moyen-Orient (+10~\%), cette augmentation est due à une augmentation des productions des mêmes pourcentages. À l'inverse toutes les autres régions voient leur production d'élevage et leurs émissions associées diminuer. Ce faisant les émissions du secteur s'équilibrent. Au total, la région qui voit le plus ces émissions diminuer dans ce scénario est la Chine, avec - 2,7~\%, et cette baisse n'est pas due à un déplacement des émissions vers l'import, mais bien à une réduction de la consommation de 1,2~\% et à de forte émissions initiales.
 
 
 \section{Sensibilité du modèle aux paramètres}
 
-\textbf{dis moi si tu pense que ça n'a aucun sens comme changement, plz}
 \begin{table}[hbt!]
     \centering
-    \caption{Influence de la modification des paramètre sur les résultats finaux.}
+    \caption{Influence de la modification des paramètres sur les résultats finaux.}
     \label{tab:sensibilite_param}
     \begin{tabular}{c|cccc}
         \hline
-        Paramètre changé           & Asie de l'Est et produit animalier?? & Maïs & ?? & Libéralisation totale \\ \hline
-        $\emptyset$                &                                      &      &    &                       \\
-        $\kappa = 0.1$             &                                      &      &    &                       \\
-        $\kappa = 2$               &                                      &      &    &                       \\
-        $\kappa_\text{feed} = 0.1$ &                                      &      &    &                       \\
-        $\kappa_\text{feed} = 2$   &                                      &      &    &                       \\
-        $\sigma = 10$              &                                      &      &    &                       \\
-        $\varsigma = 1$            & (je sens y va rien se passer)                                            \\
+        Paramètre changé           & Maïs & Tout hors-élevage & Élevage & Libéralisation totale \\ \hline
+        $\emptyset$                & +1,4 & +3,3              & +3,4    & +6,1                  \\
+        $\kappa = 0.1$             & +0,9 & +3,4              & +1,8    & +4,9                  \\
+        $\kappa = 2$               & +1,6 & +1,8              & +5,8    & +6,4                  \\
+        $\kappa_\text{feed} = 0.1$ & +0,8 & +1,9              & +2,3    & +4,3                  \\
+        $\kappa_\text{feed} = 2$   & +1,8 & +3,9              & +3,1    & +7,1                  \\
+        $\sigma = 10$              & +2,4 & +7                & +7      & +13                   \\
+        $\varsigma = 1$            & +1,6 & +4,2              & +3,1    & +7,3                  \\
+        \hline
     \end{tabular}%
 \end{table}
 
+\textbf{blablabla, c'est pas pareil mais c'est le même signe}
