@@ -1,10 +1,10 @@
 \section{Conséquence de la suppression des droits de douane}
 
-Pour comprendre l'effet des droits de douane sur les émissions de GES du secteur, nous partons de la situation actuelle. Nous changeons ensuite de cet équilibre initial les valeurs des droits de douane pour les annuler, le second équilibre atteint, nous pouvons constater les émissions files dans cette situation contrefactuelle et déduire de l'impacte des droits de douane.
+Pour comprendre l'effet des droits de douane sur les émissions de GES du secteur, nous partons de la situation actuelle. Nous changeons ensuite de cet équilibre initial les valeurs des droits de douane pour les annuler, le second équilibre atteint, nous pouvons constater les émissions finales dans cette situation contrefactuelle et déduire l'impact des droits de douane.
 
-La suppression des droits de douane dans notre modèle, avec le paramétrage présenté, augmente les droits de douane de l'ensemble du secteur d'environ 6,1~\%\footnote{Cf. \ref{subsec:vit_cvg}}.
+La suppression des droits de douane dans notre modèle, avec le paramétrage présenté, augmente les émissions totale d'environ 6,1~\%\footnote{Cf. \ref{subsec:vit_cvg}}.
 
-Cherchons à décomposer les différents effets en jeu ici. Dans notre modèle réduit du chapitre \ref{intuition} nous concluions que les émissions varient avec les droits de douane selon \ref{eq:eq_intuition_delta_em}\footnote{$\left({\partial E}\right)/\left( {\partial t} \right) = \left( {E_H^0 \eta_H \chi_F + E_F^0 \eta_F \mu_H} \right)/\left( {P_F^0 \mu_H - P_H^0 \chi_F} \right).$}, c'est-à-dire qu'elles augmentent avec l'introduction d'un droit de douane si les émissions du pays producteurs sont suffisamment basses par rapport à celles du pays mettant le droit de douane en place. Cherchons à montrer ce phénomène, en décomposant notre suppression de droits de douane.
+Cherchons à décomposer les différents effets en jeu ici. Dans notre modèle réduit du chapitre \ref{intuition} nous concluions que les émissions varient avec les droits de douane selon \ref{eq:eq_intuition_delta_em}\footnote{$\left({\partial E}\right)/\left( {\partial t} \right) = \left( {E_H^0 \eta_H \chi_F + E_F^0 \eta_F \mu_H} \right)/\left( {P_F^0 \mu_H - P_H^0 \chi_F} \right).$}, c'est-à-dire qu'elles augmentent avec l'introduction d'un droit de douane si les émissions du pays exportateurs sont suffisamment basses par rapport à celles du pays mettant le droit de douane en place. Cherchons à montrer ce phénomène, en décomposant notre suppression de droits de douane.
 
 \subsection{Suppression des droits de douane d'un pays pour un bien}\label{subsec:ae_anp}
 
@@ -23,35 +23,45 @@ Finalement, on observe un comportement similaire à celui de notre modèle rédu
 
 \subsubsection{Bien individuel non animal}
 
-Ici nous supprimons alternativement les droits de douane pour un bien à la fois. Intuitivement deux choses peuvent se passer~: ou bien le bien est utilisé dans l'alimentation animale ou bien il ne l'est pas. S'il ne l'est pas, ce bien substituera d'autres aliments, dont les animaliers dans l'alimentation humaine, si au contraire il l'est suffisamment, la suppression des droits de douane conduira à une diminution du prix de l'alimentation animale et donc en bout de chaîne des produits animaliers, qui conduira à une augmentation de leur consommation. Si la consommation de produit animalier augmente, on s'attend à ce que les émissions totales augmentent. Parallèlement, pour un bien qui est utilisé majoritairement dans l'alimentation animale, uniquement dans une partie des pays, la suppression des droits de douane, risque d'augmenter le prix de l'alimentation animale uniquement dans ces pays, car les prix nationaux pour ce bien les pays l'exportant vont augmenter. Cet effet pourrait même aller jusqu'à réduire les émissions de GES dans certains pays. Le tableau \ref{tab:res_item} montre l'impact sur les émissions globales de la suppression, des droits de douane lui correspondant. Intuitivement, une autre chose peu se passer, si le bien n'est pas significativement utilisé dans la consommation animale, mais qu'il a un potentiel émissif supérieur à d'autres biens, l'augmentation des émissions due à celle de sa consommation risque de ne pas recouvrir la diminution des émissions du secteur animal suite à la baisse de sa consommation.
+Ici nous supprimons alternativement les droits de douane pour un bien à la fois, afin de se donner une intuition de se qui se passe lorsque l'on retire tous les droits de douane à la fois. Intuitivement deux choses peuvent se passer~: ou bien le bien est utilisé dans l'alimentation animale ou bien il ne l'est pas. S'il ne l'est pas, ce bien substituera d'autres aliments, dont ceux d'origine animale dans l'alimentation humaine, si au contraire il l'est suffisamment, la suppression des droits de douane conduira à une diminution du prix de l'alimentation animale et donc en bout de chaîne des produits animaliers, qui conduira à une augmentation de leur consommation. Si la consommation de produit animalier augmente, on s'attend à ce que les émissions totales augmentent. Parallèlement, pour un bien qui est utilisé majoritairement dans l'alimentation animale, uniquement dans une partie des pays, la suppression des droits de douane, risque d'augmenter le prix de l'alimentation animale uniquement dans ces pays, car les prix nationaux pour ce bien les pays l'exportant vont augmenter. Cet effet pourrait même aller jusqu'à réduire les émissions de GES dans certains pays. Le tableau \ref{tab:res_item} montre l'impact sur les émissions globales de la suppression, des droits de douane lui correspondant. Intuitivement, une autre chose peu se passer, si le bien n'est pas significativement utilisé dans la consommation animale, mais qu'il a un potentiel émissif supérieur à d'autres biens, l'augmentation des émissions due à celle de sa consommation risque de ne pas recouvrir la diminution des émissions du secteur animal suite à la baisse de sa consommation.
 
 \begin{table}[hbt!]
     \centering
-    \caption{Conséquence de la suppression des droits de douane liés à chaque bien.}
+    \caption{Conséquence de la suppression des droits de douane liés à chaque bien (transposée et ordonnée).}
     \label{tab:res_item}
     \resizebox{\textwidth}{!}{%
-        \begin{tabular}{l|ccccccccc}
+        \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}b{1.7in}|*{4}{>{\centering\arraybackslash}X}}
             \hline
-                                                                         & MAI            & RIC\tnote{a}  & WHE           & CAK             & CER             & SOY             & V\&F             & R\&T            & POT              \\ \hline
-            $\Delta$ des émissions totales                               & +1,4           & +0,41         & +0,19         & +0,127          & +0,047          & +0,045          & +0,036           & +0,025          & +0,024           \\
-            $\Delta$ du prix de l'alimentation animale                   & {[}-21;+3,3{]} & {[}-2,3;+4{]} & {[}-3,8;+5{]} & {[}-1,7;+0,3{]} & {[}-1,2;+1,3{]} & {[}-4,9;+4,1{]} & {[}-0,7;+0,47{]} & {[}-1,1;+0,6{]} & {[}-0,5;+0,04{]} \\
-            Nbr de régions avec $\partial E/\partial t >0$               & 5              & 11            & 8             & 7               & 9               & 4               & 8                & 12              & 6                \\
-            Nbr de régions avec $\partial P_\text{feed}/ \partial t > 0$ & 11             & 12            & 10            & 8               & 9               & 12              & 6                & 9               & 3                \\ \hline
-        \end{tabular}%
-    }
-    \vspace{0.5em}
-    \resizebox{\textwidth}{!}{%
-        \begin{tabular}{l|cccc|ccccccc|ccc}
-                                                                         & OSD             & SUG             & OCR     & OIL     & BAN     & CIT     & CTS          & PAK     & COT   & OPF   & CTL   & TOM               & SGC     & OILP    \\ \hline
-            $\Delta$ des émissions totales                               & -0,111          & -0,09           & -0,017  & -0,008  & $0^-$   & $0^-$   & $0^-$        & $0^-$   & $0^-$ & $0^-$ & $0^-$ & $0^+$             & $0^+$   & $0^+$   \\
-            $\Delta$ du prix de l'alimentation animale                   & {[}-1,5;+0,2{]} & {[}-0,3;+1,7{]} & $\sim$0 & $\sim$0 & $\sim$0 & $\sim$0 & {[}0;+0,3{]} & $\sim$0 & 0     & 0     & 0     & {[}-0,18;$0^+${]} & $\sim$0 & $\sim$0 \\
-            Nbr de régions avec $\partial E/\partial t >0$               & 10              & 3               & 0       & 9       & 3       & 3       & 0            & 1       & 0     & 0     & 0     & 3                 & 4       & 6       \\
-            Nbr de régions avec $\partial P_\text{feed}/ \partial t > 0$ & 11              & 11              & 9       & 4       & 8       & 4       & 13           & 1       & 0     & 0     & 0     & 1                 & 4       & 13
-        \end{tabular}%
+            \textbf{Bien}                & \textbf{$\Delta$ des émissions totales} & \textbf{$\Delta$ du prix de l'alimentation animale} & \textbf{Nbr de régions avec $\partial E/\partial t >0$} & \textbf{Nbr de régions avec $\partial P_\text{feed}/ \partial t > 0$} \\
+            \hline
+            Maïs                         & +1,4                                    & {[}-21;+3,3{]}                                      & 5                                                       & 11                                                                    \\
+            Riz                          & +0,41                                   & {[}-2,3;+4{]}                                       & 11                                                      & 12                                                                    \\
+            Blé                          & +0,19                                   & {[}-3,8;+5{]}                                       & 8                                                       & 10                                                                    \\
+            Tourteux                     & +0,127                                  & {[}-1,7;+0,3{]}                                     & 7                                                       & 8                                                                     \\
+            Autres céréales              & +0,047                                  & {[}-1,2;+1,3{]}                                     & 9                                                       & 9                                                                     \\
+            Soja                         & +0,045                                  & {[}-4,9;+4,1{]}                                     & 4                                                       & 12                                                                    \\
+            Autres fruits et légumes     & +0,036                                  & {[}-0,7;+0,47{]}                                    & 8                                                       & 6                                                                     \\
+            Autres racines et tubercules & +0,025                                  & {[}-1,1;+0,6{]}                                     & 12                                                      & 9                                                                     \\
+            Pommes de terres             & +0,024                                  & {[}-0,5;+0,04{]}                                    & 6                                                       & 3                                                                     \\
+            Tomates                      & $0^+$                                   & {[}-0,18;$0^+${]}                                   & 3                                                       & 1                                                                     \\
+            Cultures sucrières           & $0^+$                                   & $\sim$0                                             & 4                                                       & 4                                                                     \\
+            Huile de palme               & $0^+$                                   & $\sim$0                                             & 6                                                       & 13                                                                    \\
+            Bananes                      & $0^-$                                   & $\sim$0                                             & 3                                                       & 8                                                                     \\
+            Agrumes                      & $0^-$                                   & $\sim$0                                             & 3                                                       & 4                                                                     \\
+            Graines de coton             & $0^-$                                   & {[}0;+0,3{]}                                        & 0                                                       & 13                                                                    \\
+            Cœur de palmiers             & $0^-$                                   & $\sim$0                                             & 1                                                       & 1                                                                     \\
+            Coton                        & $0^-$                                   & 0                                                   & 0                                                       & 0                                                                     \\
+            Fruits de palmiers           & $0^-$                                   & 0                                                   & 0                                                       & 0                                                                     \\
+            Peluches de coton            & $0^-$                                   & 0                                                   & 0                                                       & 0                                                                     \\
+            Huiles végétales             & -0,008                                  & $\sim$0                                             & 9                                                       & 4                                                                     \\
+            Autres cultures              & -0,017                                  & $\sim$0                                             & 0                                                       & 9                                                                     \\
+            Sucres                       & -0,09                                   & {[}-0,3;+1,7{]}                                     & 3                                                       & 11                                                                    \\
+            Autres oléagineux            & -0,111                                  & {[}-1,5;+0,2{]}                                     & 10                                                      & 11                                                                    \\
+            \hline
+        \end{tabularx}%
     }
     \begin{tablenotes}
-        \item [a] Pour assurer la convergence de cette simulation, il a fallu d'abord libéraliser les importations n'allant pas en Asie de l'Est, puis réduire progressivement les droits de douane appliqués par la région.
-        \item Les colonnes sont classées selon leur impact sur les émissions totales.
+        \item Les lignes sont classées par ordre décroissant selon leur impact sur les émissions totales.
         \item Les valeurs telles quelles ne sont pas significatives, nous nous intéressons plutôt au signe.
     \end{tablenotes}
 \end{table}
@@ -96,9 +106,7 @@ Comme on a pu le voir précédemment la suppression des droits de douane, quelqu
 Les résultats montrent bien une augmentation des
 
 
-\section{Sensibilité du modèle}
-
-\subsection{Sensibilité aux paramètres}
+\section{Sensibilité du modèle aux paramètres}
 
 \textbf{dis moi si tu pense que ça n'a aucun sens comme changement, plz}
 \begin{table}[hbt!]
@@ -118,10 +126,3 @@ Les résultats montrent bien une augmentation des
     \end{tabular}%
 \end{table}
 
-\subsection{Sensibilité à la vitesse de convergence}\label{subsec:vit_cvg}
-
-Pour faire converger le modèle vers une solution, nous opérons une suite d'équilibres intermédiaires représentant chacun un niveau de douane réduit. Nous ne pouvons, en effet actuellement pas atteindre l'équilibre fil correspondant à une absence de droits de douane directement à partir de l'équilibre initial, le solveur (\textit{mcp} ou \textit{cns} de GAMS\footnote{\textbf{Allez voir si y a pas des trucs écrits dans le cours de CG. Ou dans doc GAMS\dots}}) ne trouve pas de solution. Une première solution consiste à succéder une suite de chocs de -1~\% (ou de -0,5~\%) de droits de douane. Ce résultat nous conduit à une augmentation totale des émissions de 6,7~\%. À l'inverse, une évolution plus brusque de sept chocs de 10~\% jusqu'à -70~\%, puis de chocs de 4~\% jusqu'à la suppression totale des droits de douane conduit à une augmentation de 6,27~\%.
-
-Cette observation témoigne en partie de l'importance du rythme d'application de politique dans leur impact. Ici, un changement plus brutal conduit à une moindre évolution de notre système. \textbf{Trouver des papiers qui parlent du rythme d'implantation, dans son impact.}
-
-\textbf{Faire un graphe montrant en abscisse \% de droits de douane en -, et en ordonnée \% de GES en +, sauf que gams, et je sais pas comment stocker les valeurs intermédiaires d'une boucle. Demander à CG}

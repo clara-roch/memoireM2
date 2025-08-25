@@ -122,7 +122,7 @@ Parallèlement, on peut réécrire $\pi_i^k$ comme étant égal à $(\ln s_i^k +
 \end{equation*}
 
 \subsubsection{Produits transformés}
-Dans cette section, nous n’abordons que les biens issus exclusivement d’un processus métabolique ou agro-industriel. Plusieurs secteurs d’activité peuvent produire un même bien, ainsi la production totale d’un bien est la somme de ses productions dans chaque activité $a$
+Dans cette section, nous n’abordons que les biens issus exclusivement d’un processus métabolique ou agro-industriel\footnote{Exemple de processus : la fabrication d'huile nécessite en entrée des oléagineux, et conduit à la production d'huile et de tourteaux ; le processus métabolique de l'élevage consiste à donner à manger aux bestiaux et de récupérer en sortie des produits animaliers. Pour plus d'exemple l'annexe \ref{annexe:item_pord} donne les différents processus que nous considérons, ainsi que les entrées et les sorties de ces derniers. Ainsi si on regroupe tous les tourteaux ensembles, on aboutit sur la production d'huile de palme et la production d'huile d'olive qui donne toute deux des tourteaux.}. Plusieurs secteurs d’activité peuvent produire un même bien, ainsi la production totale d’un bien est la somme de ses productions dans chaque activité $a$
 \begin{equation}\label{eq_qik}
     Q_i^k = \sum_{a|k\in \mathcal{O}(a)} Q_i^{ak},
 \end{equation}
@@ -139,7 +139,7 @@ où $Q_i^a$ correspond au niveau d’activité du procédé, $\nu_i^{al}$ corres
 \end{equation}
 avec $\kappa_{\text{feed}}$ l’élasticité de substitution entre aliments, et $\beta_i^{k, \text{feed}}$ un paramètre technique.
 
-Ce qui donne, en minimisant les coûts de nourriture
+Ce qui donne, en minimisant les coûts
 \begin{align}
     p_i^{\text{livestock}}                                                            & = A_i^a W_i + \mu^\text{feed}_i P^{\text{feed}}_i,
     \\
@@ -156,7 +156,7 @@ avec $P_i^\text{feed}$ le prix associé au panier de nourriture $x_i^\text{feed}
     Q_i^{al}                 & = \nu_i^{al} Q_i^a, \\
     \label{eq_nia}   N_i^a   & = A_i^a Q_i^a,
 \end{align}
-et la condition de non-profit conduit à
+et la condition de zéro-profit conduit à
 \begin{equation}
     W_i N_i^a + P_i^k x_i^{ak} = \sum_{{l|l\in \mathcal{O}(a)}} p_i^l Q_i^{al},
 \end{equation}
@@ -165,7 +165,7 @@ ce qui donne
     Q_i^a: A_i^a W_i + P_i^k = \sum_{l|l\in \mathcal{O}(a)} \nu_i^{al} p_i^{l}.
 \end{equation}
 
-Par convention, chaque activité est associée à un output principal tandis que les autres sorties sont secondaires (e.g. dans le cas du traitement des oléagineux, il s’agit de l’huile.). Les autres sorties (dans l’exemple, les tourteaux) sont déterminées à partir des conditions du premier ordre. En indexant par $\mathbf{l}$ l’output principal, le processus est caractérisé par le système d’équations suivant~:
+Par convention, chaque activité est associée à un output principal tandis que les autres outputs sont secondaires (e.g. dans le cas du traitement des oléagineux, il s’agit de l’huile.). Les autres outputs (dans l’exemple, les tourteaux) sont déterminées à partir des conditions du premier ordre. En indexant par $\mathbf{l}$ l’output principal, le processus est caractérisé par le système d’équations suivant~:
 \begin{align}
     A_i^a W_i + P_i^k & = \sum_{l\in \mathcal{O}(a)} \nu_i^{al} p_i^{l},                                                      \\
     Q_i^{al}          & = \left( \nu_i^{al} / \nu_i^{a \mathbf{l}} \right)Q_i^{a \mathbf{l}}, \text{ for } l \neq \mathbf{l}, \\
@@ -175,7 +175,7 @@ Par convention, chaque activité est associée à un output principal tandis que
 
 \subsection{Équilibres de marché}
 \subsubsection{Équilibre marché des biens}
-\paragraph{Production} Côté production, les quantités produites doivent égaler l’ensemble des imports (en considérant toujours que si le pays $i$ est en autarcie $C_i^k = Q_i^k = X_{ii}^k = X_i^k$)~:
+\paragraph{Production} Côté production, les quantités produites doivent égaler l’ensemble des exports (en considérant toujours que si le pays $i$ est en autarcie $C_i^k = Q_i^k = X_{ii}^k = X_i^k$)~:
 \begin{equation}
     Q_i^k = \sum_{j \in \mathcal{J}} \tau_{ij}^k X_{ij}^k \text{, for } k \neq 0.
 \end{equation}
@@ -198,11 +198,11 @@ La somme de besoin en travail ne doit pas excéder ce que le pays est capable de
 
 \section{Modèle en changement relatif}
 
-Nous adoptons le système d’équation précédent en changement relatif, en posant $\hat{x} = x’ x$, le changement relatif de la variable $x$ entre son état à l’équilibre de référence $x$, et celui dans le scénario contractuel $x’$. Considérer les changements relatifs plutôt que les valeurs en niveau permet de se débarrasser de nombreux paramètres compliqués à paramétrer, ainsi nous n’avons pas besoin de calibrer des paramètres comme ceux de préférences $\beta$, car les préférences sont considérées identiques entre les situations de référence et contractuelles. L’implication directe d’une calibration en variation, est que si $x = 0$, alors $x’ = 0$.
+Nous adoptons le système d’équation précédent en changement relatif, en posant $\hat{x} = x’/x$, le changement relatif de la variable $x$ entre son état à l’équilibre de référence $x$, et celui dans le scénario contractuel $x’$. Considérer les changements relatifs plutôt que les valeurs en niveau permet de se débarrasser de nombreux paramètres compliqués à paramétrer, ainsi nous n’avons pas besoin de calibrer des paramètres comme ceux de préférences $\beta$, car les préférences sont considérées identiques entre les situations de référence et contractuelles. L’implication directe d’une calibration en variation, est que si $x = 0$, alors $x’ = 0$.
 
 En posant $\alpha_j^{\text{C},k} = {(P_j^k C_j^k)}/{(P_j C_j)}$, $\alpha^{\text{feed},k}_j = {(P_j^k x^{\text{feed},k}_j)} /{(P^\text{feed}_j x^\text{feed}_j)}$ et $\alpha^{\text{Trade},k}_{ij} = (\tau_{ij}^k p_i^k X_{ij}^k)/(P_j^kX_{j}^k)$, et en transformant les équations \ref{eq_pj}-\ref{eq_yik},\ref{eq_sik}-\ref{eq_qik}, \ref{eq_xfeedik}-\ref{eq_pfeedi}, \ref{eq_xiak}-\ref{eq_nia}, \ref{eq_qia}-\ref{eq_wi}, on obtient le système d’équation suivant.
 
-\paragraph{Condition de non-profit}
+\paragraph{Condition de zéro-profit}
 \begin{align}
     \hat{C}_j                & : \hat{P}_j = \left[ \sum_{k \in \mathcal{K}^a} \alpha_j^{\text{C},k} \left(\hat{P}_j^k\right)^{1- \kappa} \right]^{1/(1 - \kappa)},                                                                                                 \\
     \hat{Q}_i^0              & :\hat{p}_i^0=\hat{W}_i,                                                                                                                                                                                                              \\
@@ -234,7 +234,7 @@ En posant $\alpha_j^{\text{C},k} = {(P_j^k C_j^k)}/{(P_j C_j)}$, $\alpha^{\text{
     \end{cases}                                    \\
     \hat{x}_i^{ak}            & :\hat{x}_i^{ak}=\hat{Q}_i^{a \mathbf{l}}, \text{ pour } k \neq \text{livestock},                                                    \\
     \hat{x}^{\text{feed},k}_j & : \hat{x}^{\text{feed},k}_j = \left({\hat{P}_j^k} /{\hat{P}_j^{\text{feed}}} \right)^{-\kappa_{\text{feed}}} \hat{x}_j^\text{feed}, \\
-    \hat{X}_{ij}^k            & : \hat{X}_{ij}^k = (\hat{p}_i^k/\hat{P}_j^k)^{-\sigma} \hat{X}_j^k \text{ (équation de gravité)},                                   \\
+    \hat{X}_{ij}^k            & : \hat{X}_{ij}^k = (\hat{T}_{ij}^k \hat{p}_i^k/\hat{P}_j^k)^{-\sigma} \hat{X}_j^k \text{ (équation de gravité)},                    \\                                   \\
     \hat{s}_{i}^{k}           & : \hat{s}_i^k s_i^k = \exp \left( a_i {\pi_i^k}\prime - \phi_i\prime \right),                                                       \\
     \phi_i\prime              & : \phi_i\prime = \ln \sum_{k \in \mathcal{K}^c} \exp(a_i {\pi_i^k}\prime),                                                          \\
     \hat{Y}_i^k               & : \hat{Y}_i^k = \left(\hat{F}_i^k / \hat{s}_i^k \right)^{\varsigma_i^k/(1+\varsigma_i^k)},                                          \\
@@ -244,8 +244,8 @@ En posant $\alpha_j^{\text{C},k} = {(P_j^k C_j^k)}/{(P_j C_j)}$, $\alpha^{\text{
 
 \paragraph{Équation de compatibilité}
 \begin{align}
-    ** \hat{E}_i & : E_i \hat{E}_i = W_i \hat{W}_i N_i + r_i \hat{r}_i L_i + \sum_{k \in \mathcal{K},j \in \mathcal{J}} \left(\hat{X}_{ji}^k X_{ji}^k - \hat{X}_{ij}^k X_{ij}^k \right), \\
-    ** \hat{r}_i & : r_i \hat{r}_i = W_i\prime \sum_k {s_i^k}\prime \left( {\pi_i^k}\prime -a_i^{-1} \ln {s_i^k}\prime\right),                                                           \\
+    ** \hat{E}_j & : E_j \hat{E}_j = W_j \hat{W}_j N_j + r_j \hat{r}_j L_j + \sum_{i,k} \left( {T_{ij}^k}'-1 \right)\tau_{ij}^k p_i^k \hat{p}_i^k X_{ij}^k \hat{X}_{ij}^k, \\
+    ** \hat{r}_i & : r_i \hat{r}_i = W_i\prime \sum_k {s_i^k}\prime \left( {\pi_i^k}\prime -a_i^{-1} \ln {s_i^k}\prime\right),                                             \\
     \hat{Q}_i^k  & : Q_i^k \hat{Q}_i^k = \sum_{a|k\in \mathcal{O}(a)} Q_i^{ak} \hat{Q}_i^{ak}.
 \end{align}
 
