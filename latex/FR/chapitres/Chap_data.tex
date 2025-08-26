@@ -65,7 +65,7 @@ Les figures \ref{fig:sankey} montrent des diagrammes de Sankey échanges commerc
     \label{fig:sankey}
 \end{figure}
 
-\subsection{Prix - FAOSTAT \textbf{-- à reprendre}}\label{subsec:prix}
+\subsection{Prix - FAOSTAT}\label{subsec:prix}
 
 Afin de convertir nos données de volumes en données de valeurs, nous avons récupéré les prix de FAOSTAT. Nous avions besoin des données de prix producteurs ; cependant, les données FAOSTAT sur ces derniers ne correspondaient pas entièrement aux biens présents dans les tables FABIO, il nous fallut donc les compléter avec des données de prix issues des tables de commerce\footnote{Table \textit{Producer Prices} et \textit{Crops and livestock products}}.
 
@@ -78,7 +78,8 @@ Certaines données de prix étaient incohérentes et entraînaient un déséquil
 \end{itemize}
 Nous effectuons ce tri sur les données brutes de FAOSTAT, puis sur celles obtenues après agrégation des données conservées lors de ce premier tri, au niveau FABIO. Cette fois-ci, nous nous assurons qu'après agrégation, les prix sont toujours suffisamment proches de la moyenne calculée pour ce niveau, en prenant en compte l'ensemble des valeurs et des quantités échangées.
 
-Finalement, ces deux étapes de traitement des prix conduisent à un taux de prix manquants de 63\,\%. Nous reconstruisons donc les prix à l'aide d'un multiplicateur calculé par pays et par groupe de produits (tel que défini dans la colonne de gauche de l'annexe \ref{annexe:item_pord}). Ce multiplicateur sera plus élevé pour un pays ayant, en moyenne, des prix plus élevés, et également pour les biens dont le prix est supérieur à la moyenne. Ainsi, le multiplicateur le plus élevé correspond au bœuf au Japon. Nous reconstruisons ensuite les prix manquants à l'échelle FABIO en récupérant le premier prix non nul obtenu en multipliant notre multiplicateur par le prix moyen présent dans nos données du bien à l'échelle FABIO, puis par le prix moyen à l'échelle du bien de notre modèle et enfin par le prix moyen mondial de ce bien à l'échelle du modèle. \textbf{Revenir sur ce paragraphe qui est sûrement incompréhensible\dots}
+Finalement, ces deux étapes de traitement des prix conduisent à un taux de prix manquants de 63\,\%. Nous reconstruisons donc les prix à l'aide d'un multiplicateur calculé par pays et par groupe de produits (tel que défini dans la colonne de gauche de l'annexe \ref{annexe:item_pord}). Ce multiplicateur sera plus élevé pour un pays ayant, en moyenne, des prix plus élevés, et également pour les biens dont le prix est supérieur à la moyenne. Ainsi, le multiplicateur le plus élevé correspond au bœuf au Japon. Nous reconstruisons ensuite les prix manquants à l'échelle FABIO en récupérant le premier prix non nul obtenu en multipliant notre multiplicateur par le prix moyen présent dans nos données du bien à l'échelle FABIO, puis par le prix moyen à l'échelle du bien de notre modèle et enfin par le prix moyen mondial de ce bien à l'échelle du modèle.
+\textbf{expliquer avec un exemple concret, ĉ a dit el papatos}
 
 
 \subsection{Droits de douane - MAcMap}
@@ -136,7 +137,6 @@ Parallèlement, la figure suivante \ref{fig:em} suivant représente les émissio
 On constate également, que ce qui explique majoritairement le potentiel émissif d'un bien n'est pas son origine, mais bien sa nature\footnote{\textit{\textbf{Pour en témoigner nous avons représenté cette même figure côté consommation en annexe \ref{}}}}.
 
 \begin{figure}[h!]
-    \centering
     \centering
     \includegraphics[width=\textwidth]{/home/croch/Documents/Stage/Model/Git_ag_policies/ag-policies-ghg/outputs_latex/outputs/heatmap_em.pdf}
     \caption{Carte de chaleur des émissions de GES des différentes productions}

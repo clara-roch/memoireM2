@@ -4,9 +4,9 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage{enumitem} % For customizing itemize environment
 \usepackage{parskip} % For customizing paragraph spacing
-\usepackage[colorlinks=true,linkcolor=gray,citecolor=gray]{hyperref} % For clickable links in the table of contents
+\usepackage[colorlinks=true,linkcolor=grayENPC,citecolor=grayENPC]{hyperref} % For clickable links in the table of contents
 \usepackage{tocloft} % For customizing the table of contents
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{amsmath} % For math equation
 \usepackage{bbm} % For math fonts
 \usepackage[T1]{fontenc}    % Use T1 font encoding (for proper hyphenation and accented characters)
@@ -25,15 +25,19 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{etoolbox} % manage hypens
-\usepackage{titlesec} % change chap layout
+\usepackage{titlesec} % change chapt layout
+\usepackage{rotating}
 
+% Couleur Ponts
+\definecolor{tealENPC}{RGB}{8, 164, 196}
+\definecolor{grayENPC}{RGB}{124,124,132}
 
 % Change Chap layout
 \titleformat{\chapter}[hang]
 {\normalfont\huge\bfseries}{\thechapter.\ }{0pt}{\huge}
 
-% Customize itemize environment to remove spaces, and change to dashes instead of bullet points
-\setlist[itemize]{noitemsep, topsep=3pt, before=\vspace{-\baselineskip}}
+% Customize itemize environment to remove spaces, and change to dashes instead of bullect points
+\setlist[itemize]{noitemsep, topsep=1ex, before=\vspace{-\baselineskip}}
 \renewcommand{\labelitemi}{\normalfont\bfseries \textendash}
 
 % Customize paragraph spacing
